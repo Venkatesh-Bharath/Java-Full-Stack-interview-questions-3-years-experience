@@ -8,249 +8,332 @@
 ### 4 Multiple Choice Questions
 
 
-## Technical Round 1
+## Technical Round 1 - Cognizant Interview
 
-1. **Self-Introduction**
-   - Introduce yourself briefly.
+#### 1. Self Introduction
+**Answer:** [Provide a brief introduction about yourself, your experience, and your technical expertise.]
 
-2. **About Your Project**
-   - Describe your recent project, your role, and the technologies used.
+#### 2. About your project
+**Answer:** [Explain your project, its objectives, the technologies used, and your role in it.]
 
-3. **GCP Experience**
-   - Have you worked on GCP and deployed any project in GCP?
+#### 3. Have you worked on GCP and deployed any project in GCP?
+**Answer:** [Yes/No. If yes, explain the project and deployment process.]
 
-4. **React Project Experience**
-   - How many React projects have you worked on?
+#### 4. How many React projects have you worked on?
+**Answer:** [State the number of projects and briefly describe each.]
 
-5. **Props in React**
-   - Props are used to pass data from parent to child components.
+#### 5. Explain props in React.
+**Answer:** Props are short for properties and are used to pass data from one component to another in React.
 
-6. **Passing Data from Child to Parent in React**
-   - Use callback functions passed as props to send data from child to parent.
+#### 6. How to pass data from child to parent in React.
+**Answer:** By passing a function as a prop to the child component and then calling that function in the child component with the data you want to pass.
 
-7. **Validating Props in React**
-   - Use `PropTypes` to validate props.
+#### 7. How to validate props in React.
+**Answer:** By using PropTypes, a library for type-checking props.
 
-8. **Reusable Components in React**
-   - Components that can be reused across the application, e.g., buttons, input fields.
+#### 8. Have you used reusable components in React? Give an example.
+**Answer:** Yes, for example, a Button component that can be used across different parts of an application.
 
-9. **Lazy Loading in React**
-   - Load components only when they are needed using `React.lazy`.
+#### 9. Explain lazy loading in React.
+**Answer:** Lazy loading in React is a technique for delaying the loading of non-critical resources during the initial loading phase.
 
-10. **React.lazy**
-    - A function to lazily load a component dynamically.
+#### 10. What is React.lazy?
+**Answer:** `React.lazy` is a function that lets you render a dynamic import as a regular component.
 
-11. **React Fragments**
-    - A way to group a list of children without adding extra nodes to the DOM.
+#### 11. What are React fragments?
+**Answer:** React fragments allow you to group a list of children without adding extra nodes to the DOM.
 
-12. **Difference Between Fragment and Div Tag**
-    - Fragment does not add extra nodes to the DOM, while div does.
+#### 12. Difference between fragment and div tag in React.
+**Answer:** A fragment does not add an extra node to the DOM, whereas a div does.
 
-13. **Memory Usage of Div vs. Fragment**
-    - Using div instead of Fragment can add extra memory usage due to additional DOM nodes.
+#### 13. Does using div instead of fragment take extra memory?
+**Answer:** Yes, using div adds an extra node to the DOM, which can consume more memory.
 
-14. **React Hooks Used**
-    - `useState`, `useEffect`, `useContext`, `useReducer`, `useCallback`, `useMemo`.
+#### 14. Which hooks have you used in React?
+**Answer:** `useState`, `useEffect`, `useContext`, `useReducer`, `useCallback`, `useMemo`, `useRef`, etc.
 
-15. **useCallback Hook**
-    - Returns a memoized callback to prevent unnecessary re-renders.
+#### 15. Explain useCallback hook.
+**Answer:** `useCallback` returns a memoized callback function that only changes if one of its dependencies changes.
 
-16. **useEffect Hook**
-    - Side effects in function components.
+#### 16. Explain useEffect.
+**Answer:** `useEffect` is a hook that runs side effects in function components. It can be used for data fetching, direct DOM updates, and more.
 
-17. **Dependency Array in useEffect**
-    - List of dependencies that determine when the effect should re-run.
+#### 17. What is a dependency array in useEffect?
+**Answer:** The dependency array in `useEffect` specifies when the effect should be re-run based on the changes in the array items.
 
-18. **Calling APIs in React**
-    - Use `fetch` or libraries like `axios` inside `useEffect`.
+#### 18. How do you call APIs in React?
+**Answer:** By using `fetch`, `axios`, or other HTTP client libraries within a `useEffect` hook or event handler.
 
-19. **API Intersection Observer for Lazy Loading**
-    - An API to observe changes in the intersection of a target element.
+#### 19. Explain the API intersection observer for lazy loading.
+**Answer:** The Intersection Observer API is used to asynchronously observe changes in the intersection of a target element with an ancestor element or the top-level document’s viewport.
 
-20. **State Management in React**
-    - Use Context API, Redux, or libraries like MobX.
+#### 20. What do you use for state management in React?
+**Answer:** `useState`, `useReducer`, Context API, Redux, etc.
 
-21. **Context API**
-    - A way to pass data through the component tree without prop drilling.
+#### 21. What is Context API in React?
+**Answer:** The Context API provides a way to pass data through the component tree without having to pass props down manually at every level.
 
-22. **Redux**
-    - A state management library for JavaScript applications.
+#### 22. Do you know Redux?
+**Answer:** Yes, Redux is a state management library for JavaScript applications, used to manage the application state in a predictable way.
 
-23. **Memorization in React**
-    - Use `useMemo` and `useCallback` to optimize performance.
+#### 23. How do you memorize in React?
+**Answer:** By using `useMemo` and `useCallback` hooks to memoize values and functions.
 
-24. **JavaScript Map Method**
-    ```javascript
-    const numbers = [1, 2, 3];
-    const doubled = numbers.map(num => num * 2);
-    console.log(doubled);
-    ```
+#### 24. Using map, write any code in JavaScript.
+**Answer:**
+```javascript
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8]
+```
 
-25. **Return Type of Map and forEach in JavaScript**
-    - `map` returns a new array, `forEach` returns undefined.
+#### 25. What is the return type of map and forEach in JavaScript?
+**Answer:** `map` returns a new array, `forEach` returns `undefined`.
 
-26. **Callback Function in JavaScript**
-    ```javascript
-    function greeting(name) {
-      alert('Hello ' + name);
-    }
-    function processUserInput(callback) {
-      const name = prompt('Please enter your name.');
-      callback(name);
-    }
-    processUserInput(greeting);
-    ```
+#### 26. Write and explain a callback function in JavaScript.
+**Answer:**
+```javascript
+function fetchData(callback) {
+  setTimeout(() => {
+    callback('Data received');
+  }, 1000);
+}
 
-27. **Promise Example in JavaScript**
-    ```javascript
-    const promise = new Promise((resolve, reject) => {
-      const success = true;
-      if (success) {
-        resolve('Success!');
-      } else {
-        reject('Failure.');
-      }
-    });
-    ```
+fetchData(data => {
+  console.log(data); // Data received
+});
+```
+A callback function is a function passed into another function as an argument, which is then invoked inside the outer function.
 
-28. **Async and Await in JavaScript**
-    - Yes, async and await are used to handle promises more comfortably.
+#### 27. Write a code for a promise example.
+**Answer:**
+```javascript
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Promise resolved');
+  }, 1000);
+});
 
-29. **Callback Hell in React**
-    - Multiple nested callbacks, which can be avoided using Promises or async/await.
+promise.then(data => {
+  console.log(data); // Promise resolved
+});
+```
 
-30. **Handling Errors in ReactJS**
-    - Use `try...catch` blocks or error boundaries.
+#### 28. Have you used async and await in JavaScript?
+**Answer:** Yes, `async` and `await` are used to handle asynchronous operations in a more readable way.
 
-31. **Handling Null Employee Data in React**
-    - Use conditional rendering or optional chaining (`?.`).
+#### 29. What is callback hell in React?
+**Answer:** Callback hell refers to the situation where callbacks are nested within other callbacks, leading to difficult-to-read and maintain code.
 
-32. **Nullish Coalescing Operator (??) in React**
-    - Used to handle null or undefined values, e.g., `employeeName ?? 'Unknown'`.
+#### 30. How do you handle errors in ReactJS?
+**Answer:** By using `try-catch` blocks, error boundaries, and error handling in promises.
 
-## Backend Java
+#### 31. If we are displaying some employee data and the employee is null, how can you handle it in React code?
+**Answer:** By using conditional rendering to check if the employee data is null before attempting to display it.
 
-33. **Java Version**
-    - Java 8
+#### 32. Have you used the ?? operator in React?
+**Answer:** Yes, the `??` (nullish coalescing) operator is used to provide a fallback value if the left-hand operand is null or undefined.
 
-34. **Java 8 Features**
-    - Lambdas, Streams, Optional, Date and Time API.
+#### 33. Which Java version are you using?
+**Answer:** [Specify the Java version you are using.]
 
-35. **Displaying Dates in Java 8**
-    ```java
+#### 34. What are the new features in Java 8?
+**Answer:** Lambda expressions, functional interfaces, Stream API, new Date and Time API, Optional class, and more.
+
+#### 35. Write a code to display today’s date and the date one month before using Java 8 features.
+**Answer:**
+```java
+import java.time.LocalDate;
+
+public class DateExample {
+  public static void main(String[] args) {
     LocalDate today = LocalDate.now();
     LocalDate oneMonthBefore = today.minusMonths(1);
-    System.out.println(today);
-    System.out.println(oneMonthBefore);
-    ```
+    System.out.println("Today: " + today);
+    System.out.println("One Month Before: " + oneMonthBefore);
+  }
+}
+```
 
-36. **Age Difference Using Period Class**
-    ```java
-    LocalDate birthDate = LocalDate.of(1990, Month.JULY, 15);
-    LocalDate currentDate = LocalDate.now();
-    Period age = Period.between(birthDate, currentDate);
-    System.out.println(age.getYears());
-    ```
+#### 36. Write code to display age difference using the Period class.
+**Answer:**
+```java
+import java.time.LocalDate;
+import java.time.Period;
 
-37. **Functional Interface in Java**
-    - An interface with a single abstract method, e.g., `Runnable`.
+public class AgeDifference {
+  public static void main(String[] args) {
+    LocalDate birthDate = LocalDate.of(1990, 1, 1);
+    LocalDate today = LocalDate.now();
+    Period age = Period.between(birthDate, today);
+    System.out.println("Age: " + age.getYears() + " years, " + age.getMonths() + " months, " + age.getDays() + " days.");
+  }
+}
+```
 
-38. **Custom Functional Interface**
-    ```java
-    @FunctionalInterface
-    interface MyFunction {
-      void execute();
-    }
-    ```
+#### 37. What is a functional interface in Java?
+**Answer:** A functional interface is an interface with exactly one abstract method, which can be used as a target for lambda expressions and method references.
 
-39. **Sum Method vs. Apply Method in Java**
-    - Sum method is used for summing values, while apply is used in functional interfaces.
+#### 38. Write a custom functional interface.
+**Answer:**
+```java
+@FunctionalInterface
+public interface MyFunctionalInterface {
+  void execute();
+}
+```
 
-40. **Custom Functional Interface Example**
-    ```java
-    @FunctionalInterface
-    interface Calculator {
-      int calculate(int a, int b);
-    }
-    ```
+#### 39. Why use the sum method instead of the apply method in Java?
+**Answer:** The `sum` method is specific to the `IntBinaryOperator` functional interface, which represents an operation upon two `int` operands and produces an `int` result, whereas `apply` is a more generic term used in different contexts.
 
-41. **Streams in Java**
-    - Streams are sequences of data that allow functional-style operations.
+#### 40. Why do you need a custom functional interface? Give an example.
+**Answer:** Custom functional interfaces are needed when you want to define a specific contract that doesn't match existing functional interfaces.
+```java
+@FunctionalInterface
+public interface StringConcatenator {
+  String concatenate(String a, String b);
+}
+```
 
-42. **Stream Functions**
-    - `filter`, `map`, `reduce`, `collect`.
+#### 41. What are streams in Java?
+**Answer:** Streams represent a sequence of elements supporting sequential and parallel aggregate operations.
 
-43. **First Non-Repeated Character Using Streams**
-    ```java
+#### 42. Explain stream functions.
+**Answer:** Stream functions include operations like `filter`, `map`, `reduce`, `collect`, `forEach`, `sorted`, etc., used to process collections of objects.
+
+#### 43. Find the first non-repeated character using streams (code).
+**Answer:**
+```java
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class FirstNonRepeated {
+  public static void main(String[] args) {
     String input = "swiss";
-    Optional<Character> result = input.chars()
-                                      .mapToObj(c -> (char) c)
-                                      .collect(Collectors.groupingBy(c -> c, LinkedHashMap::new, Collectors.counting()))
-                                      .entrySet()
-                                      .stream()
-                                      .filter(entry -> entry.getValue() == 1)
-                                      .map(Map.Entry::getKey)
-                                      .findFirst();
-    result.ifPresent(System.out::println);
-    ```
+    Character result = input.chars()
+        .mapToObj(c -> (char) c)
+        .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+        .entrySet()
+        .stream()
+        .filter(entry -> entry.getValue() == 1)
+        .map(Map.Entry::getKey)
+        .findFirst()
+        .orElse(null);
 
-44. **Merge Two Arrays**
-    ```java
-    int[] arr1 = {4, 2, 3, 4, 6};
-    int[] arr2 = {6, 8, 2};
-    int[] merged = IntStream.concat(Arrays.stream(arr1), Arrays.stream(arr2)).distinct().sorted().toArray();
-    System.out.println(Arrays.toString(merged));
-    ```
+    System.out.println("First non-repeated character: " + result);
+  }
+}
+```
 
-45. **Spring Boot Overview**
-    - A framework for creating standalone Spring applications.
+#### 44
 
-46. **Basic Annotations in Spring Boot**
-    - `@SpringBootApplication`, `@RestController`, `@Autowired`.
+. Given two arrays, arr1 = [4,2,3,4,6] and arr2 = [6,8,2], the output should be [2,3,4,6,8].
+**Answer:**
+```java
+import java.util.Arrays;
+import java.util.Set;
+import java.util.TreeSet;
 
-47. **Spring Security**
-    - A framework for securing Java applications.
+public class MergeArrays {
+  public static void main(String[] args) {
+    Integer[] arr1 = {4, 2, 3, 4, 6};
+    Integer[] arr2 = {6, 8, 2};
+    Set<Integer> resultSet = new TreeSet<>(Arrays.asList(arr1));
+    resultSet.addAll(Arrays.asList(arr2));
+    System.out.println(resultSet); // [2, 3, 4, 6, 8]
+  }
+}
+```
 
-48. **Method-Level Security**
-    - Security annotations like `@Secured` and `@PreAuthorize`.
+#### 45. What is Spring Boot?
+**Answer:** Spring Boot is a framework for building production-ready Spring applications quickly with convention over configuration.
 
-49. **@Component vs. @Bean**
-    - `@Component` is a class-level annotation, `@Bean` is a method-level annotation.
+#### 46. What are the basic annotations in Spring Boot?
+**Answer:** `@SpringBootApplication`, `@RestController`, `@RequestMapping`, `@Autowired`, etc.
 
-50. **@Primary vs. @Qualifier**
-    - `@Primary` gives a higher preference, `@Qualifier` specifies which bean to use.
+#### 47. What is Spring Security?
+**Answer:** Spring Security is a framework that focuses on providing authentication and authorization to Spring applications.
 
-51. **@Controller vs. @RestController**
-    - `@Controller` returns views, `@RestController` returns JSON/XML responses.
+#### 48. What is method-level security?
+**Answer:** Method-level security allows you to apply security rules directly on methods using annotations like `@PreAuthorize` and `@Secured`.
 
-52. **Entity Class in Spring Boot Using JPA Annotations**
-    ```java
-    @Entity
-    public class Employee {
-        @Id
-        private Long empId;
-        private String empName;
-        private String email;
+#### 49. What is the difference between @Component and @Bean?
+**Answer:** `@Component` is used to denote a class as a Spring component, while `@Bean` is used to declare a bean inside a configuration class.
 
-        @ManyToOne
-        private Department department;
-    }
+#### 50. What is the difference between @Primary and @Qualifier?
+**Answer:** `@Primary` is used to give a higher preference to a bean when multiple beans of the same type exist, while `@Qualifier` is used to specify which bean to use when multiple options are available.
 
-    @Entity
-    public class Department {
-        @Id
-        private Long deptId;
-        private String deptName;
+#### 51. What is the difference between @Controller and @RestController?
+**Answer:** `@Controller` is used for traditional MVC controllers, returning views. `@RestController` combines `@Controller` and `@ResponseBody`, returning JSON/XML responses directly.
 
-        @OneToMany
-        private List<Project> projects;
-    }
+#### 52. Given the following structure, create an entity class in Spring Boot using JPA annotations.
+```json
+{
+  "empId": "",
+  "empName": "",
+  "email": "",
+  "department": {
+    "deptId": "",
+    "deptName": "",
+    "projects": [
+      {
+        "projectId": "",
+        "projectName": ""
+      },
+      {
+        "projectId": "",
+        "projectName": ""
+      }
+    ]
+  }
+}
+```
+**Answer:**
+```java
+import javax.persistence.*;
+import java.util.List;
 
-    @Entity
-    public class Project {
-        @Id
-        private Long projectId;
-        private String projectName;
-    }
-    ```
+@Entity
+public class Employee {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long empId;
+  private String empName;
+  private String email;
+
+  @ManyToOne
+  @JoinColumn(name = "deptId")
+  private Department department;
+
+  // Getters and Setters
+}
+
+@Entity
+public class Department {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long deptId;
+  private String deptName;
+
+  @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+  private List<Project> projects;
+
+  // Getters and Setters
+}
+
+@Entity
+public class Project {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long projectId;
+  private String projectName;
+
+  @ManyToOne
+  @JoinColumn(name = "deptId")
+  private Department department;
+
+  // Getters and Setters
+}
 ```
