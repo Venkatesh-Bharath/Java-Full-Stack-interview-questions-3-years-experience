@@ -2,12 +2,12 @@
 
 ## First Round
 1. **Self-introduction**
-2. **Coding Questions**
-   - Code 1
-   - Code 2
+2. **Coding Questions** -HackerRank coding
+   - Code 1-Find higest and lowest Rank of Students
+   - Code 2- Vending machine Problem
 3. **SQL Queries**
-   - Query 1
-   - Query 2
+   - Query 1- joins Based Query
+   - Query 2- Pivot Based Query
 
 ## Second Round
 
