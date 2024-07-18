@@ -138,20 +138,20 @@
      - **Non-synchronized**: Not thread-safe, multiple threads can access resources simultaneously. Example: `HashMap` is non-synchronized.
 
 ### 10. Write a program to make a HashMap synchronized
-    - **Answer**:
+   **Answer**:
+   
       ```java
       import java.util.Collections;
       import java.util.HashMap;
       import java.util.Map;
-
       public class SyncHashMapExample {
           public static void main(String[] args) {
               Map<String, String> map = new HashMap<>();
               map.put("1", "One");
               map.put("2", "Two");
-
+              
               Map<String, String> syncMap = Collections.synchronizedMap(map);
-
+              
               synchronized (syncMap) {
                   for (Map.Entry<String, String> entry : syncMap.entrySet()) {
                       System.out.println(entry.getKey() + ": " + entry.getValue());
