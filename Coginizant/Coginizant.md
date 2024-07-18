@@ -197,7 +197,51 @@ public class FunctionalInterfaceExample {
 ```
 
 ### 39. Why use the sum method instead of the apply method in Java?
-**Answer:** The `sum` method is specific to the `IntBinaryOperator` functional interface, which represents an operation upon two `int` operands and produces an `int` result, whereas `apply` is a more generic term used in different contexts.
+**Answer:**
+
+In the context of the custom functional interface, the `sum` method is specifically named and defined to perform a summation operation on two integers. Here's why using the `sum` method instead of a more generic method name like `apply` can be advantageous:
+
+1. **Clarity and Intent**: Naming the method `sum` clearly indicates its purpose is to add two numbers. This makes the code more readable and the intent of the method obvious to anyone who reads it.
+   
+2. **Domain-Specific Naming**: In this case, the interface is designed for summing two integers. Using a domain-specific name like `sum` rather than a generic name like `apply` aligns with the single-responsibility principle and makes the code easier to understand and maintain.
+
+3. **Consistency with Functional Interfaces**: While the standard functional interfaces like `Function` use generic names like `apply` to support a wide range of operations, custom functional interfaces can benefit from specific names that denote the exact operation they perform.
+
+Example with `apply`:
+```java
+@FunctionalInterface
+public interface MyFunctionalInterface {
+    int apply(int a, int b);
+}
+
+// Usage
+public class FunctionalInterfaceExample {
+    public static void main(String[] args) {
+        MyFunctionalInterface addition = (a, b) -> a + b;
+        int result = addition.apply(5, 3);
+        System.out.println("Result: " + result); // Result: 8
+    }
+}
+```
+
+Example with `sum`:
+```java
+@FunctionalInterface
+public interface MyFunctionalInterface {
+    int sum(int a, int b);
+}
+
+// Usage
+public class FunctionalInterfaceExample {
+    public static void main(String[] args) {
+        MyFunctionalInterface addition = (a, b) -> a + b;
+        int result = addition.sum(5, 3);
+        System.out.println("Sum: " + result); // Sum: 8
+    }
+}
+```
+
+Using `sum` in the custom functional interface makes the purpose of the method clear and specific, enhancing code readability and maintainability.
 
 ### 40. Why do you need a custom functional interface? Give an example.
 **Answer:** Custom functional interfaces are needed when you want to define a specific contract that doesn't match existing functional interfaces.
