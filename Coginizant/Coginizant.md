@@ -179,8 +179,21 @@ public class AgeDifference {
 ```java
 @FunctionalInterface
 public interface MyFunctionalInterface {
-  void execute();
+    int sum(int a, int b);
 }
+
+// Example usage
+public class FunctionalInterfaceExample {
+    public static void main(String[] args) {
+        // Implementing the sum method using a lambda expression
+        MyFunctionalInterface addition = (a, b) -> a + b;
+
+        // Executing the sum method
+        int result = addition.sum(5, 3);
+        System.out.println("Sum: " + result); // Sum: 8
+    }
+}
+
 ```
 
 ### 39. Why use the sum method instead of the apply method in Java?
