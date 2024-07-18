@@ -140,7 +140,7 @@
 ### 10. Write a program to make a HashMap synchronized
    **Answer**:
    
-      ```java
+   ```java
       import java.util.Collections;
       import java.util.HashMap;
       import java.util.Map;
@@ -148,8 +148,7 @@
           public static void main(String[] args) {
               Map<String, String> map = new HashMap<>();
               map.put("1", "One");
-              map.put("2", "Two");
-              
+              map.put("2", "Two"); 
               Map<String, String> syncMap = Collections.synchronizedMap(map);
               
               synchronized (syncMap) {
@@ -159,7 +158,7 @@
               }
           }
       }
-      ```
+  ```
 
 ## Final Round
 1. **Self-introduction**
