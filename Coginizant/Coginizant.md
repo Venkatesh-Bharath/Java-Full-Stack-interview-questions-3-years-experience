@@ -3,8 +3,9 @@
 ## First Round Assessment
 
 ### Coding Questions
-1. **Question 1:React** 
-2. **Question 2:Spring Boot** 
+1. **Question 1: Implement a React component that filters a list of transactions based on an input date and sorts the list based on the amount when the amount header is clicked**
+   
+3. **Question 2:Implement a Spring Boot application with POST, GET, and DELETE APIs. Include proper response statuses and separate the controller, service, and repository layers** 
 ### 4 Multiple Choice Questions
 
 
@@ -394,3 +395,41 @@ public class Project {
 ```
 
 ## Final Round  - Cognizant Interview
+
+### 1. Explain your experience in React projects and the components you have worked on.
+**Answer:** I have worked on several React projects, including a bank application where I primarily focused on the user registration page and transaction data handling. I have worked with various components such as forms, modals, tables, and custom reusable components.
+
+### 2. What is the purpose of Context API?
+**Answer:** The Context API is used to share data across the component tree without passing props down manually at every level. It helps manage state globally, making it easier to handle shared data like user authentication, themes, and settings.
+
+### 3. Have you passed data through the backend using authentication via headers or body?
+**Answer:** Yes, I have passed data through the backend using authentication via headers. Typically, I use JWT tokens in the headers for secure communication between the client and server.
+
+### 4. How do you validate your data and which components have you used in your project?
+**Answer:** I validate data using Formik along with Yup for schema validation. Formik handles form state management and validation, while Yup is used for defining validation schemas.
+
+### 5. Are you using Formik in your project globally or in every component?
+**Answer:** I use Formik in every component where form handling is required. This ensures each form has its own state and validation logic.
+
+### 6. How do you validate passwords in your ReactJS application?
+**Answer:** I validate passwords using Formik and Yup. Yup allows me to define complex validation rules, such as minimum length, inclusion of special characters, and matching confirmation passwords.
+
+### 7. Have you created any reusable components in your project?
+**Answer:** Yes, I have created several reusable components, such as input fields, buttons, modals, and form validation schemas. These components help maintain consistency and reduce code duplication.
+
+### 8. For security purposes, are you passing JWT tokens from client-side to server-side?
+**Answer:** Yes, I pass JWT tokens from the client-side to the server-side through HTTP headers to ensure secure communication and authentication.
+
+### 9. How is JWT working, and are you validating it on the server-side or client-side?
+**Answer:** JWT tokens are generated upon user authentication and sent to the client. They are then included in the HTTP headers for subsequent requests. Validation is done on the server-side to ensure the token's authenticity and to grant access to protected routes.
+
+### 10. How do you test your React components?
+**Answer:** I test my React components using tools like Jest and React Testing Library. These tools allow me to write unit tests and integration tests to ensure component functionality and behavior.
+
+### 11. How do you improve performance in your components?
+**Answer:** I improve performance by using techniques such as memoization with `React.memo`, optimizing re-renders with `useCallback` and `useMemo`, lazy loading components with `React.lazy`, and ensuring efficient state management.
+
+### 12. Have you used refs in your project?
+**Answer:** Yes, I have used refs for accessing DOM elements directly, managing focus, and integrating with third-party libraries where direct DOM manipulation is required.
+
+......etc (General Questions && Project-Oriented Questions)
