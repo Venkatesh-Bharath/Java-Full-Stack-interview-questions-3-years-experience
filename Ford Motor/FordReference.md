@@ -46,7 +46,7 @@
 
 ### 11. Configure HikariCP in a Spring Boot application.
    - **Answer:**  
-    ```yaml
+   ```yaml
     spring:
       datasource:
         url: jdbc:mysql://localhost:3306/db
@@ -54,7 +54,7 @@
         password: pass
         hikari:
           maximum-pool-size: 10
-    ```
+   ```
 
 
 ### 12. Explain Hibernate queries and entity graphs.
@@ -125,24 +125,24 @@
 
 ### 18. Write a basic API call using React.
    - **Answer:** 
-    ```javascript
+   ```javascript
     useEffect(() => {
       fetch('https://api.example.com/data')
         .then(response => response.json())
         .then(data => setData(data));
     }, []);
-    ```
+   ```
 
 ### 19. Transform an IP address from `192.62.255.31` to `291.26.552.13`.
    - **Answer:** 
-    ```javascript
+   ```javascript
     function transformIP(ip) {
         return ip.split('.').map(octet => {
             return octet.split('').reverse().join('');
         }).join('.');
     }
     console.log(transformIP('192.62.255.31')); // 291.26.552.13
-    ```
+   ```
 ## Second Round Interview: Pair Programming
 ### 1. Develop a UI page to show a list of items in the search page using React.
    - **Answer:**
