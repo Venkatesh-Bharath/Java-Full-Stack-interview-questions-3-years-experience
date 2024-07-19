@@ -316,7 +316,6 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
-@ActiveProfiles("test")
 public class VehicleRepositoryTest {
 
     @Autowired
@@ -378,7 +377,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class VehicleServiceTest {
 
     @Mock
@@ -431,9 +430,9 @@ public class VehicleServiceTest {
 
 Test the controller by mocking the service layer to isolate it. Use MockMvc to perform HTTP requests to controller endpoints and verify the correct status codes and response bodies. Ensure to check if the controller handles the HTTP requests as expected and returns the appropriate responses.
 
-    **`VehicleControllerTest.java`**
+ **`VehicleControllerTest.java`**
 
-    ```java
+ ```java
     import com.fasterxml.jackson.databind.ObjectMapper;
     import org.junit.jupiter.api.Test;
     import org.springframework.beans.factory.annotation.Autowired;
@@ -490,7 +489,7 @@ Test the controller by mocking the service layer to isolate it. Use MockMvc to p
                    .andExpect(MockMvcResultMatchers.jsonPath("$.make").value("Ford"));
         }
     }
-    ```
+ ```
 
 ### 2 Implement a React component that fetches vehicle data from the backend, displays it in a grid, and write a test case for the component.
 
