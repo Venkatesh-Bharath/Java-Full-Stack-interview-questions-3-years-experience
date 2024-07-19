@@ -151,7 +151,8 @@ public class VehicleController {
 ### 16. How to use two different databases in a single Spring Boot application
 
 - **Answer:** Configure multiple `DataSource` beans and use `@Primary` to indicate the default `DataSource`. Use `@Qualifier` to inject the appropriate `DataSource` where needed.
-```
+  
+```java
 @Configuration
 public class DataSourceConfig {
 
@@ -168,6 +169,7 @@ public class DataSourceConfig {
         return DataSourceBuilder.create().build();
     }
 }
+
 ```
 ### 17. JPA methods and @Query
 
@@ -175,8 +177,9 @@ public class DataSourceConfig {
 
 ### 18. How to get data for employee {id, name, address{id, location}} and fetch location based on employee data
 
-- **Answer:** 
-```
+- **Answer:**
+
+  ```java
      public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     // Exact match
@@ -185,7 +188,7 @@ public class DataSourceConfig {
     // Partial match
     List<Employee> findByAddressLocationContaining(String location);
    }
-```
+  ```
 
 ### 19. Why is React fast and what is virtual DOM
 
