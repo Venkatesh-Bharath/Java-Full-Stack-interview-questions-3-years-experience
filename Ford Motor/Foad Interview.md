@@ -222,3 +222,382 @@ public class DataSourceConfig {
 
 - **Answer:** In JavaScript, `prototype` is an object from which other objects inherit properties and methods. Every JavaScript object has a prototype.
 
+
+
+Certainly! Here's a detailed breakdown of the questions and answers for the second-round interview covering backend and frontend implementations.
+
+# Second Round Interview -Pair Programming
+
+### 1 Implement `POST` and `GET` APIs for a Vehicle resource in Spring Boot. Provide the code for repository, service, and controller layers. Include JUnit test cases for the `POST` and `GET` methods.
+
+**Answer:**
+
+- **Repository Layer:**
+
+    ```java
+    import org.springframework.data.jpa.repository.JpaRepository;
+
+    public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
+    }
+    ```
+
+- **Service Layer:**
+
+    ```java
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.stereotype.Service;
+
+    import java.util.List;
+
+    @Service
+    public class VehicleService {
+
+        @Autowired
+        private VehicleRepository vehicleRepository;
+
+        public List<Vehicle> getAllVehicles() {
+            return vehicleRepository.findAll();
+        }
+
+        public Vehicle saveVehicle(Vehicle vehicle) {
+            return vehicleRepository.save(vehicle);
+        }
+    }
+    ```
+
+- **Controller Layer:**
+
+    ```java
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.http.HttpStatus;
+    import org.springframework.http.ResponseEntity;
+    import org.springframework.web.bind.annotation.*;
+
+    import java.util.List;
+
+    @RestController
+    @RequestMapping("/vehicles")
+    public class VehicleController {
+
+        @Autowired
+        private VehicleService vehicleService;
+
+        @GetMapping
+        public ResponseEntity<List<Vehicle>> getAllVehicles() {
+            List<Vehicle> vehicles = vehicleService.getAllVehicles();
+            return new ResponseEntity<>(vehicles, HttpStatus.OK);
+        }
+
+        @PostMapping
+        public ResponseEntity<Vehicle> createVehicle(@RequestBody Vehicle vehicle) {
+            Vehicle savedVehicle = vehicleService.saveVehicle(vehicle);
+            return new ResponseEntity<>(savedVehicle, HttpStatus.CREATED);
+        }
+    }
+    ```
+
+- **JUnit Test Cases:**
+
+### 1. Repository Layer Test
+
+Since the repository layer interacts directly with the database, you typically use an in-memory database or a test configuration to test repository methods. For JPA repositories, the most common approach is to use an embedded H2 database or similar for integration tests.
+
+**`VehicleRepositoryTest.java`**
+
+```java
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.ActiveProfiles;
+
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+@DataJpaTest
+@ActiveProfiles("test")
+public class VehicleRepositoryTest {
+
+    @Autowired
+    private VehicleRepository vehicleRepository;
+
+    @BeforeEach
+    public void setUp() {
+        vehicleRepository.deleteAll();
+    }
+
+    @Test
+    public void testSaveVehicle() {
+        Vehicle vehicle = new Vehicle();
+        vehicle.setMake("Ford");
+        vehicle.setModel("Focus");
+        vehicle.setYear(2021);
+
+        Vehicle savedVehicle = vehicleRepository.save(vehicle);
+        assertThat(savedVehicle).isNotNull();
+        assertThat(savedVehicle.getId()).isNotNull();
+    }
+
+    @Test
+    public void testFindAllVehicles() {
+        Vehicle vehicle1 = new Vehicle();
+        vehicle1.setMake("Toyota");
+        vehicle1.setModel("Corolla");
+        vehicle1.setYear(2020);
+        vehicleRepository.save(vehicle1);
+
+        Vehicle vehicle2 = new Vehicle();
+        vehicle2.setMake("Honda");
+        vehicle2.setModel("Civic");
+        vehicle2.setYear(2019);
+        vehicleRepository.save(vehicle2);
+
+        List<Vehicle> vehicles = vehicleRepository.findAll();
+        assertThat(vehicles).hasSize(2);
+    }
+}
+```
+
+### 2. Service Layer Test
+
+The service layer test verifies that the service methods are functioning correctly. This typically involves mocking the repository and ensuring that the service methods interact with the repository as expected.
+
+**`VehicleServiceTest.java`**
+
+```java
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+
+@SpringBootTest
+public class VehicleServiceTest {
+
+    @Mock
+    private VehicleRepository vehicleRepository;
+
+    @InjectMocks
+    private VehicleService vehicleService;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+
+    @Test
+    public void testGetAllVehicles() {
+        Vehicle vehicle1 = new Vehicle();
+        vehicle1.setMake("Toyota");
+        vehicle1.setModel("Corolla");
+        vehicle1.setYear(2020);
+
+        Vehicle vehicle2 = new Vehicle();
+        vehicle2.setMake("Honda");
+        vehicle2.setModel("Civic");
+        vehicle2.setYear(2019);
+
+        when(vehicleRepository.findAll()).thenReturn(List.of(vehicle1, vehicle2));
+
+        List<Vehicle> vehicles = vehicleService.getAllVehicles();
+        assertThat(vehicles).hasSize(2);
+        assertThat(vehicles.get(0).getMake()).isEqualTo("Toyota");
+        assertThat(vehicles.get(1).getMake()).isEqualTo("Honda");
+    }
+
+    @Test
+    public void testSaveVehicle() {
+        Vehicle vehicle = new Vehicle();
+        vehicle.setMake("Ford");
+        vehicle.setModel("Focus");
+        vehicle.setYear(2021);
+
+        when(vehicleRepository.save(vehicle)).thenReturn(vehicle);
+
+        Vehicle savedVehicle = vehicleService.saveVehicle(vehicle);
+        assertThat(savedVehicle).isNotNull();
+        assertThat(savedVehicle.getMake()).isEqualTo("Ford");
+    }
+}
+```
+### 3. Controller Layer Test
+
+Test the controller by mocking the service layer to isolate it. Use MockMvc to perform HTTP requests to controller endpoints and verify the correct status codes and response bodies. Ensure to check if the controller handles the HTTP requests as expected and returns the appropriate responses.
+
+    **`VehicleControllerTest.java`**
+
+    ```java
+    import com.fasterxml.jackson.databind.ObjectMapper;
+    import org.junit.jupiter.api.Test;
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+    import org.springframework.boot.test.mock.mockito.MockBean;
+    import org.springframework.http.MediaType;
+    import org.springframework.test.web.servlet.MockMvc;
+    import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+    import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+    import java.util.List;
+
+    import static org.mockito.ArgumentMatchers.any;
+    import static org.mockito.Mockito.when;
+
+    @WebMvcTest(VehicleController.class)
+    public class VehicleControllerTest {
+
+        @Autowired
+        private MockMvc mockMvc;
+
+        @MockBean
+        private VehicleService vehicleService;
+
+        @Autowired
+        private ObjectMapper objectMapper;
+
+        @Test
+        public void testGetAllVehicles() throws Exception {
+            when(vehicleService.getAllVehicles()).thenReturn(List.of(
+                new Vehicle(1L, "Toyota", "Corolla", 2020),
+                new Vehicle(2L, "Honda", "Civic", 2019)
+            ));
+
+            mockMvc.perform(MockMvcRequestBuilders.get("/vehicles"))
+                   .andExpect(MockMvcResultMatchers.status().isOk())
+                   .andExpect(MockMvcResultMatchers.jsonPath("$[0].make").value("Toyota"))
+                   .andExpect(MockMvcResultMatchers.jsonPath("$[1].make").value("Honda"));
+        }
+
+        @Test
+        public void testCreateVehicle() throws Exception {
+            Vehicle vehicle = new Vehicle();
+            vehicle.setMake("Ford");
+            vehicle.setModel("Focus");
+            vehicle.setYear(2021);
+
+            when(vehicleService.saveVehicle(any(Vehicle.class))).thenReturn(vehicle);
+
+            mockMvc.perform(MockMvcRequestBuilders.post("/vehicles")
+                   .contentType(MediaType.APPLICATION_JSON)
+                   .content(objectMapper.writeValueAsString(vehicle)))
+                   .andExpect(MockMvcResultMatchers.status().isCreated())
+                   .andExpect(MockMvcResultMatchers.jsonPath("$.make").value("Ford"));
+        }
+    }
+    ```
+
+### 2 Implement a React component that fetches vehicle data from the backend, displays it in a grid, and write a test case for the component.
+
+**Answer:**
+
+- **React Component:**
+
+    **`VehicleList.js`**
+
+    ```jsx
+    import React, { useEffect, useState } from 'react';
+    import axios from 'axios';
+
+    const VehicleList = () => {
+        const [vehicles, setVehicles] = useState([]);
+        const [error, setError] = useState(null);
+
+        useEffect(() => {
+            axios.get('/vehicles')
+                .then(response => {
+                    setVehicles(response.data);
+                })
+                .catch(error => {
+                    setError("There was an error fetching the vehicles.");
+                    console.error("There was an error fetching the vehicles!", error);
+                });
+        }, []);
+
+        return (
+            <div className="vehicle-list">
+                <h1>Vehicle List</h1>
+                {error && <p className="error">{error}</p>}
+                <div className="grid-container">
+                    {vehicles.map(vehicle => (
+                        <div key={vehicle.id} className="grid-item">
+                            <h3>{vehicle.make} {vehicle.model}</h3>
+                            <p>Year: {vehicle.year}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    };
+
+    export default VehicleList;
+    ```
+
+    **CSS (for grid layout):**
+
+    **`App.css`**
+
+    ```css
+    .vehicle-list {
+        padding: 20px;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .grid-item {
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    ```
+
+- **React Test Case:**
+
+    **`VehicleList.test.js`**
+
+    ```jsx
+    import React from 'react';
+    import { render, screen } from '@testing-library/react';
+    import axios from 'axios';
+    import VehicleList from './VehicleList';
+    import '@testing-library/jest-dom/extend-expect';
+
+    // Mocking Axios
+    jest.mock('axios');
+
+    test('renders vehicle list', async () => {
+        // Mocking the response data
+        axios.get.mockResolvedValue({
+            data: [
+                { id: 1, make: 'Toyota', model: 'Corolla', year: 2020 },
+                { id: 2, make: 'Honda', model: 'Civic', year: 2019 },
+            ],
+        });
+
+        render(<VehicleList />);
+
+        // Assertions
+        expect(await screen.findByText(/Toyota Corolla/i)).toBeInTheDocument();
+        expect(await screen.findByText(/Honda Civic/i)).toBeInTheDocument();
+    });
+
+    test('handles error response', async () => {
+        // Mocking the error response
+        axios.get.mockRejectedValue(new Error("Network Error"));
+
+        render(<VehicleList />);
+
+        // Assertions
+        expect(await screen.findByText(/There was an error fetching the vehicles./i)).toBeInTheDocument();
+    });
+    ```
+
