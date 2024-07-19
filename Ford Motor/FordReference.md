@@ -45,8 +45,9 @@
    - **Answer:**  Thread pools manage a collection of reusable threads for executing tasks, which improves application performance by reducing the overhead of creating and destroying threads. Java provides `ExecutorService` to manage thread pools.
 
 ### 11. Configure HikariCP in a Spring Boot application.
-   - **Answer:** 
-    ```yaml
+   - **Answer:**
+      
+    ```
     spring:
       datasource:
         url: jdbc:mysql://localhost:3306/db
