@@ -277,6 +277,7 @@ Certainly! Here's a detailed breakdown of the questions and answers for the seco
 
     @RestController
     @RequestMapping("/vehicles")
+   @CrossOrigin(origins = "http://localhost:3000") 
     public class VehicleController {
 
         @Autowired
@@ -508,7 +509,7 @@ Test the controller by mocking the service layer to isolate it. Use MockMvc to p
         const [error, setError] = useState(null);
 
         useEffect(() => {
-            axios.get('/vehicles')
+            axios.get('http://localhost:8080/vehicles')
                 .then(response => {
                     setVehicles(response.data);
                 })
