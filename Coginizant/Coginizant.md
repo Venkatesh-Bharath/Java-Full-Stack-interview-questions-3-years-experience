@@ -432,4 +432,184 @@ public class Project {
 ### 12. Have you used refs in your project?
 **Answer:** Yes, I have used refs for accessing DOM elements directly, managing focus, and integrating with third-party libraries where direct DOM manipulation is required.
 
+### 13 What are the key features introduced in ES6?
+
+**Answer:**
+1. **Arrow Functions:** Provides a shorter syntax for writing functions.
+    ```javascript
+    const add = (a, b) => a + b;
+    ```
+
+2. **Classes:** Simplifies the creation of objects and inheritance.
+    ```javascript
+    class Person {
+        constructor(name) {
+            this.name = name;
+        }
+
+        greet() {
+            console.log(`Hello, my name is ${this.name}`);
+        }
+    }
+
+    const john = new Person('John');
+    john.greet();
+    ```
+
+3. **Template Literals:** Allows string interpolation and multi-line strings.
+    ```javascript
+    const name = 'John';
+    const message = `Hello, ${name}!`;
+    console.log(message);
+    ```
+
+4. **Default Parameters:** Enables function parameters to have default values.
+    ```javascript
+    function greet(name = 'Guest') {
+        console.log(`Hello, ${name}`);
+    }
+
+    greet(); // Hello, Guest
+    ```
+
+5. **Destructuring Assignment:** Extracts values from arrays or objects into distinct variables.
+    ```javascript
+    const person = { name: 'John', age: 30 };
+    const { name, age } = person;
+    console.log(name, age); // John 30
+
+    const [first, second] = [10, 20];
+    console.log(first, second); // 10 20
+    ```
+
+6. **Rest and Spread Operators:** Used with arrays and objects.
+    ```javascript
+    function sum(...numbers) {
+        return numbers.reduce((acc, curr) => acc + curr, 0);
+    }
+
+    console.log(sum(1, 2, 3)); // 6
+
+    const arr1 = [1, 2, 3];
+    const arr2 = [...arr1, 4, 5, 6];
+    console.log(arr2); // [1, 2, 3, 4, 5, 6]
+
+    const obj1 = { a: 1, b: 2 };
+    const obj2 = { ...obj1, c: 3 };
+    console.log(obj2); // { a: 1, b: 2, c: 3 }
+    ```
+
+7. **Promises:** For asynchronous programming.
+    ```javascript
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => resolve('Success!'), 1000);
+    });
+
+    promise.then(result => console.log(result)); // Success!
+    ```
+
+8. **Modules:** Enables import and export of modules.
+    ```javascript
+    // module.js
+    export const name = 'John';
+
+    // main.js
+    import { name } from './module.js';
+    console.log(name); // John
+    ```
+
+9. **Enhanced Object Literals:** Makes object creation easier.
+    ```javascript
+    const name = 'John';
+    const person = {
+        name,
+        greet() {
+            console.log(`Hello, my name is ${this.name}`);
+        }
+    };
+
+    person.greet(); // Hello, my name is John
+    ```
+
+10. **Let and Const:** Introduces block-scoped variables and constants.
+    ```javascript
+    let variable = 'I can be reassigned';
+    const constant = 'I cannot be reassigned';
+
+    variable = 'New value';
+    console.log(variable); // New value
+
+    // constant = 'New value'; // Error: Assignment to constant variable
+    ```
+
+---
+
+### 14. What is the difference between a React functional component and an arrow component?
+
+**Answer:**
+- **React Functional Component:**
+  A React functional component is a JavaScript function that returns a React element. It can be written using the `function` keyword.
+  ```javascript
+  function MyComponent() {
+      return <div>Hello, World!</div>;
+  }
+  ```
+
+- **Arrow Component:**
+  An arrow component is a functional component defined using the ES6 arrow function syntax. It also returns a React element.
+  ```javascript
+  const MyComponent = () => {
+      return <div>Hello, World!</div>;
+  }
+  ```
+
+**Key Differences:**
+1. **Syntax:** Functional components use the `function` keyword, while arrow components use the arrow function `=>` syntax.
+2. **`this` Binding:** Arrow functions do not have their own `this` context, inheriting it from the parent scope. Functional components with the `function` keyword have their own `this` context, which can be useful in class components but less so in functional components.
+3. **Conciseness:** Arrow functions are often more concise and can be written in a single line if the function body is simple.
+
+---
+
+### 15 Why would you use an arrow function in a React component?
+
+**Answer:**
+1. **Lexical `this` Binding:** Arrow functions do not have their own `this` context and inherit `this` from the parent scope. This prevents common mistakes with `this` binding in class components.
+    ```javascript
+    class MyComponent extends React.Component {
+        handleClick = () => {
+            console.log(this); // `this` refers to the component instance
+        }
+
+        render() {
+            return <button onClick={this.handleClick}>Click me</button>;
+        }
+    }
+    ```
+
+2. **Simplified Syntax:** Arrow functions provide a more concise and readable syntax, especially for simple functions.
+    ```javascript
+    const MyComponent = () => <div>Hello, World!</div>;
+    ```
+
+3. **No Need for Binding:** In class components, methods defined with arrow functions do not need to be explicitly bound in the constructor, reducing boilerplate code.
+    ```javascript
+    class MyComponent extends React.Component {
+        constructor(props) {
+            super(props);
+            this.handleClick = this.handleClick.bind(this); // Not needed with arrow functions
+        }
+
+        handleClick() {
+            console.log(this); // `this` is undefined without binding
+        }
+
+        render() {
+            return <button onClick={this.handleClick}>Click me</button>;
+        }
+    }
+    ```
+
+4. **Consistency:** Using arrow functions throughout your codebase can provide consistency, especially when working with functional components and hooks.
+
+
 ......etc (General Questions && Project-Oriented Questions)
