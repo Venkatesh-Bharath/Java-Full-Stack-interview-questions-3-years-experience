@@ -45,9 +45,8 @@
    - **Answer:**  Thread pools manage a collection of reusable threads for executing tasks, which improves application performance by reducing the overhead of creating and destroying threads. Java provides `ExecutorService` to manage thread pools.
 
 ### 11. Configure HikariCP in a Spring Boot application.
-   - **Answer:**
-      
-    ```
+   - **Answer:**  
+    ```yaml
     spring:
       datasource:
         url: jdbc:mysql://localhost:3306/db
@@ -62,9 +61,8 @@
 - **Answer:**   Hibernate queries can be written using HQL or Criteria API. Entity graphs optimize queries by defining which related entities should be fetched, reducing the number of queries executed and improving performance.
 
 ### 13. How do you write test cases differently for controller, data, and service layers?
-   - **Answer:**
-     
-    ```java
+   - **Answer:**    
+   ```java
     // Controller Test
     @WebMvcTest(EmployeeController.class)
     public class EmployeeControllerTest {
@@ -111,7 +109,7 @@
             assertEquals(3, employees.size());
         }
     }
-    ```
+   ```
 
 ### 14. Explain code coverage and tools like SonarQube.
  - **Answer:**  Code coverage measures how much of the code is tested by unit tests. Tools like SonarQube analyze code quality, including code coverage, and provide reports to help improve code reliability and maintainability.
