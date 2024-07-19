@@ -61,7 +61,7 @@
 - **Answer:** `List.of()` creates an immutable list with the provided elements. For example, 
    `List<String> list = List.of("A", "B", "C");`.
 
-6. Functional interface and example
+### 6. Functional interface and example
 
 - **Answer:** A functional interface has exactly one abstract method. Example: `@FunctionalInterface public interface Calculator { int add(int a, int b); }`.
 
