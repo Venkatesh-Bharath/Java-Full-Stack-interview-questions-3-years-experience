@@ -101,7 +101,7 @@
    ```
 
 ### 16. Given two arrays, combine them into a single sorted array.
-    ```java
+   ```java
     public int[] combineAndSort(int[] arr1, int[] arr2) {
         int[] combined = new int[arr1.length + arr2.length];
         System.arraycopy(arr1, 0, combined, 0, arr1.length);
@@ -109,7 +109,7 @@
         Arrays.sort(combined);
         return combined;
     }
-    ```
+   ```
 
 ### 17. Ladder array code in Java.
   ```java
