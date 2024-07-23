@@ -200,4 +200,53 @@
 
 # Final Round
 
+### 1. What tools have you used in your project?
+   -  In my project, I have used tools such as Git for version control, Jenkins for continuous integration and deployment, JIRA for task management, and Docker for containerization.
 
+### 2.  Which database did you use in your project?
+   -  We used PostgreSQL as our primary database due to its robustness and support for complex queries.
+
+### 3.  How did you implement JWT authentication in your project?
+   -  We implemented JWT authentication by creating a JWT token on user login, which includes user roles and expiration time. The token is then verified with each API request using a JWT filter in our Spring Boot application.
+
+### 4.  How did you configure two different databases in your Spring Boot project?
+   -  We configured two different databases by creating separate `DataSource` beans for each database and using `@Primary` annotation to specify the primary data source.
+
+### 5.  Who provided the database structure in your project?
+   -  The database structure was provided by our database architect, and the development team collaborated to finalize and optimize it.
+
+### 6.  How were tasks assigned and managed in your project on a weekly basis?
+ - Tasks were assigned and managed using JIRA. Each week, we conducted sprint planning meetings to assign tasks and track progress through daily stand-ups.
+
+### 7.  How did you implement an API gateway in your microservices architecture?
+   -  We implemented an API gateway using Spring Cloud Gateway, which routes requests to the appropriate microservices and handles cross-cutting concerns like authentication and rate limiting.
+
+### 8.  How did you configure different services in the API gateway?
+   -  We configured different services in the API gateway using route definitions in the `application.yml` file, specifying the paths and service URLs.
+
+### 9. What is an Eureka Server?
+- Eureka Server is a service registry used in microservices architecture for service discovery, allowing services to find and communicate with each other without hardcoding their locations.
+
+### 10. How do you handle simultaneous requests from multiple users, and who determines request preference?
+   - We handle simultaneous requests using load balancers to distribute the traffic across multiple instances of our services. Request preference is determined based on the priority of the request and the resources available.
+
+### 11.  What does a Kafka server do?
+   -  A Kafka server is used for real-time data streaming and message brokering, allowing our microservices to communicate asynchronously and handle large volumes of data efficiently.
+
+### 12. How do you handle simultaneous requests from a large number of users?
+ -  We handle simultaneous requests from a large number of users using a combination of load balancing, caching, and scalable microservices architecture to ensure high availability and performance.
+
+### 13.  What issues did you recently encounter with Swagger, and how did you resolve them?
+   - We encountered issues with Swagger not displaying certain endpoints correctly. We resolved them by ensuring all our controllers were properly annotated and by updating the Swagger configuration to correctly scan all packages.
+
+### 14. How do you upgrade your project, and what technologies are used for upgrading?
+ - We upgrade our project by following a continuous integration and deployment pipeline, using tools like Jenkins and Docker. We also perform thorough testing and use feature toggles to ensure smooth rollouts.
+
+### 15. What are some issues you faced in your project, and how did you overcome them?
+   - One issue we faced was database performance under high load. We overcame it by optimizing queries, indexing critical fields, and using caching mechanisms to reduce the load on the database.
+
+### 16.Have you worked with Log4j? If so, what was your experience?
+   -  Yes, I have worked with Log4j for logging in our Spring Boot applications. It has been effective in providing configurable logging levels and formats,
+
+# HR Round
+### Self ,Location, Salary etc.....
