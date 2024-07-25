@@ -63,7 +63,8 @@
 
 ### 6. Functional interface and example
 
-- **Answer:** A functional interface has exactly one abstract method. Example: `@FunctionalInterface public interface Calculator { int add(int a, int b); }`.
+- **Answer:** A functional interface has exactly one abstract method.
+- Example: `@FunctionalInterface public interface Calculator { int add(int a, int b); }`.
 
 ### 7. What is Supplier in functional programming
 
@@ -146,7 +147,8 @@ public class VehicleController {
 
 ### 15. Primary & Qualifier annotation in Spring Boot
 
-- **Answer:** `@Primary` specifies the default bean when multiple beans of the same type exist. `@Qualifier` is used to specify which bean to inject when multiple candidates are available.
+- **Answer:** `@Primary` specifies the default bean when multiple beans of the same type exist.
+-  `@Qualifier` is used to specify which bean to inject when multiple candidates are available.
 
 ### 16. How to use two different databases in a single Spring Boot application
 
@@ -222,9 +224,6 @@ public class DataSourceConfig {
 
 - **Answer:** In JavaScript, `prototype` is an object from which other objects inherit properties and methods. Every JavaScript object has a prototype.
 
-
-
-Certainly! Here's a detailed breakdown of the questions and answers for the second-round interview covering backend and frontend implementations.
 
 # Second Round Interview -Pair Programming
 
