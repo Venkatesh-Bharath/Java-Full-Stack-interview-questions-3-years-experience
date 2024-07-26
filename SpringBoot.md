@@ -324,77 +324,414 @@
 ### Spring Data and JPA
 
 41. **What is Spring Data JPA?**
+    - **Response**: Spring Data JPA is a part of the Spring Data family that makes it easier to implement JPA-based repositories. It provides a set of interfaces and annotations to simplify data access and manipulation.
+
 42. **How do you configure JPA in Spring Boot?**
+    - **Response**: JPA is configured in Spring Boot using the `application.properties` or `application.yml` file. You specify the datasource properties and JPA properties.
+    - **Example**:
+      ```properties
+      spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+      spring.datasource.username=root
+      spring.datasource.password=root
+      spring.jpa.hibernate.ddl-auto=update
+      spring.jpa.show-sql=true
+      ```
+
 43. **What is a repository in Spring Data JPA?**
+    - **Response**: A repository in Spring Data JPA is an interface that provides CRUD operations on a specific type of entity. It extends one of the repository interfaces provided by Spring Data JPA such as `CrudRepository`, `JpaRepository`, or `PagingAndSortingRepository`.
+
 44. **What is the difference between `CrudRepository`, `JpaRepository`, and `PagingAndSortingRepository`?**
+    - **Response**: 
+      - `CrudRepository` provides CRUD functions.
+      - `JpaRepository` extends `CrudRepository` and `PagingAndSortingRepository` and provides additional JPA-specific methods such as batch processing.
+      - `PagingAndSortingRepository` extends `CrudRepository` and provides methods for pagination and sorting.
+
 45. **How do you define a custom query in Spring Data JPA?**
+    - **Response**: Custom queries can be defined using the `@Query` annotation or by naming convention.
+    - **Example**:
+      ```java
+      @Query("SELECT u FROM User u WHERE u.email = ?1")
+      User findByEmail(String email);
+      ```
+
 46. **What is the purpose of the `@Query` annotation?**
+    - **Response**: The `@Query` annotation is used to define custom JPQL or native SQL queries directly on repository methods.
+
 47. **How do you handle transactions in Spring Boot?**
+    - **Response**: Transactions are handled using the `@Transactional` annotation.
+    - **Example**:
+      ```java
+      @Transactional
+      public void performTransaction() {
+          // transaction code
+      }
+      ```
+
 48. **What is the role of the `@Entity` annotation?**
+    - **Response**: `@Entity` is used to mark a class as a JPA entity, which means it is mapped to a database table.
+
 49. **What is the difference between `@Table` and `@Entity`?**
+    - **Response**: `@Entity` marks a class as a JPA entity. `@Table` is used to specify the table name in the database that the entity is mapped to.
+
 50. **How do you perform CRUD operations in Spring Data JPA?**
+    - **Response**: CRUD operations are performed using repository interfaces like `CrudRepository`, `JpaRepository`, etc.
+    - **Example**:
+      ```java
+      @Repository
+      public interface UserRepository extends JpaRepository<User, Long> {
+      }
+
+      @Service
+      public class UserService {
+          @Autowired
+          private UserRepository userRepository;
+
+          public User saveUser(User user) {
+              return userRepository.save(user);
+          }
+
+          public Optional<User> findUserById(Long id) {
+              return userRepository.findById(id);
+          }
+
+          public void deleteUser(Long id) {
+              userRepository.deleteById(id);
+          }
+      }
+      ```
 
 ### Security
 
 51. **What is Spring Security, and how does it integrate with Spring Boot?**
+    - **Response**: Spring Security is a framework that provides authentication, authorization, and protection against common attacks. It integrates with Spring Boot by including the `spring-boot-starter-security` dependency.
+
 52. **How do you secure a Spring Boot application?**
+    - **Response**: By using Spring Security, you can secure a Spring Boot application through configuration in the `SecurityConfig` class, which extends `WebSecurityConfigurerAdapter`.
+    - **Example**:
+      ```java
+      @Configuration
+      @EnableWebSecurity
+      public class SecurityConfig extends WebSecurityConfigurerAdapter {
+          @Override
+          protected void configure(HttpSecurity http) throws Exception {
+              http
+                  .authorizeRequests()
+                  .antMatchers("/public/**").permitAll()
+                  .anyRequest().authenticated()
+                  .and()
+                  .formLogin().permitAll()
+                  .and()
+                  .logout().permitAll();
+          }
+      }
+      ```
+
 53. **What is `@EnableWebSecurity` annotation?**
+    - **Response**: `@EnableWebSecurity` enables Spring Security's web security support and provides the Spring MVC integration.
+
 54. **How do you implement OAuth2 in Spring Boot?**
+    - **Response**: By using the `spring-boot-starter-oauth2-client` dependency and configuring OAuth2 properties in the `application.properties` file.
+    - **Example**:
+      ```properties
+      spring.security.oauth2.client.registration.google.client-id=your-client-id
+      spring.security.oauth2.client.registration.google.client-secret=your-client-secret
+      spring.security.oauth2.client.registration.google.redirect-uri={baseUrl}/login/oauth2/code/google
+      ```
+
 55. **How do you handle authentication and authorization in Spring Boot?**
+    - **Response**: By configuring `WebSecurityConfigurerAdapter` and using `UserDetailsService` for user details and `PasswordEncoder` for password encoding.
+    - **Example**:
+      ```java
+      @Override
+      protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+          auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+      }
+      ```
+
 56. **What is the role of the `SecurityConfigurerAdapter` class?**
+    - **Response**: `SecurityConfigurerAdapter` is a base class used to configure security settings such as authentication and authorization in Spring Security.
+
 57. **How do you implement JWT authentication in Spring Boot?**
+    - **Response**: By creating a filter that validates JWT tokens and configuring the security context.
+    - **Example**:
+      ```java
+      @Component
+      public class JwtFilter extends OncePerRequestFilter {
+          @Override
+          protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+                  throws ServletException, IOException {
+              // JWT validation logic
+          }
+      }
+
+      @Configuration
+      public class SecurityConfig extends WebSecurityConfigurerAdapter {
+          @Autowired
+          private JwtFilter jwtFilter;
+
+          @Override
+          protected void configure(HttpSecurity http) throws Exception {
+              http
+                  .csrf().disable()
+                  .authorizeRequests().antMatchers("/login").permitAll()
+                  .anyRequest().authenticated()
+                  .and()
+                  .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+              http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+          }
+      }
+      ```
+
 58. **How do you configure CORS in Spring Security?**
+    - **Response**: By using the `cors` method in `HttpSecurity` configuration.
+    - **Example**:
+      ```java
+      @Override
+      protected void configure(HttpSecurity http) throws Exception {
+          http
+              .cors().and()
+              .csrf().disable()
+              .authorizeRequests()
+              .anyRequest().authenticated();
+      }
+      ```
+
 59. **What are security filters in Spring Boot?**
+    - **Response**: Security filters in Spring Boot are used to intercept requests and apply security logic such as authentication and authorization. Examples include `UsernamePasswordAuthenticationFilter` and `JwtFilter`.
+
 60. **How do you encrypt passwords in Spring Boot?**
+    - **Response**: Passwords can be encrypted using `PasswordEncoder` provided by Spring Security.
+    - **Example**:
+      ```java
+      @Bean
+      public PasswordEncoder passwordEncoder() {
+          return new BCryptPasswordEncoder();
+      }
+      ```
 
 ### Testing
 
 61. **How do you write unit tests in Spring Boot?**
+    - **Response**: Unit tests in Spring Boot are written using JUnit and Mockito.
+    - **Example**:
+      ```java
+      @RunWith(SpringRunner.class)
+      @SpringBootTest
+      public class MyServiceTest {
+          @Autowired
+          private MyService myService;
+
+          @Test
+          public void testServiceMethod() {
+              assertEquals("Expected Result", myService.serviceMethod());
+          }
+      }
+      ```
+
 62. **What is the role of `@SpringBootTest` annotation?**
+    - **Response**: `@SpringBootTest` is used to create an application context and load all the beans for integration testing.
+
 63. **How do you test RESTful web services in Spring Boot?**
+    - **Response**: RESTful web services are tested using `MockMvc` and `@WebMvcTest`.
+    - **Example**:
+      ```java
+      @RunWith(SpringRunner.class)
+      @WebMvcTest(MyController.class)
+      public class MyControllerTest {
+          @Autowired
+          private MockMvc mockMvc;
+
+          @Test
+          public void testGetEndpoint() throws Exception {
+              mockMvc.perform(get("/api/data"))
+                     .andExpect(status().isOk())
+                     .andExpect(content().string("Data"));
+          }
+      }
+      ```
+
 64. **What is the use of `MockMvc` in Spring Boot testing?**
-65. **How do you perform integration testing in Spring Boot?**
+    - **Response**: `MockMvc` is used to simulate HTTP requests and test Spring MVC controllers without starting a full HTTP server.
+
+65. **How do you perform integration testing in Spring Boot
+
+?**
+    - **Response**: Integration testing is performed using `@SpringBootTest` to load the full application context and `TestRestTemplate` for RESTful services.
+    - **Example**:
+      ```java
+      @RunWith(SpringRunner.class)
+      @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+      public class MyIntegrationTest {
+          @Autowired
+          private TestRestTemplate restTemplate;
+
+          @Test
+          public void testApi() {
+              ResponseEntity<String> response = restTemplate.getForEntity("/api/data", String.class);
+              assertEquals(HttpStatus.OK, response.getStatusCode());
+              assertEquals("Data", response.getBody());
+          }
+      }
+      ```
+
 66. **What are `@MockBean` and `@SpyBean` annotations?**
+    - **Response**: `@MockBean` is used to create and inject a mock bean into the Spring application context. `@SpyBean` is used to create and inject a spy bean.
+
 67. **How do you test a Spring Data JPA repository?**
+    - **Response**: By using `@DataJpaTest` which configures an in-memory database, scans for `@Entity` classes, and configures Spring Data JPA repositories.
+    - **Example**:
+      ```java
+      @RunWith(SpringRunner.class)
+      @DataJpaTest
+      public class UserRepositoryTest {
+          @Autowired
+          private UserRepository userRepository;
+
+          @Test
+          public void testSaveUser() {
+              User user = new User("John", "Doe");
+              userRepository.save(user);
+              assertNotNull(userRepository.findById(user.getId()));
+          }
+      }
+      ```
+
 68. **How do you test Spring Boot services?**
+    - **Response**: By using `@MockBean` to mock dependencies and writing unit tests for service methods.
+    - **Example**:
+      ```java
+      @RunWith(SpringRunner.class)
+      @SpringBootTest
+      public class MyServiceTest {
+          @MockBean
+          private MyRepository myRepository;
+
+          @Autowired
+          private MyService myService;
+
+          @Test
+          public void testServiceMethod() {
+              when(myRepository.findById(anyLong())).thenReturn(Optional.of(new MyEntity()));
+              assertEquals("Expected Result", myService.serviceMethod());
+          }
+      }
+      ```
+
 69. **What is `@DataJpaTest` annotation?**
+    - **Response**: `@DataJpaTest` is used for JPA tests. It sets up an in-memory database and configures Spring Data JPA repositories.
+
 70. **How do you write a test for a Spring Boot controller?**
+    - **Response**: By using `@WebMvcTest` and `MockMvc`.
+    - **Example**:
+      ```java
+      @RunWith(SpringRunner.class)
+      @WebMvcTest(MyController.class)
+      public class MyControllerTest {
+          @Autowired
+          private MockMvc mockMvc;
+
+          @Test
+          public void testGetEndpoint() throws Exception {
+              mockMvc.perform(get("/api/data"))
+                     .andExpect(status().isOk())
+                     .andExpect(content().string("Data"));
+          }
+      }
+      ```
 
 ### Microservices and Cloud
 
 71. **What is Spring Cloud, and how does it relate to Spring Boot?**
+    - **Response**: Spring Cloud provides tools for developers to quickly build some of the common patterns in distributed systems (e.g., configuration management, service discovery, circuit breakers, intelligent routing). It builds on Spring Boot to create stand-alone, production-grade Spring-based applications.
+
 72. **How do you create a microservice using Spring Boot?**
+    - **Response**: Create a Spring Boot project using `spring-boot-starter-web`, define REST endpoints using `@RestController`, and manage dependencies using Spring's dependency injection.
+
 73. **What is service discovery, and how do you implement it in Spring Boot?**
+    - **Response**: Service discovery allows microservices to find and communicate with each other. It can be implemented using Netflix Eureka in Spring Boot by adding the `spring-cloud-starter-netflix-eureka-client` dependency and annotating the application with `@EnableEurekaClient`.
+
 74. **What is the role of Eureka in Spring Cloud?**
+    - **Response**: Eureka is a service registry that allows services to register themselves and discover other registered services, enabling client-side load balancing and failover.
+
 75. **How do you configure load balancing in Spring Boot?**
+    - **Response**: Load balancing can be configured using Spring Cloud LoadBalancer or Netflix Ribbon by including the `spring-cloud-starter-netflix-ribbon` dependency and annotating the REST client with `@LoadBalanced`.
+
 76. **What is Spring Cloud Config?**
+    - **Response**: Spring Cloud Config provides server-side and client-side support for externalized configuration in a distributed system. It allows applications to fetch their configuration properties from a centralized server.
+
 77. **How do you handle distributed tracing in Spring Boot?**
+    - **Response**: Distributed tracing can be handled using Spring Cloud Sleuth and Zipkin by adding the `spring-cloud-starter-sleuth` and `spring-cloud-starter-zipkin` dependencies.
+
 78. **What is the use of Spring Cloud Gateway?**
+    - **Response**: Spring Cloud Gateway is used to route requests to microservices and provide cross-cutting concerns such as security, monitoring/metrics, and resiliency.
+
 79. **How do you implement API Gateway in Spring Boot?**
+    - **Response**: Implement an API Gateway using Spring Cloud Gateway by adding the `spring-cloud-starter-gateway` dependency and configuring routing rules in the application properties or YAML file.
+
 80. **What is Hystrix, and how does it work in Spring Boot?**
+    - **Response**: Hystrix is a library that helps to control the interactions between distributed services by providing fault tolerance and latency tolerance. In Spring Boot, it is used to implement circuit breakers by adding the `spring-cloud-starter-netflix-hystrix` dependency and annotating methods with `@HystrixCommand`.
 
 ### Miscellaneous
 
 81. **What are the key components of a Spring Boot application?**
+    - **Response**: Key components include the `@SpringBootApplication` annotation, application properties, embedded server, auto-configuration, and starter dependencies.
+
 82. **How does Spring Boot handle application properties and configuration?**
+    - **Response**: Spring Boot handles application properties using `application.properties` or `application.yml` files. These properties can be injected into Spring components using the `@Value` annotation or `@ConfigurationProperties` binding.
+
 83. **What are actuators in Spring Boot, and why are they important?**
+    - **Response**: Actuators provide production-ready features such as monitoring, metrics, and health checks. They are important for managing and monitoring a Spring Boot application in a production environment.
+
 84. **How do you monitor a Spring Boot application?**
+    - **Response**: Monitor a Spring Boot application using Actuator endpoints, Micrometer metrics, and integrating with monitoring tools like Prometheus, Grafana, or ELK stack.
+
 85. **What is Spring Boot Admin?**
+    - **Response**: Spring Boot Admin is a community project used to manage and monitor Spring Boot applications. It provides a UI for managing and viewing the status of Spring Boot applications.
+
 86. **What is the role of `@SpringBootApplication` annotation?**
+    - **Response**: `@SpringBootApplication` is a convenience annotation that combines `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan` to enable auto-configuration and component scanning.
+
 87. **How do you deploy a Spring Boot application?**
+    - **Response**: A Spring Boot application can be deployed as a standalone JAR with an embedded server, as a WAR file on an external server, or to cloud platforms such as AWS, Azure, or Kubernetes.
+
 88. **What are the different ways to package a Spring Boot application?**
+    - **Response**: Spring Boot applications can be packaged as JAR files (standalone executable JAR) or WAR files (deployable to external servers).
+
 89. **What is the role of `SpringApplication` class?**
+    - **Response**: The `SpringApplication` class is used to bootstrap and launch a Spring application from a Java main method. It sets up the application context, auto-configuration, and embedded server.
+
 90. **How do you handle application migrations in Spring Boot?**
+    - **Response**: Application migrations can be handled using database migration tools such as Liquibase or Flyway by configuring them in the Spring Boot application.
 
 ### Advanced Topics
 
 91. **What is Spring Boot DevTools, and how do you use it?**
+    - **Response**: Spring Boot DevTools provides features like automatic restarts, live reload, and configurations for improved development experience. It is used by adding the `spring-boot-devtools` dependency.
+
 92. **How do you handle versioning in a Spring Boot REST API?**
+    - **Response**: Versioning can be handled using URI versioning, request parameter versioning, header versioning, or content negotiation.
+
 93. **What are the common pitfalls in Spring Boot development?**
+    - **Response**: Common pitfalls include improper use of auto-configuration, ignoring security best practices, not handling exceptions correctly, and poor performance tuning.
+
 94. **How do you optimize the performance of a Spring Boot application?**
+    - **Response**: Performance can be optimized by profiling the application, tuning the JVM, optimizing database queries, using caching, and reducing the size of HTTP responses.
+
 95. **What are the best practices for Spring Boot development?**
+    - **Response**: Best practices include following coding standards, using dependency injection, writing unit and integration tests, externalizing configuration, and monitoring the application.
+
 96. **How do you use `Liquibase` or `Flyway` with Spring Boot?**
+    - **Response**: Add the `liquibase-core` or `flyway-core` dependency, create migration scripts, and configure them in `application.properties`.
+
 97. **How do you configure caching in Spring Boot?**
+    - **Response**: Enable caching by adding `@EnableCaching` to the configuration class, configure cache properties in `application.properties`, and use `@Cacheable`, `@CachePut`, and `@CacheEvict` annotations on methods.
+
 98. **What is `Spring Session`, and how do you use it?**
+    - **Response**: Spring Session provides an API and implementations for managing user sessions. It is used to handle session data in a distributed environment and can be integrated by adding the `spring-session` dependency.
+
 99. **How do you handle file uploads in Spring Boot?**
+    - **Response**: Handle file uploads by using the `MultipartFile` interface in a controller method and configuring file upload properties in `application.properties`.
+
 100. **What are the new features introduced in the latest versions of Spring Boot?**
+    - **Response**: New features may include updates to the Spring Framework, improved dependency management, enhanced support for modern cloud platforms, and additional developer tools and configurations. Check the [Spring Boot release notes](https://spring.io/projects/spring-boot#learn) for detailed information on the latest features.
