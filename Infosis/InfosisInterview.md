@@ -97,21 +97,27 @@ class C implements A, B {
    - *A functional interface is an interface with a single abstract method. They are used as the target type for lambda expressions and method references. Examples include `Runnable` and `Callable`.*
 
 13. **Write code to find the second largest number in the array `[1, 2, 3, 4, 5, 2, 4]` using Java 8.**
-   ```java
-   import java.util.Arrays;
-   import java.util.stream.Collectors;
+```java
+ import java.util.Arrays;
+import java.util.Comparator;
 
-   public class SecondLargest {
-       public static void main(String[] args) {
-           int[] numbers = {1, 2, 3, 4, 5, 2, 4};
-           int secondLargest = Arrays.stream(numbers)
-                                      .distinct()
-                                      .sorted()
-                                      .toArray()[numbers.length - 2];
-           System.out.println("Second Largest: " + secondLargest);
-       }
-   }
-   ```
+public class SecondLargestNumber {
+    public static void main(String[] args) {
+        int[] a = {3, 6, 32, 1, 8, 5, 31, 22};
+
+        int secondLargest = Arrays.stream(a)
+                                  .boxed()
+                                  .sorted(Comparator.reverseOrder())
+                                  .distinct()
+                                  .skip(1)
+                                  .findFirst()
+                                  .orElseThrow(() -> new IllegalArgumentException("Array must contain at least two distinct elements"));
+
+        System.out.println("Second Largest Number: " + secondLargest);
+    }
+}
+
+```
    - *This code first removes duplicates, sorts the array, and then retrieves the second last element.*
 
 14. **What is a HashMap?**
