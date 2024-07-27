@@ -42,7 +42,7 @@
    - *No, the `main` method must be static because it is the entry point for the JVM to start the application. Without `static`, the JVM cannot call the method.*
 
 9. **Write a code to move array elements with 0s to the last and explain. arr={1,0,1,1,0,0,1} output={1,1,1,1,0,0,0}**
-   ```java
+```java
    public class MoveZeros {
        public static void moveZeros(int[] arr) {
            int count = 0; // Count of non-zero elements
@@ -56,7 +56,7 @@
            }
        }
    }
-   ```
+ ```
    - *This code iterates through the array, moving all non-zero elements to the front. After that, it fills the remaining positions with zeros.*
 
 10. **Class Inheritance Issue:**
