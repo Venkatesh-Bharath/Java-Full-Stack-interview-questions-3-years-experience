@@ -198,9 +198,7 @@
 29. **What are collections in Java?**
     - Collections in Java are frameworks that provide an architecture to store and manipulate a group of objects. They include interfaces like List, Set, and Map, and classes like ArrayList, HashSet, and HashMap.
 
-30. **Is Set an interface or a class
-
-?**
+30. **Is Set an interface or a class?**
     - `Set` is an interface in Java.
 
 31. **Is LinkedList an interface or a class?**
