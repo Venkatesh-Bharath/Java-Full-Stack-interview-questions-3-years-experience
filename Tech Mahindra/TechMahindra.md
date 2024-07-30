@@ -102,13 +102,27 @@
 
 ### 16. Given two arrays, combine them into a single sorted array.
    ```java
-    public int[] combineAndSort(int[] arr1, int[] arr2) {
-        int[] combined = new int[arr1.length + arr2.length];
-        System.arraycopy(arr1, 0, combined, 0, arr1.length);
-        System.arraycopy(arr2, 0, combined, arr1.length, arr2.length);
-        Arrays.sort(combined);
-        return combined;
+  int[] solution(int[] list1, int[] list2) {
+        
+        int i = 0, j = 0, a = list1.length - 1, b = list2.length - 1;
+        int[] ans = new int[a+1 + b+1];
+        int k = 0;
+        while (i <= a || j <= b) {
+            if (i <= a && j <= b) {
+                if (list1[i] <= list2[j]) {
+                    ans[k++] = list1[i++];
+                } else {
+                    ans[k++] = list2[j++];
+                }
+            } else if (i <= a) {
+                ans[k++] = list1[i++];
+            } else if (j <= b) {
+                ans[k++] = list2[j++];
+            }
+        }
+        return ans;
     }
+
    ```
 
 ### 17. Ladder array code in Java.
