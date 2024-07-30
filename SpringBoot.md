@@ -554,9 +554,7 @@
 64. **What is the use of `MockMvc` in Spring Boot testing?**
     - **Response**: `MockMvc` is used to simulate HTTP requests and test Spring MVC controllers without starting a full HTTP server.
 
-65. **How do you perform integration testing in Spring Boot
-
-?**
+65. **How do you perform integration testing in Spring Boot?**
     - **Response**: Integration testing is performed using `@SpringBootTest` to load the full application context and `TestRestTemplate` for RESTful services.
     - **Example**:
       ```java
