@@ -224,13 +224,11 @@ public class FailSafeExample {
    - *REST APIs are stateless to ensure scalability and reliability. Each request from the client to the server must contain all the information needed to understand and process the request.*
 
 ### Additional Questions
-1. **Tell me about your YouTube channel.**
-   - *[____]*
 
-2. **How do you know .NET?**
+1. **How do you know .NET?**
    - *[_____]*
 
-3. **Can you give an example of where you have used all your technical skills?**
+2. **Can you give an example of where you have used all your technical skills?**
    - *[_____]*
 
 
