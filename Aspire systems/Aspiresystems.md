@@ -383,16 +383,16 @@ class Employee {
            String s2 = "hello";
            String s3 = new String("hello");
    
-           System.out.println(s1 == s2); //true
-           System.out.println(s1 == s3); //false
-           System.out.println(s1.equals(s3)); //true
+           System.out.println(s1 == s2); 
+           System.out.println(s1 == s3);
+           System.out.println(s1.equals(s3)); 
        }
    }
    ```
    Answer:
-   - `System.out.println(s1 == s2); //true` - This is true because `s1` and `s2` refer to the same string literal in the string pool.
-   - `System.out.println(s1 == s3); //false` - This is false because `s3` is created using the `new` keyword, resulting in a different object in memory.
-   - `System.out.println(s1.equals(s3)); //true` - This is true because `equals` compares the content of the strings, which are the same.
+   - `System.out.println(s1 == s2); ` - This is true because `s1` and `s2` refer to the same string literal in the string pool.
+   - `System.out.println(s1 == s3); ` - This is false because `s3` is created using the `new` keyword, resulting in a different object in memory.
+   - `System.out.println(s1.equals(s3));` - This is true because `equals` compares the content of the strings, which are the same.
 
 9. **What will be the output of the following code?**
 
@@ -404,16 +404,17 @@ class Employee {
            String s3 = new String("hello");
            String s4 = s3.intern();
    
-           System.out.println(s1 == s2); //true
-           System.out.println(s1 == s3); //false
-           System.out.println(s1.equals(s3)); //true
-           System.out.println(s1 == s4); //true
+           System.out.println(s1 == s2); 
+           System.out.println(s1 == s3); 
+           System.out.println(s1.equals(s3));
+           System.out.println(s1 == s4); 
        }
    }
    ```
 
    Answer:
-   - `System.out.println(s1 == s2); //true` - This is true because `s1` and `s2` refer to the same string literal in the string pool.
-   - `System.out.println(s1 == s3); //false` - This is false because `s3` is created using the `new` keyword, resulting in a different object in memory.
-   - `System.out.println(s1.equals(s3)); //true` - This is true because `equals` compares the content of the strings, which are the same.
-   - `System.out.println(s1 == s4); //true` - This is true because `s4` is the interned version of `s3`, which points to the string literal in the string pool, the same as `s1`.
+   - `System.out.println(s1 == s2); ` - This is true because `s1` and `s2` refer to the same string literal in the string pool.
+   - `System.out.println(s1 == s3); ` - This is false because `s3` is created using the `new` keyword, resulting in a different object in memory.
+   - `System.out.println(s1.equals(s3)); ` - This is true because `equals` compares the content of the strings, which are the same.
+   - `System.out.println(s1 == s4); ` - This is true because `s4` is the interned version of `s3`, which points to the string literal in the string pool, the same as `s1`.
+   - ` System.out.println(s3 == s4)` s3 is a new String object created with new String(), while s4 is a reference to the string literal in the pool. Therefore, they are different objects.
