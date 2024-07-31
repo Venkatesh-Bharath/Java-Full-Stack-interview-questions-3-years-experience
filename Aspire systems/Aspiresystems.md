@@ -1,3 +1,5 @@
+
+#L1 Interview Questions
 ## Java Questions
 
 1. **Briefly describe your project experience and the versions of languages you used.**
@@ -76,7 +78,7 @@
     }
     ```
 
-17. **Write a code to count all characters in the string "hi am Bharath".**
+17. **Write a code to count every characters in the string "hi am Bharath".**
     ```java
     import java.util.HashMap;
     import java.util.Map;
@@ -262,3 +264,156 @@
     ORDER BY salary DESC
     LIMIT 1 OFFSET 2;
     ```
+    
+# L2 Interview Questions
+
+1. **Self introduction based on project.**
+
+   Answer: " about your project"
+
+2. **Which Java version are you using?**
+
+   Answer: "Before, I was using Java 8, which introduced several important features such as lambda expressions, the Stream API, the new Date-Time API, and the Optional class. These features significantly improved the way we write Java code. Currently, I am using Java 17. Java 17 includes several new features such as pattern matching for switch expressions, sealed classes, records, and the new Date-Time API enhancements. These features provide more concise and expressive syntax, better performance, and enhanced security."
+
+3. **Where did you generate the JWT token?**
+
+   Answer: "In my current project, we generate the JWT token during the user authentication process. The token is generated in the backend service using a secure secret key and is then sent to the client. The client includes this token in the Authorization header of subsequent requests to access protected resources."
+
+4. **How do you provide JWT security in Spring Boot?**
+
+   Answer: "In Spring Boot, we provide JWT security by using Spring Security along with a custom filter that validates the JWT token. The filter intercepts incoming requests, extracts the token from the Authorization header, and validates it. If the token is valid, the filter sets the authentication in the security context, allowing the request to proceed. Additionally, we configure the security settings to protect specific endpoints and ensure only authenticated users can access them."
+
+# Given Code
+```java
+class Employee {
+    private String name;
+    private int id;
+    private String department;
+    private double salary;
+ 
+    public Employee(String name, int id, String department, double salary) {
+        this.name = name;
+        this.id = id;
+        this.department = department;
+        this.salary = salary;
+    }
+ 
+    public String getName() {
+        return name;
+    }
+ 
+    public int getId() {
+        return id;
+    }
+ 
+    public String getDepartment() {
+        return department;
+    }
+ 
+    public double getSalary() {
+        return salary;
+    }
+ 
+    @Override
+    public String toString() {
+        return "Employee{name='" + name + "', id=" + id + ", department='" + department + "', salary=" + salary + "}";
+    }
+}
+
+		ArrayList<Employee> employees = new ArrayList<>();         
+		employees.add(new Employee("Alice", 101, "HR", 50000));     
+		employees.add(new Employee("Bob", 102, "Engineering", 60000));        
+		employees.add(new Employee("Charlie", 103, "Finance", 55000));        
+		employees.add(new Employee("Diana", 104, "Engineering", 62000));
+		
+		
+
+```
+5. **How do you override the hashCode and equals methods in Java?**
+```java
+ @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Employee employee = (Employee) obj;
+        return id == employee.id &&
+               Double.compare(employee.salary, salary) == 0 &&
+               Objects.equals(name, employee.name) &&
+               Objects.equals(department, employee.department);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, id, department, salary);
+    }
+```
+6. **Find department-wise names using streams.**
+
+   ```java
+   Map<String, List<String>> departmentWiseNames = employees.stream()
+       .collect(Collectors.groupingBy(
+           Employee::getDepartment,
+           Collectors.mapping(Employee::getName, Collectors.toList())
+       ));
+
+   departmentWiseNames.forEach((department, names) -> {
+       System.out.println("Department: " + department);
+       System.out.println("Names: " + names);
+   });
+   ```
+
+7. **Find the second highest salary employee using streams.**
+
+   ```java
+   Employee secondHighestSalaryEmployee = employees.stream()
+       .sorted(Comparator.comparingDouble(Employee::getSalary).reversed())
+       .skip(1)
+       .findFirst()
+       .orElse(null);
+   System.out.println("Second Highest Salary Employee: " + secondHighestSalaryEmployee);
+   ```
+
+## String Comparison
+8. **What will be the output of the following code?**
+
+   ```java
+   public class Test {
+       public static void main(String[] args) {
+           String s1 = "hello";
+           String s2 = "hello";
+           String s3 = new String("hello");
+   
+           System.out.println(s1 == s2); //true
+           System.out.println(s1 == s3); //false
+           System.out.println(s1.equals(s3)); //true
+       }
+   }
+   ```
+   Answer:
+   - `System.out.println(s1 == s2); //true` - This is true because `s1` and `s2` refer to the same string literal in the string pool.
+   - `System.out.println(s1 == s3); //false` - This is false because `s3` is created using the `new` keyword, resulting in a different object in memory.
+   - `System.out.println(s1.equals(s3)); //true` - This is true because `equals` compares the content of the strings, which are the same.
+
+9. **What will be the output of the following code?**
+
+   ```java
+   public class Test {
+       public static void main(String[] args) {
+           String s1 = "hello";
+           String s2 = "hello";
+           String s3 = new String("hello");
+           String s4 = s3.intern();
+   
+           System.out.println(s1 == s2); //true
+           System.out.println(s1 == s3); //false
+           System.out.println(s1.equals(s3)); //true
+           System.out.println(s1 == s4); //true
+       }
+   }
+   ```
+
+   Answer:
+   - `System.out.println(s1 == s2); //true` - This is true because `s1` and `s2` refer to the same string literal in the string pool.
+   - `System.out.println(s1 == s3); //false` - This is false because `s3` is created using the `new` keyword, resulting in a different object in memory.
+   - `System.out.println(s1.equals(s3)); //true` - This is true because `equals` compares the content of the strings, which are the same.
+   - `System.out.println(s1 == s4); //true` - This is true because `s4` is the interned version of `s3`, which points to the string literal in the string pool, the same as `s1`.
