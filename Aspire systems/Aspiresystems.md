@@ -417,4 +417,4 @@ class Employee {
    - `System.out.println(s1 == s3); ` - This is false because `s3` is created using the `new` keyword, resulting in a different object in memory.
    - `System.out.println(s1.equals(s3)); ` - This is true because `equals` compares the content of the strings, which are the same.
    - `System.out.println(s1 == s4); ` - This is true because `s4` is the interned version of `s3`, which points to the string literal in the string pool, the same as `s1`.
-   - ` System.out.println(s3 == s4)` s3 is a new String object created with new String(), while s4 is a reference to the string literal in the pool. Therefore, they are different objects.
+   - ` System.out.println(s3 == s4)` This is false because `s3` is a new String object created with `new String()`, while `s4` is a reference to the string literal in the pool. Therefore, they are different objects.
