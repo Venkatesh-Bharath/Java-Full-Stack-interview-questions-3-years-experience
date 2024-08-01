@@ -1195,12 +1195,12 @@
 100. **How do you handle API routes in Next.js?**
     - Define API routes in the `pages/api` directory.
 
-    ```jsx
+```jsx
     // pages/api/hello.js
     export default function handler(req, res) {
       res.status(200).json({ message: 'Hello' });
     }
-    ```
+```
 
 101. **What is the use of the `getStaticPaths` function in Next.js?**
     - `getStaticPaths` defines which dynamic routes to pre-render at build time.
@@ -1221,7 +1221,6 @@
 
 103. **What are API routes in Next.js and how do you use them?**
     - API routes allow serverless functions to handle backend logic within the Next.js application. Define them in the `pages/api` directory.
-
 ```jsx
     // pages/api/hello.js
     export default function handler(req, res) {
@@ -1231,7 +1230,6 @@
 
 104. **How do you use TypeScript with Next.js?**
     - Add TypeScript by installing the necessary packages and creating a `tsconfig.json` file.
-
 ```bash
     npm install --save-dev typescript @types/react @types/node
 ```
