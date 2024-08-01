@@ -1,7 +1,7 @@
 ## Basic Questions
 
 1. **What is React?**
-   React is a JavaScript library for building user interfaces, developed by Facebook. It allows you to build single-page applications with a component-based architecture.
+    - React is a JavaScript library for building user interfaces, developed by Facebook. It allows you to build single-page applications with a component-based architecture.
 
 2. **What are the main features of React?**
    - Component-based architecture
@@ -19,14 +19,14 @@
    - Strong tooling and developer experience
 
 4. **What is JSX?**
-   JSX (JavaScript XML) is a syntax extension for JavaScript that allows you to write HTML-like code within JavaScript. It gets compiled into JavaScript code.
+ - JSX (JavaScript XML) is a syntax extension for JavaScript that allows you to write HTML-like code within JavaScript. It gets compiled into JavaScript code.
 
    ```jsx
    const element = <h1>Hello, world!</h1>;
    ```
 
 5. **How does JSX transform into JavaScript?**
-   JSX is transformed into `React.createElement` calls by Babel. For example:
+   - JSX is transformed into `React.createElement` calls by Babel. For example:
 
    ```jsx
    const element = <h1>Hello, world!</h1>;
@@ -39,7 +39,7 @@
    ```
 
 6. **What are components in React?**
-   Components are the building blocks of a React application. They can be either class-based or functional and manage their own state and lifecycle.
+  - Components are the building blocks of a React application. They can be either class-based or functional and manage their own state and lifecycle.
 
 7. **Explain the difference between functional and class components.**
    - **Class Components**: Have lifecycle methods, `this` context, and can manage state directly.
@@ -60,17 +60,17 @@
    ```
 
 8. **What is the virtual DOM, and how does it work?**
-   The Virtual DOM is an in-memory representation of the actual DOM. React uses it to optimize rendering by updating only the changed parts of the real DOM, which improves performance.
+  - The Virtual DOM is an in-memory representation of the actual DOM. React uses it to optimize rendering by updating only the changed parts of the real DOM, which improves performance.
 
 9. **How do you create a React application?**
-   Use the `create-react-app` command to bootstrap a new React project:
+  - Use the `create-react-app` command to bootstrap a new React project:
 
    ```bash
    npx create-react-app my-app
    ```
 
 10. **What are props in React?**
-    Props (short for properties) are read-only attributes passed to components to configure or customize them.
+    - Props (short for properties) are read-only attributes passed to components to configure or customize them.
 
     ```jsx
     function Greeting(props) {
@@ -82,7 +82,7 @@
     ```
 
 11. **How do you pass data between components?**
-    Pass data through props from a parent component to a child component.
+    - Pass data through props from a parent component to a child component.
 
     ```jsx
     function Parent() {
@@ -95,7 +95,7 @@
     ```
 
 12. **What is state in React?**
-    State is an object that holds data that may change over time and affects how the component renders.
+    - State is an object that holds data that may change over time and affects how the component renders.
 
     ```jsx
     class MyComponent extends React.Component {
@@ -111,7 +111,7 @@
     ```
 
 13. **How do you manage state in a React component?**
-    Use the `useState` hook for functional components or `this.state` and `this.setState` in class components.
+    - Use the `useState` hook for functional components or `this.state` and `this.setState` in class components.
 
     ```jsx
     // Functional Component with useState
@@ -122,7 +122,7 @@
     ```
 
 14. **Explain the lifecycle methods in React.**
-    Lifecycle methods are hooks in class components that allow you to run code at different stages of a component's life:
+    - Lifecycle methods are hooks in class components that allow you to run code at different stages of a component's life:
 
     - `componentDidMount()`
     - `componentDidUpdate()`
@@ -145,10 +145,10 @@
     ```
 
 15. **What are hooks in React?**
-    Hooks are functions that let you use state and other React features in functional components. Examples include `useState`, `useEffect`, and `useContext`.
+    - Hooks are functions that let you use state and other React features in functional components. Examples include `useState`, `useEffect`, and `useContext`.
 
 16. **Explain the useState hook.**
-    The `useState` hook allows you to add state to functional components.
+    - The `useState` hook allows you to add state to functional components.
 
     ```jsx
     function Counter() {
@@ -158,7 +158,7 @@
     ```
 
 17. **Explain the useEffect hook.**
-    The `useEffect` hook allows you to perform side effects in functional components, such as data fetching or subscriptions.
+    - The `useEffect` hook allows you to perform side effects in functional components, such as data fetching or subscriptions.
 
     ```jsx
     useEffect(() => {
@@ -172,7 +172,7 @@
     ```
 
 18. **What is the Context API?**
-    The Context API is a feature in React that allows you to pass data through the component tree without having to pass props manually at every level.
+    - The Context API is a feature in React that allows you to pass data through the component tree without having to pass props manually at every level.
 
     ```jsx
     const MyContext = React.createContext();
@@ -189,7 +189,7 @@
     ```
 
 19. **How do you use the Context API to manage state?**
-    Create a context, provide a value in a provider component, and consume the context in child components.
+    - Create a context, provide a value in a provider component, and consume the context in child components.
 
     ```jsx
     const ThemeContext = React.createContext('light');
@@ -213,7 +213,7 @@
     ```
 
 20. **What are refs in React?**
-    Refs provide a way to access DOM nodes or React elements directly.
+    - Refs provide a way to access DOM nodes or React elements directly.
 
     ```jsx
     class MyComponent extends React.Component {
@@ -233,7 +233,7 @@
     ```
 
 21. **How do you create and use refs?**
-    Use `React.createRef()` in class components or `useRef()` in functional components.
+    - Use `React.createRef()` in class components or `useRef()` in functional components.
 
     ```jsx
     // Functional Component
@@ -249,10 +249,10 @@
     ```
 
 22. **What is React Router?**
-    React Router is a library for handling routing in React applications, allowing you to create single-page applications with navigation.
+    - React Router is a library for handling routing in React applications, allowing you to create single-page applications with navigation.
 
 23. **How do you perform navigation in a React application?**
-    Use the `react-router-dom` library to set up routes and navigation.
+    - Use the `react-router-dom` library to set up routes and navigation.
 
     ```jsx
     import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
@@ -292,7 +292,7 @@
     ```
 
 25. **How do you handle forms in React?**
-    Use controlled components to handle form inputs, or use uncontrolled components with refs.
+    - Use controlled components to handle form inputs, or use uncontrolled components with refs.
 
     ```jsx
     function Form() {
@@ -304,9 +304,7 @@
       };
 
       return (
-        <form onSubmit={handle
-
-Submit}>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             value={inputValue}
@@ -319,7 +317,7 @@ Submit}>
     ```
 
 26. **How do you handle events in React?**
-    Handle events by passing event handler functions as props.
+    - Handle events by passing event handler functions as props.
 
     ```jsx
     function MyButton() {
@@ -332,7 +330,7 @@ Submit}>
     ```
 
 27. **What is a higher-order component (HOC)?**
-    A higher-order component is a function that takes a component and returns a new component with additional props or behavior.
+    - A higher-order component is a function that takes a component and returns a new component with additional props or behavior.
 
     ```jsx
     function withExtraProps(WrappedComponent) {
@@ -343,10 +341,10 @@ Submit}>
     ```
 
 28. **What is the purpose of keys in React?**
-    Keys help React identify which items have changed, are added, or are removed, improving performance in lists.
+    - Keys help React identify which items have changed, are added, or are removed, improving performance in lists.
 
 29. **What is the significance of the key prop?**
-    The `key` prop is used to give elements a stable identity, which helps React efficiently update the UI.
+    - The `key` prop is used to give elements a stable identity, which helps React efficiently update the UI.
 
     ```jsx
     function List({ items }) {
@@ -367,7 +365,7 @@ Submit}>
     - Avoid unnecessary re-renders
 
 31. **What are React fragments?**
-    React fragments allow you to group multiple elements without adding extra nodes to the DOM.
+    - React fragments allow you to group multiple elements without adding extra nodes to the DOM.
 
     ```jsx
     function List() {
@@ -381,7 +379,7 @@ Submit}>
     ```
 
 32. **How do you use React fragments?**
-    Use `<React.Fragment>` or the shorthand `<>` to wrap multiple elements.
+    - Use `<React.Fragment>` or the shorthand `<>` to wrap multiple elements.
 
     ```jsx
     function List() {
@@ -395,10 +393,10 @@ Submit}>
     ```
 
 33. **What is the difference between React.Fragment and a regular HTML element?**
-    React.Fragment does not create an additional DOM node, while a regular HTML element does.
+    - React.Fragment does not create an additional DOM node, while a regular HTML element does.
 
 34. **What are error boundaries in React?**
-    Error boundaries are components that catch JavaScript errors in their child components, log those errors, and display a fallback UI.
+    - Error boundaries are components that catch JavaScript errors in their child components, log those errors, and display a fallback UI.
 
     ```jsx
     class ErrorBoundary extends React.Component {
@@ -425,7 +423,7 @@ Submit}>
     ```
 
 35. **How do you implement an error boundary in React?**
-    Wrap your components with the error boundary component.
+    - Wrap your components with the error boundary component.
 
     ```jsx
     function App() {
@@ -438,7 +436,7 @@ Submit}>
     ```
 
 36. **What is PropTypes in React?**
-    PropTypes is a type-checking library for React props. It helps in validating the types of props passed to components.
+    - PropTypes is a type-checking library for React props. It helps in validating the types of props passed to components.
 
     ```jsx
     import PropTypes from 'prop-types';
@@ -453,7 +451,7 @@ Submit}>
     ```
 
 37. **How do you validate props using PropTypes?**
-    Define `propTypes` on the component to specify the expected types of props.
+    - Define `propTypes` on the component to specify the expected types of props.
 
     ```jsx
     MyComponent.propTypes = {
@@ -467,7 +465,7 @@ Submit}>
     - **State**: Managed within a component, mutable and can change over time.
 
 39. **How do you use default props in React?**
-    Define `defaultProps` on the component to set default values for props.
+    - Define `defaultProps` on the component to set default values for props.
 
     ```jsx
     function MyComponent({ name }) {
@@ -480,7 +478,7 @@ Submit}>
     ```
 
 40. **What are React Portals?**
-    Portals provide a way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+    - Portals provide a way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
 
     ```jsx
     import ReactDOM from 'react-dom';
@@ -494,7 +492,7 @@ Submit}>
     ```
 
 41. **How do you create a portal in React?**
-    Use `ReactDOM.createPortal` to render children into a different part of the DOM.
+    - Use `ReactDOM.createPortal` to render children into a different part of the DOM.
 
     ```jsx
     function Modal({ children }) {
@@ -506,14 +504,14 @@ Submit}>
     ```
 
 42. **What is server-side rendering (SSR)?**
-    SSR is the process of rendering a React application on the server and sending the HTML to the client. It improves performance and SEO.
+    - SSR is the process of rendering a React application on the server and sending the HTML to the client. It improves performance and SEO.
 
 43. **How does SSR differ from client-side rendering?**
     - **SSR**: Renders content on the server before sending it to the client.
     - **CSR**: Renders content on the client side using JavaScript.
 
 44. **What is the purpose of Redux in React?**
-    Redux is a state management library that helps manage and centralize application state in a predictable way.
+    - Redux is a state management library that helps manage and centralize application state in a predictable way.
 
 45. **Explain the basic concepts of Redux.**
     - **Store**: Holds the state of the application.
@@ -523,7 +521,7 @@ Submit}>
     - **Selectors**: Functions to retrieve data from the store.
 
 46. **How do you connect Redux with a React application?**
-    Use the `react-redux` library's `Provider` and `connect` functions.
+    - Use the `react-redux` library's `Provider` and `connect` functions.
 
     ```jsx
     import { Provider, connect } from 'react-redux';
@@ -553,7 +551,7 @@ Submit}>
     - **Context API**: Simpler, built into React, suitable for small to medium-sized applications or specific use cases.
 
 48. **What is React.memo?**
-    `React.memo` is a higher-order component that memoizes functional components to prevent unnecessary re-renders.
+    - `React.memo` is a higher-order component that memoizes functional components to prevent unnecessary re-renders.
 
     ```jsx
     const MyComponent = React.memo(function ({ value }) {
@@ -562,7 +560,7 @@ Submit}>
     ```
 
 49. **How do you use React.memo to optimize performance?**
-    Wrap a functional component with `React.memo` to avoid re-rendering when props haven’t changed.
+    - Wrap a functional component with `React.memo` to avoid re-rendering when props haven’t changed.
 
     ```jsx
     const MyComponent = React.memo(function ({ value }) {
@@ -571,7 +569,7 @@ Submit}>
     ```
 
 50. **Explain the useCallback hook.**
-    `useCallback` returns a memoized callback function that only changes if one of the dependencies has changed.
+    - `useCallback` returns a memoized callback function that only changes if one of the dependencies has changed.
 
     ```jsx
     function MyComponent() {
@@ -585,10 +583,10 @@ Submit}>
     }
     ```
 
-### Intermediate Questions
+## Intermediate Questions
 
 51. **What is React.lazy?**
-    `React.lazy` is a function that allows you to dynamically import a component, enabling code splitting.
+    - `React.lazy` is a function that allows you to dynamically import a component, enabling code splitting.
 
     ```jsx
     const LazyComponent = React.lazy(() => import('./LazyComponent'));
@@ -603,7 +601,7 @@ Submit}>
     ```
 
 52. **How do you implement lazy loading in React?**
-    Use `React.lazy` with `React.Suspense` to load components only when they are needed.
+    - Use `React.lazy` with `React.Suspense` to load components only when they are needed.
 
     ```jsx
     const LazyComponent = React.lazy(() => import('./LazyComponent'));
@@ -618,9 +616,7 @@ Submit}>
     ```
 
 53. **What is the Suspense component?**
-
-
-    `Suspense` is a component that lets you define a loading state while waiting for lazy-loaded components to be ready.
+    - `Suspense` is a component that lets you define a loading state while waiting for lazy-loaded components to be ready.
 
     ```jsx
     function App() {
@@ -633,7 +629,7 @@ Submit}>
     ```
 
 54. **How do you use the Suspense component with React.lazy?**
-    Wrap `React.lazy` components with `Suspense` to provide a loading fallback.
+    - Wrap `React.lazy` components with `Suspense` to provide a loading fallback.
 
     ```jsx
     const LazyComponent = React.lazy(() => import('./LazyComponent'));
@@ -652,7 +648,7 @@ Submit}>
     - **Dynamic imports**: A JavaScript feature to load modules asynchronously.
 
 56. **How do you handle side effects in a React application?**
-    Use the `useEffect` hook to handle side effects like data fetching, subscriptions, and manual DOM manipulations.
+    - Use the `useEffect` hook to handle side effects like data fetching, subscriptions, and manual DOM manipulations.
 
     ```jsx
     useEffect(() => {
@@ -662,7 +658,7 @@ Submit}>
     ```
 
 57. **What is the useReducer hook?**
-    `useReducer` is a hook for managing complex state logic with actions and reducers, similar to Redux.
+    - `useReducer` is a hook for managing complex state logic with actions and reducers, similar to Redux.
 
     ```jsx
     const initialState = { count: 0 };
@@ -691,10 +687,10 @@ Submit}>
     ```
 
 58. **How does useReducer differ from useState?**
-    `useReducer` is more suited for complex state logic involving multiple sub-values or when the next state depends on the previous one. `useState` is simpler and better for managing basic state.
+    - `useReducer` is more suited for complex state logic involving multiple sub-values or when the next state depends on the previous one. `useState` is simpler and better for managing basic state.
 
 59. **How do you use custom hooks in React?**
-    Create a custom hook by encapsulating reusable logic in a function prefixed with `use`.
+    - Create a custom hook by encapsulating reusable logic in a function prefixed with `use`.
 
     ```jsx
     function useCustomHook() {
@@ -718,7 +714,7 @@ Submit}>
     ```
 
 60. **How do you create a custom hook?**
-    Define a function that uses React hooks and returns values or functions for use in other components.
+    - Define a function that uses React hooks and returns values or functions for use in other components.
 
     ```jsx
     function useFetch(url) {
@@ -739,7 +735,7 @@ Submit}>
     ```
 
 61. **What are compound components?**
-    Compound components are a pattern where multiple components work together to form a unified UI component.
+    - Compound components are a pattern where multiple components work together to form a unified UI component.
 
     ```jsx
     function Tabs({ children }) {
@@ -775,7 +771,7 @@ Submit}>
     ```
 
 62. **How do you implement compound components?**
-    Use a parent component to manage state and pass it down to child components to control their behavior.
+    - Use a parent component to manage state and pass it down to child components to control their behavior.
 
     ```jsx
     function Tabs({ children }) {
@@ -802,7 +798,7 @@ Submit}>
     - **Function-based components**: Use hooks like `useEffect` to handle lifecycle events.
 
 64. **How do you handle authentication in a React application?**
-    Use context or state management libraries to manage authentication status and protect routes.
+    - Use context or state management libraries to manage authentication status and protect routes.
 
     ```jsx
     function AuthProvider({ children }) {
@@ -819,7 +815,7 @@ Submit}>
     ```
 
 65. **What are render props?**
-    Render props are a pattern where a component uses a function prop to know what to render.
+    - Render props are a pattern where a component uses a function prop to know what to render.
 
     ```jsx
     function DataProvider({ render }) {
@@ -843,7 +839,7 @@ Submit}>
     ```
 
 66. **How do you use render props in React?**
-    Pass a function as a prop to a component and use it to render different content based on state or props.
+    - Pass a function as a prop to a component and use it to render different content based on state or props.
 
     ```jsx
     function DataProvider({ render }) {
@@ -860,10 +856,10 @@ Submit}>
     ```
 
 67. **What is the Context API, and how does it replace Redux in certain scenarios?**
-    The Context API provides a way to pass data through the component tree without having to pass props down manually at every level. It can replace Redux for simpler state management needs.
+    - The Context API provides a way to pass data through the component tree without having to pass props down manually at every level. It can replace Redux for simpler state management needs.
 
 68. **How do you handle file uploads in React?**
-    Use the `input` element of type `file` to select files and handle them with an `onChange` event.
+    - Use the `input` element of type `file` to select files and handle them with an `onChange` event.
 
     ```jsx
     function FileUpload() {
@@ -877,10 +873,10 @@ Submit}>
     ```
 
 69. **What are code splitting and lazy loading in React?**
-    Code splitting is a technique to split code into smaller bundles, which can be loaded on demand. Lazy loading is a way to defer the loading of components until they are needed.
+    - Code splitting is a technique to split code into smaller bundles, which can be loaded on demand. Lazy loading is a way to defer the loading of components until they are needed.
 
 70. **How do you implement code splitting?**
-    Use `React.lazy` and `React.Suspense` to load components only when needed.
+    - Use `React.lazy` and `React.Suspense` to load components only when needed.
 
     ```jsx
     const LazyComponent = React.lazy(() => import('./LazyComponent'));
@@ -895,7 +891,7 @@ Submit}>
     ```
 
 71. **How do you test React components?**
-    Use testing libraries like `React Testing Library` and `Jest` to write unit tests and integration tests.
+    - Use testing libraries like `React Testing Library` and `Jest` to write unit tests and integration tests.
 
     ```jsx
     import { render, screen } from '@testing-library/react';
@@ -913,13 +909,13 @@ Submit}>
     - **End-to-end tests**: Test the entire application flow.
 
 73. **What is the purpose of the React Developer Tools?**
-    React Developer Tools helps inspect the React component tree, view props and state, and debug performance issues.
+    - React Developer Tools helps inspect the React component tree, view props and state, and debug performance issues.
 
 74. **How do you use the React Developer Tools?**
-    Install the React Developer Tools extension for your browser and use it to inspect React components and their state.
+    - Install the React Developer Tools extension for your browser and use it to inspect React components and their state.
 
 75. **How do you handle errors in a React application?**
-    Use error boundaries to catch and handle errors in the component tree.
+    - Use error boundaries to catch and handle errors in the component tree.
 
     ```jsx
     function App() {
@@ -932,9 +928,7 @@ Submit}>
     ```
 
 76. **How do you use the ErrorBoundary component?**
-    Wrap your components with an `ErrorBoundary` to
-
- catch and handle errors.
+    - Wrap your components with an `ErrorBoundary` to catch and handle errors.
 
     ```jsx
     class ErrorBoundary extends React.Component {
@@ -966,7 +960,7 @@ Submit}>
     - **Uncontrolled components**: Manage form data using the DOM directly.
 
 78. **How do you handle forms in React?**
-    Use controlled components to manage form inputs with React state.
+    - Use controlled components to manage form inputs with React state.
 
     ```jsx
     function MyForm() {
@@ -991,10 +985,10 @@ Submit}>
     ```
 
 79. **What are pure components in React?**
-    Pure components only re-render when their props or state change, optimizing performance by avoiding unnecessary renders.
+    - Pure components only re-render when their props or state change, optimizing performance by avoiding unnecessary renders.
 
 80. **How do you implement a pure component in React?**
-    Use `React.PureComponent` or `React.memo` for function components.
+    - Use `React.PureComponent` or `React.memo` for function components.
 
     ```jsx
     class MyPureComponent extends React.PureComponent {
@@ -1007,7 +1001,7 @@ Submit}>
     ```
 
 81. **What is the use of the useRef hook?**
-    `useRef` returns a mutable object whose `.current` property is initialized with the passed argument and persists for the full lifetime of the component.
+    - `useRef` returns a mutable object whose `.current` property is initialized with the passed argument and persists for the full lifetime of the component.
 
     ```jsx
     const inputRef = useRef(null);
@@ -1020,7 +1014,7 @@ Submit}>
     ```
 
 82. **How do you use the useImperativeHandle hook?**
-    Customize the instance value exposed when using `ref` with `forwardRef`.
+    - Customize the instance value exposed when using `ref` with `forwardRef`.
 
     ```jsx
     const FancyInput = React.forwardRef((props, ref) => {
@@ -1035,10 +1029,10 @@ Submit}>
     ```
 
 83. **How do you optimize performance in React applications?**
-    Use techniques like memoization (`React.memo`, `useMemo`), lazy loading, code splitting, and optimizing rendering with `shouldComponentUpdate` or `React.PureComponent`.
+    - Use techniques like memoization (`React.memo`, `useMemo`), lazy loading, code splitting, and optimizing rendering with `shouldComponentUpdate` or `React.PureComponent`.
 
 84. **How do you use memoization in React?**
-    Use `React.memo` for components and `useMemo` for values to prevent unnecessary re-renders.
+    - Use `React.memo` for components and `useMemo` for values to prevent unnecessary re-renders.
 
     ```jsx
     const MemoizedComponent = React.memo(function Component(props) {
@@ -1064,7 +1058,7 @@ Submit}>
     ```
 
 87. **How do you handle state updates in functional components?**
-    Use the `useState` hook to manage and update state.
+    - Use the `useState` hook to manage and update state.
 
     ```jsx
     const [state, setState] = useState(initialState);
@@ -1079,7 +1073,7 @@ Submit}>
     - **`useLayoutEffect`**: Runs synchronously after all DOM mutations, useful for layout calculations.
 
 89. **How do you use `useEffect` for cleanup?**
-    Return a cleanup function from `useEffect` to handle resource cleanup.
+    - Return a cleanup function from `useEffect` to handle resource cleanup.
 
     ```jsx
     useEffect(() => {
@@ -1092,7 +1086,7 @@ Submit}>
     ```
 
 90. **How do you handle asynchronous operations in useEffect?**
-    Use an asynchronous function inside `useEffect` or handle promises with `then`/`catch`.
+    - Use an asynchronous function inside `useEffect` or handle promises with `then`/`catch`.
 
     ```jsx
     useEffect(() => {
@@ -1107,14 +1101,14 @@ Submit}>
     ```
 
 91. **What is the purpose of the useContext hook?**
-    `useContext` provides a way to access the context value directly without needing to use a Consumer component.
+    - `useContext` provides a way to access the context value directly without needing to use a Consumer component.
 
     ```jsx
     const value = useContext(MyContext);
     ```
 
 92. **How do you use useContext with a Context Provider?**
-    Wrap components with a `Context.Provider` and use `useContext` to access the context value.
+    - Wrap components with a `Context.Provider` and use `useContext` to access the context value.
 
     ```jsx
     const MyContext = React.createContext();
@@ -1134,7 +1128,7 @@ Submit}>
     ```
 
 93. **What is the purpose of the `useImperativeHandle` hook?**
-    `useImperativeHandle` customizes the instance value exposed to parent components when using `ref`.
+    - `useImperativeHandle` customizes the instance value exposed to parent components when using `ref`.
 
     ```jsx
     useImperativeHandle(ref, () => ({
@@ -1143,7 +1137,7 @@ Submit}>
     ```
 
 94. **How do you implement server-side rendering with React?**
-    Use frameworks like Next.js or libraries like `react-dom/server` to render React components to HTML on the server.
+    - Use frameworks like Next.js or libraries like `react-dom/server` to render React components to HTML on the server.
 
     ```jsx
     import React from 'react';
@@ -1154,17 +1148,17 @@ Submit}>
     ```
 
 95. **What is Next.js and how does it enhance React applications?**
-    Next.js is a React framework for server-side rendering, static site generation, and routing. It simplifies building production-ready React applications with optimized performance and SEO.
+    - Next.js is a React framework for server-side rendering, static site generation, and routing. It simplifies building production-ready React applications with optimized performance and SEO.
 
 96. **How do you set up a Next.js project?**
-    Use the `create-next-app` command to initialize a Next.js project.
+    - Use the `create-next-app` command to initialize a Next.js project.
 
     ```bash
     npx create-next-app my-next-app
     ```
 
 97. **How do you create dynamic routes in Next.js?**
-    Use file-based routing with dynamic segments in the `pages` directory.
+    - Use file-based routing with dynamic segments in the `pages` directory.
 
     ```jsx
     // pages/[id].js
@@ -1179,7 +1173,7 @@ Submit}>
     ```
 
 98. **What is static site generation (SSG) and how do you implement it in Next.js?**
-    SSG generates HTML at build time. Use `getStaticProps` to fetch data and generate static pages.
+    - SSG generates HTML at build time. Use `getStaticProps` to fetch data and generate static pages.
 
     ```jsx
     export async function getStaticProps() {
@@ -1189,7 +1183,7 @@ Submit}>
     ```
 
 99. **What is server-side rendering (SSR) and how do you implement it in Next.js?**
-    SSR generates HTML on each request. Use `getServerSideProps` to fetch data on each request.
+    - SSR generates HTML on each request. Use `getServerSideProps` to fetch data on each request.
 
     ```jsx
     export async function getServerSideProps(context) {
@@ -1199,7 +1193,7 @@ Submit}>
     ```
 
 100. **How do you handle API routes in Next.js?**
-    Define API routes in the `pages/api` directory.
+    - Define API routes in the `pages/api` directory.
 
     ```jsx
     // pages/api/hello.js
@@ -1209,7 +1203,7 @@ Submit}>
     ```
 
 101. **What is the use of the `getStaticPaths` function in Next.js?**
-    `getStaticPaths` defines which dynamic routes to pre-render at build time.
+    - `getStaticPaths` defines which dynamic routes to pre-render at build time.
 
     ```jsx
     export async function getStaticPaths() {
@@ -1219,16 +1213,14 @@ Submit}>
     ```
 
 102. **How do you handle environment variables in Next.js?**
-    Define environment variables in `.env.local` and access them using `process.env`.
+    - Define environment variables in `.env.local` and access them using `process.env`.
 
     ```jsx
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     ```
 
-103. **What are API routes in Next.js
-
- and how do you use them?**
-    API routes allow serverless functions to handle backend logic within the Next.js application. Define them in the `pages/api` directory.
+103. **What are API routes in Next.js and how do you use them?**
+    - API routes allow serverless functions to handle backend logic within the Next.js application. Define them in the `pages/api` directory.
 
     ```jsx
     // pages/api/hello.js
@@ -1238,7 +1230,7 @@ Submit}>
     ```
 
 104. **How do you use TypeScript with Next.js?**
-    Add TypeScript by installing the necessary packages and creating a `tsconfig.json` file.
+    - Add TypeScript by installing the necessary packages and creating a `tsconfig.json` file.
 
     ```bash
     npm install --save-dev typescript @types/react @types/node
