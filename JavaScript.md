@@ -313,7 +313,7 @@
 
 34. **What is prototype inheritance?**
    - Prototype inheritance is a feature in JavaScript where objects inherit properties and methods from other objects.
-   ```javascript
+```javascript
     function Person(name) {
       this.name = name;
     }
@@ -333,19 +333,19 @@
 
 37. **What are pure functions?**
    - Pure functions are functions that always produce the same output for the same input and have no side effects.
-   ```javascript
+```javascript
     function add(a, b) {
       return a + b;
     }
-   ```
+```
 
 38. **What is the concept of immutability in JavaScript?**
    - Immutability means that an object cannot be modified after it is created. Instead of modifying an object, a new object is created with the desired changes.
-   ```javascript
+```javascript
     const obj = { a: 1 };
     const newObj = { ...obj, b: 2 };
     console.log(newObj); // { a: 1, b: 2 }
-   ```
+```
 
 39. **Explain the concept of `strict mode`.**
    - `Strict mode` is a way to opt into a restricted variant of JavaScript, which helps catch common coding mistakes and "unsafe" actions.
@@ -447,7 +447,7 @@
  ```
 
 45. **What are service workers?**
-    Service workers are scripts that run in the background, separate from the web page, enabling features such as background sync, push notifications, and offline caching.
+    - Service workers are scripts that run in the background, separate from the web page, enabling features such as background sync, push notifications, and offline caching.
 ```javascript
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js')
@@ -530,59 +530,59 @@
 
 52. **What is the concept of dynamic typing?**
      - Dynamic typing means that the type of a variable is determined at runtime and can change during the execution of a program.
-  ```javascript
+```javascript
     let variable = 42;
     variable = 'Hello';
-   ```
+```
 
 53. **How does type coercion work in JavaScript?**
     - Type coercion is the automatic or implicit conversion of values from one data type to another.
-   ```javascript
+```javascript
     console.log(5 + '5'); // '55' (number to string)
     console.log('5' - 3); // 2 (string to number)
-   ```
+```
 
 54. **What are the new features introduced in ECMAScript 6 (ES6)?**
     - ES6 introduced several new features such as arrow functions, classes, template literals, destructuring assignment, `let` and `const`, default parameters, rest and spread operators, promises, and more.
 
 55. **What are promises, and how do they work?**
    - Promises are objects representing the eventual completion or failure of an asynchronous operation. They have three states: pending, fulfilled, and rejected.
-   ```javascript
+```javascript
     const promise = new Promise((resolve, reject) => {
       setTimeout(() => resolve('Data'), 1000);
     });
     promise.then(data => console.log(data)); // Data
-   ```
+```
 
 56. **How do you handle multiple promises in JavaScript?**
     - Multiple promises can be handled using `Promise.all` or `Promise.race`.
-   ```javascript
+```javascript
     const promise1 = Promise.resolve('First');
     const promise2 = Promise.resolve('Second');
 
     Promise.all([promise1, promise2]).then(values => {
       console.log(values); // ['First', 'Second']
     });
-   ```
+```
 
 57. **What is the `Promise.all` method?**
     - `Promise.all` takes an iterable of promises and returns a single promise that resolves when all the promises in the iterable have resolved.
-    ```javascript
+```javascript
     Promise.all([promise1, promise2])
       .then(values => console.log(values))
       .catch(error => console.error(error));
-    ```
+```
 
 58. **What is the `Promise.race` method?**
     - `Promise.race` takes an iterable of promises and returns a single promise that resolves or rejects as soon as one of the promises in the iterable resolves or rejects.
-   ```javascript
+```javascript
     Promise.race([promise1, promise2])
       .then(value => console.log(value))
       .catch(error => console.error(error));
-   ```
+```
 
 59. **How do you create a custom promise?**
-   ```javascript
+```javascript
     const customPromise = new Promise((resolve, reject) => {
       setTimeout(() => {
         const success = true;
@@ -598,11 +598,11 @@
       result => console.log(result),
       error => console.log(error)
     );
-   ```
+```
 
 60. **What is the purpose of the `Proxy` object?**
   - A `Proxy` object allows you to create an object that can redefine fundamental operations like property lookup, assignment, enumeration, function invocation, etc.
-   ```javascript
+```javascript
     const target = {};
     const handler = {
       get: function(obj, prop) {
@@ -611,7 +611,7 @@
     };
     const proxy = new Proxy(target, handler);
     console.log(proxy.nonExistentProperty); // 'default'
-  ```
+```
 
 61. **How do you create a proxy in JavaScript?**
 ```javascript
@@ -631,7 +631,7 @@
     console.log(Reflect.get(obj, 'x')); // 1
     Reflect.set(obj, 'x', 42);
     console.log(obj.x); // 42
- ```
+```
 
 63. **How does the `Reflect` API differ from normal object operations?**
    - The `Reflect` API methods provide the same functionality as proxy traps and can be used to modify the default behavior of these traps.
@@ -647,12 +647,12 @@
 
 67. **How do you prevent default behavior in an event?**
    - The `preventDefault` method prevents the default action of an event from being executed.
-   ```javascript
+```javascript
     document.querySelector('form').addEventListener('submit', function(event) {
       event.preventDefault();
       console.log('Form submission prevented');
     });
-   ```
+```
 
 68. **What is event bubbling and event capturing?**
     - Event bubbling: Events propagate from the target element up to the root.
@@ -660,12 +660,12 @@
 
 69. **How do you stop event propagation?**
     - The `stopPropagation` method stops the event from propagating further.
-   ```javascript
+```javascript
     document.querySelector('button').addEventListener('click', function(event) {
       event.stopPropagation();
       console.log('Event propagation stopped');
     });
-   ```
+```
 
 70. **What are custom events in JavaScript?**
    - Custom events are user-defined events that can be dispatched and listened to.
@@ -675,13 +675,13 @@
       console.log(e.detail.someData);
     });
     document.dispatchEvent(event); // data
- ```
+```
 
 ## Expert Questions
 
 71. **What are WebSockets?**
    - WebSockets provide a way to open a persistent connection between a client and server for real-time communication.
-   ```javascript
+```javascript
     const socket = new WebSocket('ws://example.com/socket');
     socket.onopen = function(event) {
       socket.send('Hello Server!');
@@ -689,7 +689,7 @@
     socket.onmessage = function(event) {
       console.log('Message from server:', event.data);
     };
-   ```
+```
 
 72. **How do you implement real-time communication in JavaScript?**
    - Real-time communication can be implemented using WebSockets, Server-Sent Events (SSE), or third-party libraries like Socket.io.
@@ -714,7 +714,7 @@
 
 74. **How do you store data in the browser?**
     - Data can be stored in the browser using cookies, local storage, and session storage.
-   ```javascript
+```javascript
     // Local storage
     localStorage.setItem('key', 'value');
     console.log(localStorage.getItem('key')); // value
@@ -722,7 +722,7 @@
     // Session storage
     sessionStorage.setItem('key', 'value');
     console.log(sessionStorage.getItem('key')); // value
-   ```
+```
 
 75. **What are the security concerns with storing data in cookies?**
     - Cookies can be intercepted during transmission.
@@ -736,25 +736,25 @@
 
 77. **How do you use regular expressions for pattern matching?**
     - Regular expressions can be used with methods like `test`, `exec`, `match`, `replace`, `search`, and `split`.
-   ```javascript
+```javascript
     const regex = /hello/;
     console.log(regex.test('hello world')); // true
     console.log('hello world'.match(regex)); // ['hello']
-   ```
+```
 
 78. **What is the purpose of the `exec` method in regular expressions?**
     - The `exec` method executes a search for a match in a specified string and returns an array of matched results or `null` if no match is found.
-   ```javascript
+```javascript
     const regex = /hello/;
     const result = regex.exec('hello world');
     console.log(result); // ['hello']
-   ```
+```
 
 79. **What is the `RegExp` constructor?**
     - The `RegExp` constructor creates a regular expression object for matching text with a pattern.
-   ```javascript
+```javascript
     const regex = new RegExp('pattern', 'flags');
-   ```
+```
 
 80. **What is the difference between `let` and `var` in terms of scope?**
     - `let`: Block-scoped, not hoisted to the top of their block.
@@ -762,46 +762,46 @@
 
 81. **How does the `const` keyword work in JavaScript?**
     - `const` declares block-scoped constants. The value of a `const` variable cannot be changed through reassignment, but the variable itself is not immutable.
-   ```javascript
+```javascript
     const obj = { key: 'value' };
     obj.key = 'new value'; // This is allowed
     obj = {}; // This will cause an error
-   ```
+```
 
 82. **What is destructuring assignment?**
    - Destructuring assignment is a syntax that allows unpacking values from arrays or properties from objects into distinct variables.
-   ```javascript
+```javascript
     const [a, b] = [1, 2];
     const { x, y } = { x: 10, y: 20 };
-   ```
+```
 
 83. **What are template literals?**
     - Template literals are string literals allowing embedded expressions and multi-line strings, using backticks (``) instead of single or double quotes.
-   ```javascript
+```javascript
     const name = 'John';
     const greeting = `Hello, ${name}!`;
-   ```
+```
 
 84. **What is the rest operator, and how is it used?**
     - The rest operator (`...`) allows you to represent an indefinite number of arguments as an array.
-    ```javascript
+```javascript
     function sum(...numbers) {
       return numbers.reduce((acc, num) => acc + num, 0);
     }
     console.log(sum(1, 2, 3)); // 6
-    ```
+```
 
 85. **What is the spread operator, and how is it used?**
     - The spread operator (`...`) allows an iterable to expand in places where 0+ arguments are expected.
-    ```javascript
+```javascript
     const arr1 = [1, 2, 3];
     const arr2 = [...arr1, 4, 5];
     console.log(arr2); // [1, 2, 3, 4, 5]
-    ```
+```
 
 86. **What is a `class` in JavaScript?**
    - A `class` is a blueprint for creating objects with predefined properties and methods.
-   ```javascript
+```javascript
     class Person {
       constructor(name, age) {
         this.name = name;
@@ -811,10 +811,10 @@
         console.log(`Hello, my name is ${this.name}`);
       }
     }
-   ```
+```
 
 87. **How do you create and use classes in JavaScript?**
-    ```javascript
+```javascript
     class Person {
       constructor(name, age) {
         this.name = name;
@@ -826,11 +826,11 @@
     }
     const person = new Person('John', 30);
     person.greet(); // Hello, my name is John
-    ```
+```
 
 88. **What are class inheritance and the `extends` keyword?**
    - Class inheritance allows one class to inherit properties and methods from another class using the `extends` keyword.
-   ```javascript
+```javascript
     class Animal {
       constructor(name) {
         this.name = name;
@@ -846,11 +846,11 @@
     }
     const dog = new Dog('Rex');
     dog.speak(); // Rex barks
-   ```
+```
 
 89. **What are getters and setters in JavaScript classes?**
    - Getters and setters are special methods that get or set the value of a property.
-   ```javascript
+```javascript
     class Person {
       constructor(name) {
         this._name = name;
@@ -866,22 +866,22 @@
     console.log(person.name); // John
     person.name = 'Doe';
     console.log(person.name); // Doe
-   ```
+```
 
 90. **What are static methods in JavaScript classes?**
    - Static methods are defined on the class itself, not on instances of the class.
-   ```javascript
+```javascript
     class MathUtils {
       static add(a, b) {
         return a + b;
       }
     }
     console.log(MathUtils.add(1, 2)); // 3
-   ```
+```
 
 91. **How do you create a module in JavaScript?**
     - Modules are created by exporting variables, functions, or classes from a file and importing them into another file.
-    ```javascript
+```javascript
     // math.js
     export function add(a, b) {
       return a + b;
@@ -890,22 +890,22 @@
     // main.js
     import { add } from './math.js';
     console.log(add(2, 3)); // 5
-    ```
+```
 
 92. **What is the purpose of `export` and `import` statements?**
    - The `export` statement is used to export functions, objects, or primitives from a module, while the `import` statement is used to import them into other modules.
-   ```javascript
+```javascript
     // module.js
     export const name = 'John';
 
     // main.js
     import { name } from './module.js';
     console.log(name); // John
-   ```
+```
 
 93. **What is the default export, and how is it used?**
     - The default export is used to export a single value from a module. It can be imported without curly braces.
-    ```javascript
+```javascript
     // module.js
     export default function greet() {
       console.log('Hello');
@@ -914,12 +914,12 @@
     // main.js
     import greet from './module.js';
     greet(); // Hello
-    ```
+```
 
 94. **What is the difference between named exports and default exports?**
     - Named exports: Export multiple values, must be imported using the same name.
     - Default exports: Export a single value, can be imported with any name.
-    ```javascript
+```javascript
     // named exports
     export const name = 'John';
     export function greet() {
@@ -930,11 +930,11 @@
     export default function greet() {
       console.log('Hello');
     }
-    ```
+```
 
 95. **How do you handle exceptions in JavaScript?**
    - Exceptions can be handled using `try`, `catch`, `finally`, and `throw` statements.
-   ```javascript
+```javascript
     try {
       throw new Error('Something went wrong');
     } catch (error) {
@@ -942,11 +942,11 @@
     } finally {
       console.log('This will always execute');
     }
-   ```
+```
 
 96. **What is the purpose of the `finally` block?**
    - The `finally` block contains code that will be executed regardless of whether an exception is thrown or not.
-   ```javascript
+```javascript
     try {
       console.log('Try block');
     } catch (error) {
@@ -954,11 +954,11 @@
     } finally {
       console.log('Finally block');
     }
-   ```
+```
 
 97. **How do you throw custom errors in JavaScript?**
     - Custom errors can be thrown using the `throw` statement with an instance of the `Error` class or a custom error class.
-    ```javascript
+   ```javascript
     class CustomError extends Error {
       constructor(message) {
         super(message);
@@ -966,28 +966,28 @@
       }
     }
     throw new CustomError('This is a custom error');
-    ```
+   ```
 
 98. **What are async functions, and how do they work?**
     Async functions are functions that return a promise. They can be paused using the `await` keyword.
-    ```javascript
+```javascript
     async function fetchData() {
       const response = await fetch('https://api.example.com/data');
       const data = await response.json();
       console.log(data);
     }
-    ```
+```
 
 99. **How do you use the `await` keyword?**
     - The `await` keyword is used to wait for a promise to resolve or reject within an async function.
-    ```javascript
+   ```javascript
     async function getData() {
       const response = await fetch('https://api.example.com/data');
       const data = await response.json();
       return data;
     }
     getData().then(data => console.log(data));
-    ```
+   ```
 
 100. **What are the differences between classical inheritance and prototypal inheritance?**
     - Classical inheritance: Objects inherit from classes, typically seen in languages like Java.
