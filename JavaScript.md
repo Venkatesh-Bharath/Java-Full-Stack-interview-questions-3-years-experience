@@ -39,11 +39,11 @@
 
 7. **How does the `map` function work?**
   - The `map` method creates a new array populated with the results of calling a provided function on every element in the calling array.
-   ```javascript
+ ```javascript
    const array = [1, 2, 3];
    const newArray = array.map(element => element * 2);
    console.log(newArray); // [2, 4, 6]
-   ```
+ ```
 
 8. **What is the difference between `==` and `===`?**
    - `==`: Abstract equality comparison (checks for value equality, performs type coercion if necessary).
@@ -51,7 +51,7 @@
 
 9. **What is a closure in JavaScript?**
    - A closure is a function that retains access to its outer scope, even after the outer function has returned.
-   ```javascript
+```javascript
    function outer() {
      let counter = 0;
      return function() {
@@ -62,14 +62,14 @@
    const increment = outer();
    console.log(increment()); // 1
    console.log(increment()); // 2
-   ```
+```
 
 10. **Explain the concept of hoisting.**
     - Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope (function or global scope). Only declarations (not initializations) are hoisted.
-    ```javascript
+```javascript
     console.log(x); // undefined
     var x = 5;
-    ```
+```
 
 11. **What is the difference between `null` and `undefined`?**
     - `null`: Explicitly represents the absence of any object value.
@@ -77,20 +77,20 @@
 
 12. **What are template literals?**
     - Template literals are string literals that allow embedded expressions, multi-line strings, and string interpolation.
-    ```javascript
+```javascript
     const name = 'John';
     console.log(`Hello, ${name}!`); // Hello, John!
-    ```
+```
 
 13. **What is an arrow function, and how is it different from a regular function?**
     - Arrow functions are a shorthand for writing function expressions. They do not have their own `this`, `arguments`, `super`, or `new.target` bindings.
-    ```javascript
+```javascript
     const add = (a, b) => a + b;
-    ```
+```
 
 14. **Explain the use of the `this` keyword.**
     - The `this` keyword refers to the object it belongs to. Its value depends on how the function is called.
-    ```javascript
+```javascript
     const obj = {
       value: 42,
       getValue() {
@@ -98,7 +98,7 @@
       }
     };
     console.log(obj.getValue()); // 42
-    ```
+```
 
 15. **What is the difference between function declaration and function expression?**
     - Function Declaration:
@@ -116,59 +116,59 @@
 
 16. **What is an Immediately Invoked Function Expression (IIFE)?**
    -  An IIFE is a function that is executed immediately after it is defined.
-    ```javascript
+   ```javascript
     (function() {
       console.log('IIFE');
     })();
-    ```
+   ```
 
 17. **Explain the concept of event delegation.**
    - Event delegation involves using a single event listener to manage events for multiple elements by taking advantage of event bubbling.
-    ```javascript
+   ```javascript
     document.getElementById('parent').addEventListener('click', function(event) {
       if (event.target && event.target.matches('button.classname')) {
         console.log('Button clicked');
       }
     });
-    ```
+   ```
 
 18. **How do you handle errors in JavaScript?**
    - Errors in JavaScript can be handled using `try...catch` blocks.
-    ```javascript
+   ```javascript
     try {
       // Code that may throw an error
     } catch (error) {
       console.log(error.message);
     }
-    ```
+   ```
 
 19. **What is the purpose of the `try...catch` block?**
    - The `try...catch` block is used to handle exceptions. Code within the `try` block is executed, and if an error occurs, it is caught in the `catch` block.
 
 20. **Explain the concept of promises in JavaScript.**
    - A promise is an object representing the eventual completion or failure of an asynchronous operation.
-    ```javascript
+   ```javascript
     const promise = new Promise((resolve, reject) => {
       setTimeout(() => resolve('Success'), 1000);
     });
     promise.then(result => console.log(result));
-    ```
+   ```
 
 ## Intermediate Questions
 
 21. **What are async/await, and how do they relate to promises?**
    - `async/await` is syntactic sugar for working with promises. `async` functions return promises, and `await` is used to wait for the promise to resolve.
-    ```javascript
+   ```javascript
     async function fetchData() {
       const response = await fetch('url');
       const data = await response.json();
       return data;
     }
-    ```
+   ```
 
 22. **What is a callback function?**
    - A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some action.
-    ```javascript
+   ```javascript
     function greet(name, callback) {
       console.log('Hello ' + name);
       callback();
@@ -176,11 +176,11 @@
     greet('John', function() {
       console.log('Callback executed');
     });
-    ```
+   ```
 
 23. **Explain the concept of callback hell and how to avoid it.**
    - Callback hell refers to the situation where callbacks are nested within other callbacks, making the code difficult to read and maintain. It can be avoided using promises or async/await.
-    ```javascript
+   ```javascript
     // Callback hell
     doSomething(function(result) {
       doSomethingElse(result, function(newResult) {
@@ -209,54 +209,54 @@
       }
     }
     process();
-    ```
+   ```
 
 24. **What are JavaScript modules?**
    - JavaScript modules allow you to break down your code into smaller, reusable pieces, making it easier to manage and maintain. Modules can export and import functionalities between each other.
 
 25. **How do you export and import modules in JavaScript?**
     - Exporting:
-      ```javascript
+    ```javascript
       // module.js
       export const value = 42;
       export function greet() {
         console.log('Hello');
       }
-      ```
+    ```
     - Importing:
-      ```javascript
+    ```javascript
       // main.js
       import { value, greet } from './module.js';
       console.log(value); // 42
       greet(); // Hello
-      ```
+    ```
 
 26. **What is the purpose of the `spread` operator?**
    - The `spread` operator (`...`) allows an iterable to be expanded in places where zero or more arguments or elements are expected.
-    ```javascript
+   ```javascript
     const arr1 = [1, 2, 3];
     const arr2 = [...arr1, 4, 5, 6];
     console.log(arr2); // [1, 2, 3, 4, 5, 6]
-    ```
+   ```
 
 27. **How does the `rest` operator work?**
     - The `rest` operator (`...`) allows us to represent an indefinite number of arguments as an array.
-    ```javascript
+   ```javascript
     function sum(...numbers) {
       return numbers.reduce((acc, curr) => acc + curr, 0);
     }
     console.log(sum(1, 2, 3)); // 6
-    ```
+   ```
 
 28. **What is destructuring assignment?**
    - Destructuring assignment allows you to unpack values from arrays or properties from objects into distinct variables.
-    ```javascript
+   ```javascript
     const [a, b] = [1, 2];
     console.log(a, b); // 1 2
 
     const {name, age} = {name: 'John', age: 30};
     console.log(name, age); // John 30
-    ```
+   ```
 
 29. **What is the event loop in JavaScript?**
    - The event loop is responsible for executing the code, collecting and processing events, and executing queued sub-tasks in JavaScript's runtime.
@@ -266,7 +266,7 @@
 
 31. **What are higher-order functions?**
    - Higher-order functions are functions that take other functions as arguments or return functions as their result.
-    ```javascript
+   ```javascript
     function greet() {
       return function(name) {
         console.log('Hello ' + name);
@@ -274,10 +274,10 @@
     }
     const sayHello = greet();
     sayHello('John'); // Hello John
-    ```
+   ```
 
 32. **How do you create a class in JavaScript?**
-    ```javascript
+   ```javascript
     class Person {
       constructor(name, age) {
         this.name = name;
@@ -289,11 +289,11 @@
     }
     const john = new Person('John', 30);
     john.greet(); // Hello, my name is John
-    ```
+   ```
 
 33. **What are getters and setters in JavaScript classes?**
    - Getters and setters allow you to define object accessors (computed properties).
-    ```javascript
+   ```javascript
     class Person {
       constructor(name) {
         this._name = name;
@@ -309,11 +309,11 @@
     console.log(john.name); // John
     john.name = 'Doe';
     console.log(john.name); // Doe
-    ```
+   ```
 
 34. **What is prototype inheritance?**
    - Prototype inheritance is a feature in JavaScript where objects inherit properties and methods from other objects.
-    ```javascript
+   ```javascript
     function Person(name) {
       this.name = name;
     }
@@ -322,7 +322,7 @@
     };
     const john = new Person('John');
     john.greet(); // Hello, my name is John
-    ```
+   ```
 
 35. **How does the `prototype` chain work?**
    - The prototype chain is a series of links between objects, where each object has a link to another object, known as its prototype. This chain ends when an object has a `null` prototype.
@@ -333,69 +333,69 @@
 
 37. **What are pure functions?**
    - Pure functions are functions that always produce the same output for the same input and have no side effects.
-    ```javascript
+   ```javascript
     function add(a, b) {
       return a + b;
     }
-    ```
+   ```
 
 38. **What is the concept of immutability in JavaScript?**
    - Immutability means that an object cannot be modified after it is created. Instead of modifying an object, a new object is created with the desired changes.
-    ```javascript
+   ```javascript
     const obj = { a: 1 };
     const newObj = { ...obj, b: 2 };
     console.log(newObj); // { a: 1, b: 2 }
-    ```
+   ```
 
 39. **Explain the concept of `strict mode`.**
    - `Strict mode` is a way to opt into a restricted variant of JavaScript, which helps catch common coding mistakes and "unsafe" actions.
-    ```javascript
+   ```javascript
     'use strict';
     x = 3.14; // This will cause an error because x is not declared
-    ```
+   ```
 
 40. **What are the differences between `call`, `apply`, and `bind`?**
     - `call`: Invokes a function with a given `this` value and arguments provided individually.
-      ```javascript
+    ```javascript
       function greet() {
         console.log(`Hello, ${this.name}`);
       }
       const obj = { name: 'John' };
       greet.call(obj); // Hello, John
-      ```
+    ```
     - `apply`: Invokes a function with a given `this` value and arguments provided as an array.
-      ```javascript
+    ```javascript
       function greet(greeting) {
         console.log(`${greeting}, ${this.name}`);
       }
       const obj = { name: 'John' };
       greet.apply(obj, ['Hello']); // Hello, John
-      ```
+    ```
     - `bind`: Returns a new function with a given `this` value and optionally some arguments pre-filled.
-      ```javascript
+    ```javascript
       function greet(greeting) {
         console.log(`${greeting}, ${this.name}`);
       }
       const obj = { name: 'John' };
       const boundGreet = greet.bind(obj);
       boundGreet('Hello'); // Hello, John
-      ```
+    ```
 
 ## Advanced Questions
 
 41. **What is an async function?**
    - An `async` function is a function declared with the `async` keyword, which allows the use of `await` within it to pause execution until the awaited promise is resolved.
-    ```javascript
+   ```javascript
     async function fetchData() {
       const response = await fetch('url');
       const data = await response.json();
       return data;
     }
-    ```
+   ```
 
 42. **How do you handle asynchronous operations in JavaScript?**
    - Asynchronous operations can be handled using callbacks, promises, or `async/await`.
-   ```javascript
+  ```javascript
     // Using callbacks
     function fetchData(callback) {
       setTimeout(() => callback('Data'), 1000);
@@ -416,20 +416,20 @@
       console.log(data); // Data
     }
     fetchData();
-   ```
+  ```
 
 43. **What is the `fetch` API?**
     - The `fetch` API is a modern interface that allows you to make network requests similar to `XMLHttpRequest`. It returns a promise.
-    ```javascript
+   ```javascript
     fetch('https://api.example.com/data')
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(error => console.error('Error:', error));
-    ```
+   ```
 
 44. **How do you make an HTTP request in JavaScript?**
    - You can make an HTTP request using the `fetch` API, `XMLHttpRequest`, or third-party libraries like Axios.
-   ```javascript
+ ```javascript
     // Using fetch
     fetch('https://api.example.com/data')
       .then(response => response.json())
@@ -444,11 +444,11 @@
       }
     };
     xhr.send();
-   ```
+ ```
 
 45. **What are service workers?**
     Service workers are scripts that run in the background, separate from the web page, enabling features such as background sync, push notifications, and offline caching.
-  ```javascript
+```javascript
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js')
         .then(registration => {
@@ -458,11 +458,11 @@
           console.error('Service Worker registration failed:', error);
         });
     }
-  ```
+```
 
 46. **How do you implement caching in JavaScript?**
     Caching can be implemented using service workers and the Cache API.
-    ```javascript
+```javascript
     // In service-worker.js
     self.addEventListener('install', event => {
       event.waitUntil(
@@ -484,15 +484,15 @@
         })
       );
     });
-    ```
+```
 
 47. **What is the purpose of the `Symbol` type?**
     - `Symbol` is a unique and immutable primitive value that can be used as the key of an object property, ensuring that property keys do not collide.
-    ```javascript
+```javascript
     const sym1 = Symbol('description');
     const sym2 = Symbol('description');
     console.log(sym1 === sym2); // false
-    ```
+```
 
 48. **What are weak maps and weak sets?**
     - WeakMap: A collection of key-value pairs where the keys are weakly referenced, meaning they do not prevent garbage collection if there are no other references to the object.
@@ -500,9 +500,7 @@
 
 49. **How do you create and use generators in JavaScript?**
     - Generators are functions that can be paused and resumed, using the `function*` syntax and `yield` keyword.
-    ```javascript
-
-
+```javascript
     function* generatorFunction() {
       yield 'First';
       yield 'Second';
@@ -512,11 +510,11 @@
     console.log(generator.next().value); // First
     console.log(generator.next().value); // Second
     console.log(generator.next().value); // Third
-    ```
+```
 
 50. **What is the purpose of the `yield` keyword?**
     - The `yield` keyword is used in generator functions to pause the function execution and return a value to the caller. The function can be resumed later.
-    ```javascript
+```javascript
     function* generatorFunction() {
       yield 'First';
       yield 'Second';
@@ -524,48 +522,48 @@
     const generator = generatorFunction();
     console.log(generator.next().value); // First
     console.log(generator.next().value); // Second
-    ```
+```
 
 51. **What are iterators and iterable objects?**
     - Iterators: Objects that define a sequence and potentially a return value upon its termination.
     - Iterable objects: Objects that implement the `[Symbol.iterator]` method and return an iterator.
 
 52. **What is the concept of dynamic typing?**
-    - Dynamic typing means that the type of a variable is determined at runtime and can change during the execution of a program.
-    ```javascript
+     - Dynamic typing means that the type of a variable is determined at runtime and can change during the execution of a program.
+  ```javascript
     let variable = 42;
     variable = 'Hello';
-    ```
+   ```
 
 53. **How does type coercion work in JavaScript?**
     - Type coercion is the automatic or implicit conversion of values from one data type to another.
-    ```javascript
+   ```javascript
     console.log(5 + '5'); // '55' (number to string)
     console.log('5' - 3); // 2 (string to number)
-    ```
+   ```
 
 54. **What are the new features introduced in ECMAScript 6 (ES6)?**
     - ES6 introduced several new features such as arrow functions, classes, template literals, destructuring assignment, `let` and `const`, default parameters, rest and spread operators, promises, and more.
 
 55. **What are promises, and how do they work?**
    - Promises are objects representing the eventual completion or failure of an asynchronous operation. They have three states: pending, fulfilled, and rejected.
-    ```javascript
+   ```javascript
     const promise = new Promise((resolve, reject) => {
       setTimeout(() => resolve('Data'), 1000);
     });
     promise.then(data => console.log(data)); // Data
-    ```
+   ```
 
 56. **How do you handle multiple promises in JavaScript?**
     - Multiple promises can be handled using `Promise.all` or `Promise.race`.
-    ```javascript
+   ```javascript
     const promise1 = Promise.resolve('First');
     const promise2 = Promise.resolve('Second');
 
     Promise.all([promise1, promise2]).then(values => {
       console.log(values); // ['First', 'Second']
     });
-    ```
+   ```
 
 57. **What is the `Promise.all` method?**
     - `Promise.all` takes an iterable of promises and returns a single promise that resolves when all the promises in the iterable have resolved.
@@ -577,14 +575,14 @@
 
 58. **What is the `Promise.race` method?**
     - `Promise.race` takes an iterable of promises and returns a single promise that resolves or rejects as soon as one of the promises in the iterable resolves or rejects.
-    ```javascript
+   ```javascript
     Promise.race([promise1, promise2])
       .then(value => console.log(value))
       .catch(error => console.error(error));
-    ```
+   ```
 
 59. **How do you create a custom promise?**
-    ```javascript
+   ```javascript
     const customPromise = new Promise((resolve, reject) => {
       setTimeout(() => {
         const success = true;
@@ -600,11 +598,11 @@
       result => console.log(result),
       error => console.log(error)
     );
-    ```
+   ```
 
 60. **What is the purpose of the `Proxy` object?**
   - A `Proxy` object allows you to create an object that can redefine fundamental operations like property lookup, assignment, enumeration, function invocation, etc.
-    ```javascript
+   ```javascript
     const target = {};
     const handler = {
       get: function(obj, prop) {
@@ -613,10 +611,10 @@
     };
     const proxy = new Proxy(target, handler);
     console.log(proxy.nonExistentProperty); // 'default'
-    ```
+  ```
 
 61. **How do you create a proxy in JavaScript?**
-    ```javascript
+```javascript
     const target = {};
     const handler = {
       get: function(obj, prop) {
@@ -624,16 +622,16 @@
       }
     };
     const proxy = new Proxy(target, handler);
-    ```
+```
 
 62. **What is the `Reflect` API?**
    - The `Reflect` API provides a set of static methods to perform operations that are usually handled by the internal methods of an object.
-    ```javascript
+```javascript
     const obj = { x: 1, y: 2 };
     console.log(Reflect.get(obj, 'x')); // 1
     Reflect.set(obj, 'x', 42);
     console.log(obj.x); // 42
-    ```
+ ```
 
 63. **How does the `Reflect` API differ from normal object operations?**
    - The `Reflect` API methods provide the same functionality as proxy traps and can be used to modify the default behavior of these traps.
@@ -649,12 +647,12 @@
 
 67. **How do you prevent default behavior in an event?**
    - The `preventDefault` method prevents the default action of an event from being executed.
-    ```javascript
+   ```javascript
     document.querySelector('form').addEventListener('submit', function(event) {
       event.preventDefault();
       console.log('Form submission prevented');
     });
-    ```
+   ```
 
 68. **What is event bubbling and event capturing?**
     - Event bubbling: Events propagate from the target element up to the root.
@@ -662,28 +660,28 @@
 
 69. **How do you stop event propagation?**
     - The `stopPropagation` method stops the event from propagating further.
-    ```javascript
+   ```javascript
     document.querySelector('button').addEventListener('click', function(event) {
       event.stopPropagation();
       console.log('Event propagation stopped');
     });
-    ```
+   ```
 
 70. **What are custom events in JavaScript?**
    - Custom events are user-defined events that can be dispatched and listened to.
-    ```javascript
+```javascript
     const event = new CustomEvent('myEvent', { detail: { someData: 'data' } });
     document.addEventListener('myEvent', function(e) {
       console.log(e.detail.someData);
     });
     document.dispatchEvent(event); // data
-    ```
+ ```
 
 ## Expert Questions
 
 71. **What are WebSockets?**
    - WebSockets provide a way to open a persistent connection between a client and server for real-time communication.
-    ```javascript
+   ```javascript
     const socket = new WebSocket('ws://example.com/socket');
     socket.onopen = function(event) {
       socket.send('Hello Server!');
@@ -691,11 +689,11 @@
     socket.onmessage = function(event) {
       console.log('Message from server:', event.data);
     };
-    ```
+   ```
 
 72. **How do you implement real-time communication in JavaScript?**
    - Real-time communication can be implemented using WebSockets, Server-Sent Events (SSE), or third-party libraries like Socket.io.
-   ```javascript
+```javascript
     // Using WebSockets
     const socket = new WebSocket('ws://example.com/socket');
     socket.onmessage = function(event) {
@@ -708,7 +706,7 @@
     socket.on('message', function(data) {
       console.log('Message from server:', data);
     });
-   ```
+```
 
 73. **What is the difference between local storage and session storage?**
     - Local storage: Stores data with no expiration date, accessible only within the same origin.
@@ -716,7 +714,7 @@
 
 74. **How do you store data in the browser?**
     - Data can be stored in the browser using cookies, local storage, and session storage.
-    ```javascript
+   ```javascript
     // Local storage
     localStorage.setItem('key', 'value');
     console.log(localStorage.getItem('key')); // value
@@ -724,39 +722,39 @@
     // Session storage
     sessionStorage.setItem('key', 'value');
     console.log(sessionStorage.getItem('key')); // value
-    ```
+   ```
 
 75. **What are the security concerns with storing data in cookies?**
     - Cookies can be intercepted during transmission.
     - Sensitive information stored in cookies can be accessed by malicious scripts if not secured properly.
 
 76. **How do you create a regular expression in JavaScript?**
-    ```javascript
+```javascript
     const regex = /pattern/;
     const regexWithFlags = /pattern/g;
-    ```
+```
 
 77. **How do you use regular expressions for pattern matching?**
     - Regular expressions can be used with methods like `test`, `exec`, `match`, `replace`, `search`, and `split`.
-    ```javascript
+   ```javascript
     const regex = /hello/;
     console.log(regex.test('hello world')); // true
     console.log('hello world'.match(regex)); // ['hello']
-    ```
+   ```
 
 78. **What is the purpose of the `exec` method in regular expressions?**
     - The `exec` method executes a search for a match in a specified string and returns an array of matched results or `null` if no match is found.
-    ```javascript
+   ```javascript
     const regex = /hello/;
     const result = regex.exec('hello world');
     console.log(result); // ['hello']
-    ```
+   ```
 
 79. **What is the `RegExp` constructor?**
     - The `RegExp` constructor creates a regular expression object for matching text with a pattern.
-    ```javascript
+   ```javascript
     const regex = new RegExp('pattern', 'flags');
-    ```
+   ```
 
 80. **What is the difference between `let` and `var` in terms of scope?**
     - `let`: Block-scoped, not hoisted to the top of their block.
@@ -764,25 +762,25 @@
 
 81. **How does the `const` keyword work in JavaScript?**
     - `const` declares block-scoped constants. The value of a `const` variable cannot be changed through reassignment, but the variable itself is not immutable.
-    ```javascript
+   ```javascript
     const obj = { key: 'value' };
     obj.key = 'new value'; // This is allowed
     obj = {}; // This will cause an error
-    ```
+   ```
 
 82. **What is destructuring assignment?**
    - Destructuring assignment is a syntax that allows unpacking values from arrays or properties from objects into distinct variables.
-    ```javascript
+   ```javascript
     const [a, b] = [1, 2];
     const { x, y } = { x: 10, y: 20 };
-    ```
+   ```
 
 83. **What are template literals?**
     - Template literals are string literals allowing embedded expressions and multi-line strings, using backticks (``) instead of single or double quotes.
-    ```javascript
+   ```javascript
     const name = 'John';
     const greeting = `Hello, ${name}!`;
-    ```
+   ```
 
 84. **What is the rest operator, and how is it used?**
     - The rest operator (`...`) allows you to represent an indefinite number of arguments as an array.
