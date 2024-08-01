@@ -1,7 +1,7 @@
 ## Basic Questions
 
 1. **What is JavaScript?**
-   JavaScript is a high-level, interpreted programming language that conforms to the ECMAScript specification. It is widely used for creating dynamic and interactive web pages.
+JavaScript is a high-level, interpreted programming language that conforms to the ECMAScript specification. It is widely used for creating dynamic and interactive web pages.
 
 2. **What are the data types supported by JavaScript?**
    - Number
