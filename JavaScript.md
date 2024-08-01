@@ -990,6 +990,6 @@
    ```
 
 100. **What are the differences between classical inheritance and prototypal inheritance?**
-    - Classical inheritance: Objects inherit from classes, typically seen in languages like Java.
-    - Prototypal inheritance: Objects inherit directly from other objects, seen in JavaScript.
+   - **Classical inheritance**: Objects inherit from classes, typically seen in languages like Java.
+   - **Prototypal inheritance**: Objects inherit directly from other objects, seen in JavaScript.
 
