@@ -170,11 +170,14 @@
     public class SumArray {
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4, 5};
-        int sum = Arrays.stream(array).sum();
+
+        // Using a lambda expression with Stream API
+        int sum = Arrays.stream(array)
+                         .reduce(0, (a, b) -> a + b);
+
         System.out.println("Sum: " + sum);
       }
     }
-
     ```
 
 16. **Write a Java program to generate all permutations of an array using lambda expressions.**
