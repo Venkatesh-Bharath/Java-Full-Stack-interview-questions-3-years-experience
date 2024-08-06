@@ -723,13 +723,13 @@
     - **Response**: Add the `liquibase-core` or `flyway-core` dependency, create migration scripts, and configure them in `application.properties`.
 
 97. **How do you configure caching in Spring Boot?**
-    - **Response**: Enable caching by adding `@EnableCaching` to the configuration class, configure cache properties in `application.properties`, and use `@Cacheable`, `@CachePut`, and `@CacheEvict` annotations on methods.
+     - **Response**: Enable caching by adding `@EnableCaching` to the configuration class, configure cache properties in `application.properties`, and use `@Cacheable`, `@CachePut`, and `@CacheEvict` annotations on methods.
 
 98. **What is `Spring Session`, and how do you use it?**
-   - **Response**: Spring Session provides an API and implementations for managing user sessions. It is used to handle session data in a distributed environment and can be integrated by adding the `spring-session` dependency.
+    - **Response**: Spring Session provides an API and implementations for managing user sessions. It is used to handle session data in a distributed environment and can be integrated by adding the `spring-session` dependency.
 
 99. **How do you handle file uploads in Spring Boot?**
-   - **Response**: Handle file uploads by using the `MultipartFile` interface in a controller method and configuring file upload properties in `application.properties`.
+    - **Response**: Handle file uploads by using the `MultipartFile` interface in a controller method and configuring file upload properties in `application.properties`.
 
 100. **What are the new features introduced in the latest versions of Spring Boot?**
-   - **Response**: New features may include updates to the Spring Framework, improved dependency management, enhanced support for modern cloud platforms, and additional developer tools and configurations. Check the [Spring Boot release notes](https://spring.io/projects/spring-boot#learn) for detailed information on the latest features.
+    - **Response**: New features may include updates to the Spring Framework, improved dependency management, enhanced support for modern cloud platforms, and additional developer tools and configurations. Check the [Spring Boot release notes](https://spring.io/projects/spring-boot#learn) for detailed information on the latest features.
