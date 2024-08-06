@@ -732,4 +732,4 @@
     - **Response**: Handle file uploads by using the `MultipartFile` interface in a controller method and configuring file upload properties in `application.properties`.
 
 100. **What are the new features introduced in the latest versions of Spring Boot?**
-    - **Response**: New features may include updates to the Spring Framework, improved dependency management, enhanced support for modern cloud platforms, and additional developer tools and configurations. Check the [Spring Boot release notes](https://spring.io/projects/spring-boot#learn) for detailed information on the latest features.
+   - **Response**: New features may include updates to the Spring Framework, improved dependency management, enhanced support for modern cloud platforms, and additional developer tools and configurations. Check the [Spring Boot release notes](https://spring.io/projects/spring-boot#learn) for detailed information on the latest features.
