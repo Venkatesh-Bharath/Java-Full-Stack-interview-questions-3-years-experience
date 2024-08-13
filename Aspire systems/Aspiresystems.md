@@ -437,14 +437,14 @@ public class Checkout {
    // getters and setters
 }
 Please address the following requirements in your solution:
- 
 Develop an API endpoint to facilitate book checkout.
 Ensure that the checkout operation is atomic and thread-safe, preventing the last copy of a book from being checked out by multiple users at the same time.
 If the checkout is successful, the response should include checkout details and an HTTP status code indicating success.
 If all copies of the book are already checked out, the service should return an appropriate error message and HTTP status code.
 Propose an approach for handling and logging exceptions that may occur during the checkout process, considering different types of failures that could happen (e.g., database errors, network issues).
 Describe how you would structure the API responses to provide a consistent client experience, regardless of success or error conditions.
-**Answer**
+
+- **Answer**
 ```java
 @RestController
 @RequestMapping("/api/checkout")
@@ -518,4 +518,4 @@ public class BookUnavailableException extends RuntimeException {
     }
 }
 ```
-#HR
+# HR
