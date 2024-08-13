@@ -423,7 +423,8 @@ class Employee {
 # Manager Round Interview Questions
 1.**Can you briefly describe your current project and walk me through your daily responsibilities and tasks?**
 - [-----ans----]
-2**Question** Imagine you are tasked with enhancing a microservice for a library system that allows users to check out books. The new feature involves handling the scenario where multiple users attempt to check out the last copy of a particular book simultaneously.
+2. **Question**
+- Imagine you are tasked with enhancing a microservice for a library system that allows users to check out books. The new feature involves handling the scenario where multiple users attempt to check out the last copy of a particular book simultaneously.
  
 You are provided with the following basic structure for the Checkout entity:
  
