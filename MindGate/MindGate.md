@@ -1,7 +1,7 @@
 # MindGate 
 ## L1 Interview
 1. **Self-introduction based on your project.**
-   - "I am Venkatesh Bharath with 3 years of experience in Java and ReactJS. In my current project, I developed a customer registration service using ReactJS and Spring Boot, integrating with multiple microservices to ensure secure and efficient data handling."
+   - "I am ______ with 3 years of experience in Java and ReactJS. In my current project, I developed a customer registration service using ReactJS and Spring Boot, integrating with multiple microservices to ensure secure and efficient data handling."
 
 2. **Explain microservices architecture.**
    - "Microservices architecture divides an application into small, independent services, each responsible for a specific business functionality. These services communicate over a network, allowing for decentralized development, scaling, and deployment."
