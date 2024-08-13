@@ -421,4 +421,101 @@ class Employee {
 
 
 # Manager Round Interview Questions
---soon--
+1.**Can you briefly describe your current project and walk me through your daily responsibilities and tasks?**
+- [-----ans----]
+2**Question** Imagine you are tasked with enhancing a microservice for a library system that allows users to check out books. The new feature involves handling the scenario where multiple users attempt to check out the last copy of a particular book simultaneously.
+ 
+You are provided with the following basic structure for the Checkout entity:
+ 
+java
+Copy code
+public class Checkout {
+   private Long id;
+   private Long bookId;
+   private String checkedOutBy; // This could be a user ID or username
+   private LocalDateTime checkedOutOn;
+   // getters and setters
+}
+Please address the following requirements in your solution:
+ 
+Develop an API endpoint to facilitate book checkout.
+Ensure that the checkout operation is atomic and thread-safe, preventing the last copy of a book from being checked out by multiple users at the same time.
+If the checkout is successful, the response should include checkout details and an HTTP status code indicating success.
+If all copies of the book are already checked out, the service should return an appropriate error message and HTTP status code.
+Propose an approach for handling and logging exceptions that may occur during the checkout process, considering different types of failures that could happen (e.g., database errors, network issues).
+Describe how you would structure the API responses to provide a consistent client experience, regardless of success or error conditions.
+**Answer**
+```java
+@RestController
+@RequestMapping("/api/checkout")
+public class CheckoutController {
+
+    @Autowired
+    private CheckoutService checkoutService;
+
+    @PostMapping("/{bookId}")
+    public ResponseEntity<?> checkoutBook(@PathVariable Long bookId, @RequestParam String userId) {
+        try {
+            Checkout checkout = checkoutService.checkoutBook(bookId, userId);
+            return ResponseEntity.status(HttpStatus.OK).body(checkout);
+        } catch (BookUnavailableException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred during checkout.");
+        }
+    }
+}
+
+@Service
+public class CheckoutService {
+
+    @Autowired
+    private CheckoutRepository checkoutRepository;
+
+    @Autowired
+    private BookRepository bookRepository;
+
+    @Transactional
+    public Checkout checkoutBook(Long bookId, String userId) throws BookUnavailableException {
+        synchronized (bookId) {
+            int availableCopies = bookRepository.getAvailableCopies(bookId);
+            if (availableCopies <= 0) {
+                throw new BookUnavailableException("No copies of the book are currently available.");
+            }
+
+            // Reduce the available copies by 1
+            bookRepository.decrementAvailableCopies(bookId);
+
+            // Create and save the checkout record
+            Checkout checkout = new Checkout();
+            checkout.setBookId(bookId);
+            checkout.setCheckedOutBy(userId);
+            checkout.setCheckedOutOn(LocalDateTime.now());
+            return checkoutRepository.save(checkout);
+        }
+    }
+}
+
+@Repository
+public interface CheckoutRepository extends JpaRepository<Checkout, Long> {
+}
+
+@Repository
+public interface BookRepository {
+
+    @Query("SELECT b.availableCopies FROM Book b WHERE b.id = :bookId")
+    int getAvailableCopies(@Param("bookId") Long bookId);
+
+    @Modifying
+    @Query("UPDATE Book b SET b.availableCopies = b.availableCopies - 1 WHERE b.id = :bookId AND b.availableCopies > 0")
+    int decrementAvailableCopies(@Param("bookId") Long bookId);
+}
+
+@ResponseStatus(HttpStatus.CONFLICT)
+public class BookUnavailableException extends RuntimeException {
+    public BookUnavailableException(String message) {
+        super(message);
+    }
+}
+```
+#HR
