@@ -1,4 +1,3 @@
-Based on the provided code snippets, I'll address the following project-related questions:
 
 ### 1. **Can you give a brief introduction about yourself, focusing on your recent projects and the technologies you’ve worked with?**
 
