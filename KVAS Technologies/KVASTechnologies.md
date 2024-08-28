@@ -6,7 +6,7 @@
 ### 1. **Introduce yourself with a focus on your recent projects and the technologies you've worked with.**
 
 **Answer:**
-I am Venkatesh Bharath, a Java full stack developer with 3 years of experience in building scalable web applications. My recent project involved developing a bank application where I focused on the user registration page and transaction data handling. I used ReactJS for the frontend, Spring Boot for the backend, and implemented microservices architecture. My tech stack includes Java, Spring Boot, Hibernate, ReactJS, and MySQL.
+I am BSK, a Java full stack developer with 3 years of experience in building scalable web applications. My recent project involved developing a  abc application  where I focused on the user registration page and transaction data handling. I used ReactJS for the frontend, Spring Boot for the backend, and implemented microservices architecture. My tech stack includes Java, Spring Boot, Hibernate, ReactJS, and MySQL.
 
 ### 2. **Describe a recent task or project you worked on. What challenges did you face and how did you overcome them?**
 
