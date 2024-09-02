@@ -218,3 +218,10 @@ public class SubstringCount {
 ```
 
 ---
+# HR Interview
+
+### 1. Give a self-introduction and explain your project.
+### 2. What tasks did you work on in your last project?
+### 3. What are your salary expectations?
+### 4. Are you interested in learning new technology?
+### 5. Why are you looking for a new job? etc....
