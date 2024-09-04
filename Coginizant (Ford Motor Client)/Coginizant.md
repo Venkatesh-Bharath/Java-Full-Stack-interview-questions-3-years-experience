@@ -658,11 +658,11 @@ public class Project {
 
 5. **For a music player where you want to add and remove songs in middle, which collection is suitable and why?**
 
-- **Answer**:For a music player where you need to frequently add and remove songs in the middle of the collection, a **`LinkedList`** is more suitable compared to an `ArrayList`. Here's why:
+   - **Answer**:For a music player where you need to frequently add and remove songs in the middle of the collection, a **`LinkedList`** is more suitable compared to an `ArrayList`. Here's why:
 
-- **Efficient Insertions/Deletions**: `LinkedList` provides constant time complexity (O(1)) for inserting and deleting elements if you have a reference to the node where the operation needs to occur. This is because it involves only changing pointers between nodes, which is efficient.
+   - **Efficient Insertions/Deletions**: `LinkedList` provides constant time complexity (O(1)) for inserting and deleting elements if you have a reference to the node where the operation needs to occur. This is because it involves only changing pointers between nodes, which is efficient.
 
-- **No Resizing Overhead**: Unlike `ArrayList`, which requires resizing and copying elements to a new array when it grows, `LinkedList` does not require resizing. This makes it more efficient for frequent insertions and deletions.
+    - **No Resizing Overhead**: Unlike `ArrayList`, which requires resizing and copying elements to a new array when it grows, `LinkedList` does not require resizing. This makes it more efficient for frequent insertions and deletions.
 **Sequential Access**: While `LinkedList` has a higher overhead for accessing elements by index (O(n) time complexity), it excels in scenarios where you are performing many insertions and deletions rather than random access.
 
 
