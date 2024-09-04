@@ -616,5 +616,289 @@ public class Project {
 
 ## HR Round - Cognizant Interview
 - salary & project etc....
+
 ## Ford Motor Client Interview
-- soon
+
+1. **Can you provide a brief self-introduction and explain your current project?**
+
+   - **Answer:** This question typically requires a personalized response where you introduce yourself, your background, skills, and experience. Followed by a brief description of your current project, including its goals, technologies used, and your role in the project.
+
+2. **Given the string `String st = "Win Win!!! You have got a lottery";`, write a Java program using stream that:**
+   - **Processes this string to determine if it should be classified as "Spam" or "Not Spam".**
+   - **Counts the occurrences of the words "win" and "lottery".**
+   - **If the count is 2.5 or less, classify the string as "Not Spam"; otherwise, classify it as "Spam".**
+
+   ```java
+   import java.util.Arrays;
+
+   public class SpamChecker {
+       public static void main(String[] args) {
+           String st = "Win Win!!! You have got a lottery";
+
+           long ans = Arrays.stream(st.toLowerCase().split("\\s+"))
+                            .map(word -> word.replaceAll("[^a-zA-Z]", ""))
+                            .filter(e -> e.equals("win") || e.equals("lottery"))
+                            .count();
+
+           String result = ans <= 2.5 ? "Not Spam" : "Spam";
+           System.out.println(result);
+       }
+   }
+   ```
+
+3. **Is `count` a terminal operator or an intermediate operator in Java Streams?**
+
+   - **Answer:** `count` is a terminal operator in Java Streams. It triggers the processing of the stream and produces a result.
+
+4. **What is upcasting and downcasting in Java?**
+
+   - **Answer:** 
+     - **Upcasting:** Converting a subclass reference to a superclass reference. It is implicit and safe, e.g., `Dog dog = new Dog(); Animal animal = dog;`
+     - **Downcasting:** Converting a superclass reference back to a subclass reference. It is explicit and requires a cast, e.g., `Animal animal = new Dog(); Dog dog = (Dog) animal;` It can cause a `ClassCastException` if the object is not actually an instance of the subclass.
+
+5. **For a music player where you want to add and remove songs in middle, which collection is suitable and why?**
+
+- **Answer**:For a music player where you need to frequently add and remove songs in the middle of the collection, a **`LinkedList`** is more suitable compared to an `ArrayList`. Here's why:
+
+ **Efficient Insertions/Deletions**: `LinkedList` provides constant time complexity (O(1)) for inserting and deleting elements if you have a reference to the node where the operation needs to occur. This is because it involves only changing pointers between nodes, which is efficient.
+
+ **No Resizing Overhead**: Unlike `ArrayList`, which requires resizing and copying elements to a new array when it grows, `LinkedList` does not require resizing. This makes it more efficient for frequent insertions and deletions.
+**Sequential Access**: While `LinkedList` has a higher overhead for accessing elements by index (O(n) time complexity), it excels in scenarios where you are performing many insertions and deletions rather than random access.
+
+
+6. **What is the difference between `map` and `flatMap` in Java Streams?**
+
+   - **Answer:**
+     - **`map`:** Transforms each element in the stream into another object. It applies a function to each element and returns a stream of the results.
+     - **`flatMap`:** Transforms each element into a stream of objects and then flattens these streams into a single stream. It is used when the transformation results in multiple elements for each input element.
+
+7. **What are fail-fast and fail-safe iterators, and how can you overcome issues related to them?**
+
+   - **Answer:**
+     - **Fail-fast iterators:** Throw a `ConcurrentModificationException` if the collection is modified while iterating. To avoid issues, use synchronized collections or concurrent collections like `CopyOnWriteArrayList`.
+     - **Fail-safe iterators:** Do not throw exceptions if the collection is modified. They work on a clone of the collection, e.g., `ConcurrentHashMap` provides fail-safe iterators.
+
+8. **Which databases have you worked with?**
+
+   - **Answer:** This answer should be specific to your experience. Common databases include MySQL, PostgreSQL, Oracle, SQL Server, MongoDB, etc.
+
+9. **How would you design table structures for a scenario where a customer can place multiple orders, and each order can contain multiple products?**
+
+   - **Answer:**
+     ```sql
+     CREATE TABLE Customer (
+         customer_id INT PRIMARY KEY,
+         customer_name VARCHAR(100)
+     );
+
+     CREATE TABLE Product (
+         product_id INT PRIMARY KEY,
+         product_name VARCHAR(100),
+         price DECIMAL
+     );
+
+     CREATE TABLE `Order` (
+         order_id INT PRIMARY KEY,
+         customer_id INT,
+         order_date DATE,
+         FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
+     );
+
+     CREATE TABLE OrderProduct (
+         order_id INT,
+         product_id INT,
+         quantity INT,
+         PRIMARY KEY (order_id, product_id),
+         FOREIGN KEY (order_id) REFERENCES `Order`(order_id),
+         FOREIGN KEY (product_id) REFERENCES Product(product_id)
+     );
+     ```
+
+10. **Write a query to get the customer name and total order price for customers named "Bharath" where the order is placed today.**
+
+    - **Answer:**
+      ```sql
+      SELECT c.customer_name, SUM(p.price * op.quantity) AS total_order_price
+      FROM Customer c
+      JOIN `Order` o ON c.customer_id = o.customer_id
+      JOIN OrderProduct op ON o.order_id = op.order_id
+      JOIN Product p ON op.product_id = p.product_id
+      WHERE c.customer_name = 'Bharath'
+      AND o.order_date = CURDATE()
+      GROUP BY c.customer_name;
+      ```
+
+11. **Given the following Spring Boot code, will it work?**
+    ```java
+    @Component
+    public class Controller {
+        @Autowired
+        private Filter filter;
+    }
+    
+    public interface Filter {
+    }
+    
+    @Component
+    public class Abc implements Filter {
+    }
+    
+    @Component
+    public class Abc1 implements Filter {
+    }
+    ```
+
+    - **Answer:** No, it will not work as intended. Spring will not be able to resolve the `Filter` bean because there are multiple implementations (`Abc` and `Abc1`). You need to use `@Qualifier` to specify which implementation should be injected.
+
+12. **How would you fix the issue in the Spring Boot code provided above?**
+
+    - **Answer:** Use `@Qualifier` to specify which bean to inject:
+      ```java
+      @Component
+      public class Controller {
+          @Autowired
+          @Qualifier("abc")
+          private Filter filter;
+      }
+      
+      @Component("abc")
+      public class Abc implements Filter {
+      }
+      
+      @Component("abc1")
+      public class Abc1 implements Filter {
+      }
+      ```
+
+13. **What is the difference between `@Primary` and `@Qualifier` in Spring?**
+
+    - **Answer:**
+      - **`@Primary`:** Indicates the preferred bean when multiple candidates are available for autowiring. It is used at the bean definition level.
+      - **`@Qualifier`:** Used to specify which bean to inject when multiple beans of the same type are available. It is used at the injection point.
+
+14. **How can you ensure that an API request processes data and responds while sending a notification to another API simultaneously in Spring Boot?**
+
+    - **Answer:** Use asynchronous processing with `@Async` or `CompletableFuture` to handle the notification separately from the main request processing. Here’s an example:
+      ```java
+      @Service
+      public class MyService {
+          @Async
+          public CompletableFuture<Void> sendNotification() {
+              // Code to send notification
+              return CompletableFuture.completedFuture(null);
+          }
+          
+          public void processRequest() {
+              // Process request
+              sendNotification(); // Non-blocking call
+          }
+      }
+      ```
+
+15. **How do you communicate between one API and another API?**
+
+    - **Answer:** You can use HTTP clients such as `RestTemplate`, `WebClient` (for reactive applications), or external libraries to make API calls. For example, using `RestTemplate`:
+      ```java
+      @Autowired
+      private RestTemplate restTemplate;
+
+      public String callAnotherApi() {
+          String url = "http://example.com/api";
+          return restTemplate.getForObject(url, String.class);
+      }
+      ```
+
+16. **What is `Mono` and `Flux` in WebClient?**
+
+    - **Answer:**
+      - **`Mono`:** Represents a single asynchronous value or an empty value.
+      - **`Flux`:** Represents a stream of 0 to N asynchronous values.
+
+17. **What is a Kafka server?**
+
+    - **Answer:** Apache Kafka is a distributed event streaming platform used for building real-time data pipelines and streaming applications. It is designed for high-throughput, fault tolerance, and scalability.
+
+18. **Given a controller with a GET API that takes a number as a `@PathVariable`, and returns a 404 Not Found for invalid values, how would you implement a JUnit test case for this controller?**
+
+    - **Answer:**
+      ```java
+      @SpringBootTest
+      @AutoConfigureMockMvc
+      public class MyControllerTest {
+
+          @Autowired
+          private MockMvc mockMvc;
+
+          @Test
+          public void testGetApiNotFound() throws Exception {
+              mockMvc.perform(get("/api/{number}", 999)) // assuming 999 is invalid
+                     .andExpect(status().isNotFound());
+          }
+      }
+      ```
+
+19. **How do you configure and connect a Spring Boot application to a database, and how does it work?**
+
+    - **Answer:** Configure the `application.properties` or `application.yml` with database connection details:
+      ```properties
+      spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+      spring.datasource.username=root
+      spring.datasource.password=password
+      spring.jpa.hibernate.dd
+
+l-auto=update
+      ```
+      Spring Boot uses these properties to configure the `DataSource`, `EntityManagerFactory`, and `TransactionManager` beans automatically.
+
+20. **How can you determine if the application is connected to MySQL or Oracle?**
+
+    - **Answer:** Check the `application.properties` or `application.yml` for the JDBC URL. The URL usually contains the database type, e.g., `jdbc:mysql://` for MySQL or `jdbc:oracle:thin:@` for Oracle.
+
+21. **What is the `@Transactional` annotation in Spring?**
+
+    - **Answer:** The `@Transactional` annotation is used to define the scope of a single database transaction. It ensures that all operations within the annotated method are completed successfully before committing the transaction, and rolls back the transaction in case of errors.
+
+22. **Are you familiar with entity graphs in JPA?**
+
+    - **Answer:** Yes, entity graphs in JPA allow you to specify fetch strategies for entities dynamically. They help in optimizing queries by specifying which related entities should be fetched eagerly.
+
+23. **Have you used `join` and `joinFetch` in JPA?**
+
+    - **Answer:** Yes, `join` is used in JPQL queries to perform joins between entities, while `joinFetch` is used to fetch related entities eagerly in a single query to avoid the N+1 select problem.
+
+24. **What are closures in JavaScript, and can you provide an example?**
+
+    - **Answer:** Closures are functions that have access to variables from their outer scope, even after the outer function has finished executing. Example:
+      ```javascript
+      function outerFunction() {
+          let outerVariable = 'I am from outer function';
+          return function innerFunction() {
+              console.log(outerVariable);
+          }
+      }
+      let closureFunction = outerFunction();
+      closureFunction(); // Outputs: 'I am from outer function'
+      ```
+
+25. **What is debouncing in JavaScript?**
+
+    - **Answer:** Debouncing is a technique used to limit the rate at which a function is executed. It ensures that a function is not called repeatedly in quick succession, which helps in optimizing performance. Example:
+      ```javascript
+      function debounce(func, wait) {
+          let timeout;
+          return function(...args) {
+              clearTimeout(timeout);
+              timeout = setTimeout(() => func.apply(this, args), wait);
+          }
+      }
+      ```
+
+26. **What is `useEffect` in React?**
+
+    - **Answer:** `useEffect` is a React hook that allows you to perform side effects in functional components. It is used to handle operations like data fetching, subscriptions, or manually changing the DOM.
+
+27. **What is the difference between `state` and `props` in React?**
+
+    - **Answer:**
+      - **`state`:** Represents data that changes over time within a component. It is mutable and managed within the component using `useState` or `this.setState`.
+      - **`props`:** Short for properties, they are read-only data passed from parent to child components. Props are immutable and used to pass data and event handlers between components.
