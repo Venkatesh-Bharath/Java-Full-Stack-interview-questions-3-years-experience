@@ -343,4 +343,265 @@ Solution Explanation:
 
 # Client Round 
 
-soon!
+# PayPal client interview (L1):
+
+---
+
+### 1. **Self-introduction about your project:**
+   - Briefly describe your project, its objective, technologies used (e.g., Java, Spring Boot, ReactJS), and your role (backend developer, full stack developer). Mention any key features, challenges faced, and how you solved them.
+
+### 2. **Do you know SQL?**
+   - Yes, SQL is a standard language used to manage and manipulate relational databases. I have experience with queries like `SELECT`, `INSERT`, `UPDATE`, `DELETE`, and handling joins, indexes, and stored procedures.
+
+### 3. **Do you know Data Structures and Algorithms (LinkedList)?**
+   - Yes, LinkedList is a data structure where each element (node) contains data and a reference (or pointer) to the next node. There are two types: singly linked and doubly linked lists.
+
+### 4. **Do you know OOP concepts? Can you explain what they are?**
+   - OOP (Object-Oriented Programming) concepts include:
+     1. **Encapsulation:** Wrapping data (variables) and code (methods) together.
+     2. **Abstraction:** Hiding complexity by providing a simplified interface.
+     3. **Inheritance:** Deriving new classes from existing ones.
+     4. **Polymorphism:** The ability to use the same function in different forms.
+
+### 5. **What is polymorphism?**
+   - Polymorphism allows one interface to be used for different data types. In Java, it can be achieved through method overloading and method overriding.
+
+### 6. **What is method overloading, and what is method overriding?**
+   - **Method Overloading:** Multiple methods with the same name but different parameters (within the same class).
+   - **Method Overriding:** A subclass provides a specific implementation of a method already defined in its parent class.
+
+### 7. **How can you declare your override?**
+   - By using the `@Override` annotation before the method in the subclass.
+
+### 8. **What are access modifiers?**
+   - Access modifiers define the scope of access to classes, variables, and methods:
+     - `private`: Accessible only within the same class.
+     - `protected`: Accessible within the same package and subclasses.
+     - `public`: Accessible everywhere.
+     - (default): Accessible within the same package.
+
+### 9. **Why use `private`?**
+   - To restrict access to the class members and maintain encapsulation, ensuring controlled access through getters and setters.
+
+### 10. **If you provide a variable as `private`, what happens? How can you set and get the value of that private variable?**
+   - The variable will be inaccessible from outside the class. You can set and get the value using public getter and setter methods.
+
+### 11. **Which OOP concept can achieve private variables?**
+   - **Encapsulation** ensures private variables can be controlled through public methods like getters and setters.
+
+### 12. **Do you know about `String`? Can you explain?**
+   - A `String` in Java is an immutable sequence of characters. It is stored in the string pool for memory efficiency.
+
+### 13. **What is the difference between `String`, `StringBuilder`, and `StringBuffer`?**
+   - `String`: Immutable.
+   - `StringBuilder`: Mutable and not thread-safe.
+   - `StringBuffer`: Mutable and thread-safe (synchronized).
+
+### 14. **What is the string constant pool?**
+   - It's a special memory area in the Java heap where `String` literals are stored to optimize memory usage and avoid duplicate string objects.
+
+### 15. **Given the pseudo-code `String str1="abc"`, `String str2="abc"`, `str1 == str2`, what will be the output?**
+   - The output will be `true` because both `str1` and `str2` point to the same literal in the string constant pool.
+
+### 16. **What is an inner class, and why is it useful?**
+   - An inner class is a class defined within another class. It’s useful to logically group classes, improve encapsulation, and access outer class members.
+
+### 17. **What is an anonymous class, and why is it used?**
+   - An anonymous class is a class without a name, often used to instantiate a one-time object. It’s useful for event handling or passing functionality without creating separate named classes.
+
+### 18. **Have you worked with multithreading?**
+   - Yes, multithreading allows concurrent execution of two or more threads, improving the performance of tasks like I/O, database calls, etc.
+
+### 19. **How many ways are there to create a thread?**
+   - Two ways:
+     1. By extending the `Thread` class.
+     2. By implementing the `Runnable` interface.
+
+### 20. **Have you used the `Future` class?**
+   - Yes, the `Future` class in Java represents the result of an asynchronous computation, allowing you to check if the task is complete, retrieve the result, or cancel the task.
+
+### 21. **Have you used `Callable`?**
+   - Yes, `Callable` is an interface similar to `Runnable`, but it returns a result and can throw a checked exception.
+
+### 22. **Which collections have you used?**
+   - I've used various collections like `ArrayList`, `HashSet`, `HashMap`, `LinkedList`, and `TreeMap`.
+
+### 23. **What is the retrieval time complexity of `HashMap`?**
+   - The average time complexity for retrieving an element in a `HashMap` is O(1), assuming good hash function distribution.
+
+### 24. **How does `HashMap` work internally?**
+   - `HashMap` uses an array of buckets where each bucket is a linked list. The key's hashcode determines the bucket, and keys with the same hashcode are handled via linked lists (or trees in case of hash collision).
+
+### 25. **What is hash collision?**
+   - Hash collision occurs when two different keys generate the same hashcode. Java resolves this through linked lists or balanced trees inside the bucket.
+
+### 26. **What is `final`, and how does it work with variables, methods, and classes?**
+   - `final` prevents modification:
+     - **Variable**: Value cannot be changed after initialization.
+     - **Method**: Cannot be overridden.
+     - **Class**: Cannot be extended.
+
+### 27. **How can you handle exceptions? Have you used custom exceptions?**
+   - Exceptions are handled using `try-catch` blocks. Yes, I have used custom exceptions to create application-specific error messages by extending the `Exception` class.
+
+### 28. **Give me mostly used Spring Boot exceptions.**
+   - Common exceptions include `DataIntegrityViolationException`, `HttpClientErrorException`, `HttpServerErrorException`, `EntityNotFoundException`.
+
+### 29. **What is the difference between `throw` and `throws`?**
+   - `throw`: Used to explicitly throw an exception.
+   - `throws`: Declares that a method can throw one or more exceptions.
+
+### 30. **What is the difference between checked and unchecked exceptions?**
+   - **Checked exceptions** must be handled at compile-time (e.g., `IOException`).
+   - **Unchecked exceptions** occur at runtime (e.g., `NullPointerException`).
+
+### 31. **What are `try`, `catch`, and `finally`? When do we use them?**
+   - `try` defines the code block to monitor for exceptions.
+   - `catch` handles the exception.
+   - `finally` executes code after `try-catch`, regardless of an exception.
+
+### 32. **If `try` contains multiple catch blocks, which catch block will execute? If there is a `finally` block, what will be the output?**
+   - The first matching `catch` block will execute. The `finally` block will always execute after the `catch` block, regardless of the exception.
+
+### 33. **If a single `catch` can handle multiple exceptions, which exception will it handle?**
+   - It will handle whichever exception occurs that is listed in the `catch` block. Java allows multi-catch blocks using `|`.
+
+### 34. **Have you worked with Java 8?**
+   - Yes, I have used features like Lambdas, Streams, Optional, and the Date-Time API.
+
+### 35. **What are the Java 9 features?**
+   - Key features include JShell (REPL), Module System, Factory Methods for Collections, Stream API improvements, and Private Interface Methods.
+
+### 36. **If I provide the string "leetcode" and the character "e", can you find how many times "e" occurs using streams?**
+   ```java
+   long count = "leetcode".chars().filter(ch -> ch == 'e').count();
+   ```
+
+### 37. **Which data structure are you familiar with?**
+   - I am familiar with LinkedList, ArrayList, HashMap, Stack, Queue, etc.
+
+### 38. **Select any data structure: LinkedList, Stack, or Queue.**
+   - Let's take LinkedList, which stores elements as nodes where each node points to the next node.
+
+### 39. **Write code logic: If I provide the head of a linked list, determine if it is a cycle linked list or not.**
+   ```java
+   public boolean hasCycle(ListNode head) {
+       if (head == null) return false;
+       ListNode slow = head, fast =
+
+ head.next;
+       while (slow != fast) {
+           if (fast == null || fast.next == null) return false;
+           slow = slow.next;
+           fast = fast.next.next;
+       }
+       return true;
+   }
+   ```
+
+### 40. **What is the time complexity and space complexity of the code to detect a cycle in a linked list?**
+   - **Time complexity:** O(n) - We traverse the linked list only once, making the time complexity linear.
+   - **Space complexity:** O(1) - We use a constant amount of extra space (two pointers).
+
+### 41. **What is the `Optional` class?**
+   - The `Optional` class in Java is used to avoid `null` pointer exceptions by representing a value that may or may not be present. It provides methods like `isPresent()`, `get()`, `orElse()`, and `ifPresent()` to handle the value safely.
+
+### 42. **What is a functional interface?**
+   - A functional interface in Java is an interface that contains exactly one abstract method. It can have multiple default or static methods. Functional interfaces can be implemented using lambda expressions. Example: `Runnable`, `Callable`, `Comparator`.
+
+### 43. **What are the built-in functional interfaces available in Java?**
+   - Some of the built-in functional interfaces in Java are:
+     - `Function<T, R>`: Takes one argument and returns a result.
+     - `Consumer<T>`: Takes one argument and returns no result.
+     - `Supplier<T>`: Takes no argument and returns a result.
+     - `Predicate<T>`: Takes one argument and returns a boolean.
+     - `BiFunction<T, U, R>`, `BiConsumer<T, U>`, `BiPredicate<T, U>`: Same as the above but with two arguments.
+
+### 44. **How can we write methods in a functional interface, and how can we utilize those methods?**
+   - You define a functional interface by declaring one abstract method, then implement it using a lambda expression. For example:
+   ```java
+   @FunctionalInterface
+   interface MathOperation {
+       int operate(int a, int b);
+   }
+
+   public class Main {
+       public static void main(String[] args) {
+           MathOperation addition = (a, b) -> a + b;
+           System.out.println("Result: " + addition.operate(5, 3));
+       }
+   }
+   ```
+
+### 45. **Do you know `CompletableFuture`?**
+   - Yes, `CompletableFuture` is a feature of Java 8 that is used to handle asynchronous programming. It allows you to run tasks asynchronously and chain multiple stages of computations. It supports combining multiple asynchronous computations and handling exceptions.
+
+### 46. **Have you worked with Spring Boot?**
+   - Yes, I have worked with Spring Boot extensively. It simplifies building stand-alone, production-grade Spring-based applications. It provides default configurations and a wide range of annotations to reduce boilerplate code.
+
+### 47. **What is configuration and auto-configuration in Spring Boot?**
+   - **Configuration** refers to the settings and beans required to run the Spring Boot application.
+   - **Auto-configuration** is a feature in Spring Boot that automatically configures your application based on the dependencies in the classpath. It reduces the need for manual configuration.
+
+### 48. **What is `@Component`?**
+   - `@Component` is a Spring annotation used to indicate that a class is a Spring-managed bean. The Spring container automatically detects and registers beans marked with `@Component` for dependency injection.
+
+### 49. **Can you explain `@Controller`, `@Service`, and `@Repository`?**
+   - **`@Controller`**: Marks a class as a Spring MVC controller, typically used to handle web requests.
+   - **`@Service`**: Indicates a service layer class that contains business logic. It is used for business operations and service orchestration.
+   - **`@Repository`**: Marks a data access layer class that interacts with the database, translating exceptions into Spring’s DataAccessException.
+
+### 50. **Do you know MVC?**
+   - Yes, MVC (Model-View-Controller) is a software architectural pattern that separates an application into three main logical components:
+     - **Model**: Manages the data and business logic.
+     - **View**: Responsible for rendering the UI.
+     - **Controller**: Handles user input and controls the flow of data between the Model and View.
+
+### 51. **Can you explain the MVC architecture?**
+   - In the MVC architecture:
+     - **Model**: Represents the data and the business logic of the application.
+     - **View**: Renders the UI, based on the data provided by the Model.
+     - **Controller**: Handles the input from the user, updates the Model, and selects the View to display.
+
+### 52. **What is the difference between SOAP and RESTful services?**
+   - **SOAP** (Simple Object Access Protocol) is a protocol used for exchanging structured information in web services. It uses XML as its message format and operates over various protocols like HTTP, SMTP, etc.
+   - **REST** (Representational State Transfer) is an architectural style for building web services, using standard HTTP methods (GET, POST, PUT, DELETE) and typically communicates using JSON or XML.
+
+### 53. **What are the features of RESTful services?**
+   - RESTful services are:
+     - Stateless: Each request from the client must contain all the information required for the server to understand and process the request.
+     - Cacheable: Responses can be marked as cacheable to improve performance.
+     - Scalable: REST is designed to handle high-load scenarios efficiently.
+     - Layered: RESTful systems allow layering of services.
+
+### 54. **You mentioned you worked on microservices, so give me an example API you worked on (e.g., notification services). How does it work? How would you create it in code?**
+   - Example: A notification service in a microservice architecture can be responsible for sending notifications (email, SMS, etc.) to users.
+     1. **Controller**: The user triggers a notification request.
+     2. **Service**: Business logic determines the notification type and message.
+     3. **Repository**: Interacts with the database to fetch necessary data (like user preferences, templates).
+     4. **External API**: Calls the external notification provider (e.g., email or SMS API).
+   
+   Here's an example Spring Boot API for sending email notifications:
+   ```java
+   @RestController
+   @RequestMapping("/api/notification")
+   public class NotificationController {
+       @Autowired
+       private NotificationService notificationService;
+
+       @PostMapping("/send")
+       public ResponseEntity<String> sendNotification(@RequestBody NotificationRequest request) {
+           notificationService.sendNotification(request);
+           return ResponseEntity.ok("Notification sent successfully");
+       }
+   }
+
+   @Service
+   public class NotificationService {
+       public void sendNotification(NotificationRequest request) {
+           // Logic to send notification (e.g., email, SMS)
+       }
+   }
+   ```
+---
+
