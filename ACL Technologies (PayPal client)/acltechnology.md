@@ -605,3 +605,290 @@ Solution Explanation:
    ```
 ---
 
+# PayPal client interview (L2):
+
+### 1. Self-introduction based on project
+I have been working on a [your project name] for [duration], focusing on full-stack development with technologies like ReactJS on the front end and Spring Boot on the backend. The project involves creating customer registration services, handling transactions, and managing user data. I am responsible for developing APIs, integrating third-party services, and ensuring smooth user experiences. I've also worked on cloud deployments, particularly with GCP, where I implemented features such as auto-scaling and cloud storage integration.
+
+### 2. Which GCP concepts have you used?
+- Compute Engine for virtual machine management.
+- Google Cloud Storage for object storage.
+- Pub/Sub for messaging between services.
+- Cloud SQL for managed relational databases.
+- Cloud Load Balancing for distributing traffic.
+- Stackdriver for monitoring and logging.
+
+### 3. Are you compatible with Java 8 streams?
+Yes, I am proficient with Java 8 streams. I use them for operations like filtering, mapping, reducing, and collecting data, which allows for a more functional programming approach.
+
+### 4. You have one list; can you find how many times a given string occurs using streams?
+```java
+List<String> list = Arrays.asList("apple", "banana", "apple", "orange", "apple");
+long count = list.stream().filter(s -> s.equals("apple")).count();
+System.out.println(count);  // Output: 3
+```
+
+### 5. You have a list of strings; find the occurrence of each string using streams.
+```java
+List<String> list = Arrays.asList("apple", "banana", "apple", "orange", "banana");
+Map<String, Long> result = list.stream()
+    .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+System.out.println(result);  // Output: {banana=2, orange=1, apple=2}
+```
+
+### 6. What is the difference between HashMap vs LinkedHashMap?
+- **HashMap**: Does not maintain insertion order.
+- **LinkedHashMap**: Maintains insertion order or access order.
+
+### 7. You have `String s1="hello"` and `String s2="hellow"`. What happens when using `==` and `.equals()`?
+- `==`: Compares reference, so `s1 == s2` returns `false` because they point to different objects.
+- `.equals()`: Compares value, so `s1.equals(s2)` returns `false` because their content is different.
+
+### 8. What are exceptions, and can you give types of exceptions?
+Exceptions are events that disrupt normal program execution.
+- **Checked Exceptions**: Must be handled or declared, e.g., `IOException`.
+- **Unchecked Exceptions**: Include runtime exceptions like `NullPointerException`, `ArithmeticException`.
+
+### 9. What is a checked exception and unchecked exception? Give an example.
+- **Checked Exception**: Needs explicit handling.
+  ```java
+  try {
+      FileReader file = new FileReader("file.txt");
+  } catch (FileNotFoundException e) {
+      e.printStackTrace();
+  }
+  ```
+- **Unchecked Exception**: Occurs at runtime.
+  ```java
+  int a = 10 / 0;  // ArithmeticException
+  ```
+
+### 10. How strong are you in Java theory and programming? Give a rating out of 10.
+I would rate myself 8 out of 10.
+
+### 11. Which data structures are you familiar with?
+Arrays, Lists, Maps, Sets, Stacks, Queues, and Trees.
+
+### 12. What is the difference between Stack and Queue?
+- **Stack**: Follows LIFO (Last In First Out).
+- **Queue**: Follows FIFO (First In First Out).
+
+### 13. Have you used try-with-resources? Give an example code.
+```java
+try (FileReader reader = new FileReader("file.txt")) {
+    // Use the reader
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+### 14. When does a finally block never execute?
+- When `System.exit()` is called.
+- If a fatal JVM error occurs.
+
+### 15. Given the code:
+```java
+int division(int a, int b) { 
+    try {
+        return a / b;
+    } finally {
+        System.out.print("finally");
+    }
+}
+```
+**Output**: It prints "finally" and returns `5` (for inputs `10, 2`).
+
+### 16. How to create a custom exception? Give example code.
+```java
+class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+}
+```
+
+### 17. What is a static method?
+A method that belongs to the class rather than any specific instance. It can be called without creating an object of the class.
+
+### 18. If you have a class with a static method, is it possible to override it in a subclass?
+No, static methods cannot be overridden, but they can be hidden in a subclass.
+
+### 19. What is the diamond problem?
+Occurs in languages that allow multiple inheritance, causing ambiguity. Java avoids this through interfaces with default methods.
+
+### 20. What is the difference between a Java 7 interface and a Java 8 interface?
+- **Java 7 Interface**: Only abstract methods.
+- **Java 8 Interface**: Can have default and static methods.
+
+### 21. You have an array `arr[]={2,4,6,8,9}`; how can you efficiently find the index of element 6? Write code logic and explain.
+```java
+import java.util.Arrays;
+
+public class BinarySearchExample {
+    public static void main(String[] args) {
+        int[] arr = {2, 4, 6, 8, 9};
+        int target = 6;
+
+        int index = Arrays.binarySearch(arr, target);
+        
+        if (index >= 0) {
+            System.out.println("Element found at index: " + index);
+        } else {
+            System.out.println("Element not found");
+        }
+    }
+}
+
+```
+
+### 22. If you have a Java-based logic to fetch data from a database and use a join query to get data, which one is faster?
+Fetching data using a join query in SQL is generally faster because the database engine is optimized for such operations.
+
+### 23. How do you get data from the database in Spring Boot?
+Using Spring Data JPA repositories:
+```java
+@Autowired
+private UserRepository userRepository;
+
+List<User> users = userRepository.findAll();
+```
+
+### 24. When you have a list containing data and want to remove data in the middle, which collection is best?
+`LinkedList` is better because it allows faster insertions and deletions in the middle.
+
+### 25. If you have one list and it's iteration time, can you remove an element?
+Yes, using `Iterator.remove()` to avoid `ConcurrentModificationException`.
+
+### 26. If you create a list using `List.of()` method, can you add data additionally?
+No, `List.of()` creates an immutable list.
+
+### 27. Do you know design patterns?
+Yes, I am familiar with Singleton, Factory, Observer, and other design patterns.
+
+### 28. What is the Singleton design pattern?
+A design pattern that ensures a class has only one instance and provides global access to it.
+
+### 29. Write a code logic for the Singleton design pattern.
+```java
+public class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+```
+
+### 30. What is the default Spring Boot design pattern?
+The default design pattern in Spring Boot is the **Dependency Injection** pattern.
+
+### 31. If you have multiple catch blocks, how do you handle which exception? Give an example.
+```java
+try {
+    // code
+} catch (IOException e) {
+    // handle IOException
+} catch (Exception e) {
+    // handle all other exceptions
+}
+```
+
+### 32. If I catch a general exception and then catch an arithmetic exception, what will happen? Write code and explain.
+The more specific exception (ArithmeticException) should be caught first.
+```java
+try {
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Arithmetic Exception");
+} catch (Exception e) {
+    System.out.println("General Exception");
+}
+```
+Output: "Arithmetic Exception".
+
+### 33. How familiar are you with SQL queries?
+I am quite familiar and can write complex queries with joins, subqueries, and aggregate functions.
+
+### 34. What are the joins available in SQL?
+- Inner Join
+- Left Join (Left Outer Join)
+- Right Join (Right Outer Join)
+- Full Join (Full Outer Join)
+
+### 35. Explain briefly about all SQL joins.
+- **Inner Join**: Returns records that have matching values in both tables.
+- **Left Join**: Returns all records from the left table and matched records from the right table.
+- **Right Join**: Returns all records from the right table and matched records from the left table.
+- **Full Join**: Returns all records when there is a match in either left or right table.
+
+### 36. Why is the main method static?
+The `main` method is static because it allows the JVM to invoke it without instantiating the class.
+
+### 37. What is polymorphism?
+Polymorphism allows one interface to be used for different data types, typically achieved through method overloading or overriding.
+
+### 38. What is method overloading and method overriding? Give example code.
+- **Method Overloading**: Same method name, different parameters.
+- **Method Overriding**: Subclass redefines a method from the parent class.
+
+Overloading:
+```java
+class Example {
+    void print(int a) {}
+    void print(String a
+
+) {}
+}
+```
+
+Overriding:
+```java
+class Parent {
+    void show() {}
+}
+
+class Child extends Parent {
+    @Override
+    void show() {}
+}
+```
+
+### 39. Based on the tables `menu -> mid, itemid`, `order -> oid, cid, orderdate`, `customer -> cid, cname, address`, find order ID based on customer name.
+```sql
+SELECT order.oid 
+FROM order 
+INNER JOIN customer ON order.cid = customer.cid 
+WHERE customer.cname = 'customer_name';
+```
+
+### 40. Given employee data with id=1, sal=1000; id=2, sal=2000; id=3, sal=10000, find the second maximum salary.
+```sql
+SELECT MAX(salary) FROM employees WHERE salary < (SELECT MAX(salary) FROM employees);
+```
+
+### 41. What is dependency injection? Give an example.
+Dependency Injection is a design pattern where an object's dependencies are provided rather than hard-coded within the object.
+```java
+@Service
+public class MyService {
+    private final MyRepository repository;
+
+    @Autowired
+    public MyService(MyRepository repository) {
+        this.repository = repository;
+    }
+}
+```
+
+### 42. How many ways can dependency injection be done?
+- Constructor Injection
+- Setter Injection
+- Field Injection (not recommended)
+
+# HR  
+--package, self
