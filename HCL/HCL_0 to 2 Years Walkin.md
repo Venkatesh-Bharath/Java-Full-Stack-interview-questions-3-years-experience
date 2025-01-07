@@ -28,6 +28,8 @@
    d) Runtime error  
    **Answer:** b) Bark  
 
+---
+
 2. **What happens if you call a static method on a subclass object?**  
    ```java
    class Parent {
@@ -55,6 +57,8 @@
    d) Runtime error  
    **Answer:** a) Parent  
 
+---
+
 3. **How do you enforce a class to have certain methods in Java?**  
    ```java
    interface Vehicle {
@@ -71,6 +75,8 @@
    c) By using a static method  
    d) By overriding methods  
    **Answer:** b) By implementing an interface  
+
+---
 
 4. **What is the output of this inheritance pseudo-code?**  
    ```java
@@ -99,6 +105,8 @@
    d) Runtime error  
    **Answer:** a) 5  
 
+---
+
 5. **What is the purpose of using `super` in inheritance?**  
    ```java
    class Parent {
@@ -126,6 +134,8 @@
    d) None of the above  
    **Answer:** a) To call the parent's constructor  
 
+---
+
 6. **How do you filter a list of numbers to get even numbers only?**  
    ```java
    List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -138,6 +148,8 @@
    c) forEach(x -> x % 2 == 0)  
    d) None of the above  
    **Answer:** a) filter(x -> x % 2 == 0)  
+
+---
 
 7. **How do you sort a list of strings using streams?**  
    ```java
@@ -152,6 +164,8 @@
    d) map()  
    **Answer:** b) sorted()  
 
+---
+
 8. **How do you convert a list of integers into their squares?**  
    ```java
    List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
@@ -165,6 +179,8 @@
    d) None of the above  
    **Answer:** a) map(x -> x * x)  
 
+---
+
 9. **How do you group employees by department using streams?**  
    ```java
    Map<String, List<Employee>> grouped = employees.stream()
@@ -175,6 +191,8 @@
    c) groupBy(Employee::getDepartment)  
    d) None of the above  
    **Answer:** a) collect(Collectors.groupingBy(Employee::getDepartment))  
+
+---
 
 10. **How do you find the first element in a stream?**  
     ```java
@@ -201,6 +219,8 @@
     d) None of the above  
     **Answer:** b) 20  
 
+---
+
 12. **How do you check if a string starts with "Hello"?**  
     ```java
     String str = "Hello World";
@@ -211,6 +231,8 @@
     c) contains  
     d) equals  
     **Answer:** a) startsWith  
+
+---
 
 13. **What is the output of this pseudo-code?**  
     ```java
@@ -233,6 +255,8 @@
     d) Runtime error  
     **Answer:** a) Static method in Test  
 
+---
+
 14. **How do you calculate the sum of all elements in a list using streams?**  
     ```java
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -245,6 +269,8 @@
     c) mapToInt(x -> x).sum()  
     d) None of the above  
     **Answer:** b) reduce(0, (a, b) -> a + b)  
+
+---
 
 15. **What happens if you override `equals` but not `hashCode`?**  
     ```java
@@ -271,6 +297,8 @@
     d) Runtime error  
     **Answer:** b) 2  
 
+---
+
 16. **What is the purpose of the `final` keyword in Java?**  
     ```java
     final class Test {
@@ -287,6 +315,8 @@
     d) All of the above  
     **Answer:** d) All of the above  
 
+---
+
 17. **How do you find the maximum value in a list using streams?**  
     ```java
     List<Integer> numbers = Arrays.asList(10, 20, 30, 40, 50);
@@ -298,6 +328,8 @@
     c) mapToInt(x -> x).max()  
     d) Any of the above  
     **Answer:** d) Any of the above  
+
+---
 
 18. **What is the output of this method reference example?**  
     ```java
@@ -321,6 +353,8 @@
     d) None of the above  
     **Answer:** b) Hello World  
 
+---
+
 19. **What is the purpose of the `Optional` class in Java?**  
     ```java
     Optional<String> opt = Optional.ofNullable(null);
@@ -331,6 +365,8 @@
     c) To provide default values when null  
     d) All of the above  
     **Answer:** d) All of the above  
+
+---
 
 20. **How do you create a custom functional interface in Java?**  
     ```java
@@ -352,6 +388,8 @@
     d) None of the above  
     **Answer:** a) (x, y) -> x + y  
 
+---
+
 21. **How do you find duplicate elements in a list using streams?**  
     ```java
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 1, 3);
@@ -364,6 +402,8 @@
     c) distinct()  
     d) None of the above  
     **Answer:** a) filter(x -> Collections.frequency(numbers, x) > 1)  
+
+---
 
 22. **What is the output of this method chaining example?**  
     ```java
@@ -379,6 +419,8 @@
     d) None of the above  
     **Answer:** a) JOHN JANE JAKE  
 
+---
+
 23. **What happens if a stream is reused?**  
     ```java
     Stream<String> stream = Stream.of("A", "B", "C");
@@ -390,6 +432,8 @@
     c) IllegalStateException  
     d) None of the above  
     **Answer:** c) IllegalStateException  
+
+---
 
 24. **What is the output of the following?**  
     ```java
@@ -403,6 +447,8 @@
     d) None of the above  
     **Answer:** a) 1 2 3 4 5  
 
+---
+
 25. **How do you concatenate two streams in Java?**  
     ```java
     Stream<Integer> s1 = Stream.of(1, 2, 3);
@@ -415,6 +461,8 @@
     d) None of the above  
     **Answer:** a) Stream.concat(s1, s2)  
 
+---
+
 26. **What happens when an exception is thrown inside a stream pipeline?**  
     ```java
     Stream<Integer> numbers = Stream.of(1, 2, 0);
@@ -426,6 +474,8 @@
     c) Compile-time error  
     d) None of the above  
     **Answer:** b) ArithmeticException  
+
+---
 
 27. **How do you handle exceptions in streams?**  
     ```java
@@ -440,6 +490,7 @@
     d) None of the above  
     **Answer:** c) Both a and b  
 
+---
 
 28. **What is the difference between `map` and `flatMap`?**  
     ```java
@@ -455,9 +506,11 @@
     b) Both are the same  
     c) Both flatten nested lists  
     d) None of the above  
-    **Answer:** a) `map` processes elements, `flatMap` flattens nested streams  
+    **Answer:** a) `map` processes elements, `flatMap` flattens nested streams
 
-29. **Which of the following ensures a thread-safe Singleton class?**  
+---
+
+30. **Which of the following ensures a thread-safe Singleton class?**  
     ```java
     public class Singleton {
         private static Singleton instance;
@@ -480,9 +533,11 @@
     b) Use a synchronized method instead of a synchronized block.  
     c) Use an enum to implement Singleton.  
     d) All of the above.  
-    **Answer:** d) All of the above.  
+    **Answer:** d) All of the above.
 
-30. **What is the output of this pseudo-code for a Singleton class?**  
+---
+
+31. **What is the output of this pseudo-code for a Singleton class?**  
     ```java
     public class Singleton {
         private static Singleton instance = new Singleton();
@@ -514,6 +569,7 @@
     **Answer:** a) Constructor Called  
                true 
 
+---
 
 31. **Given a table `Employee` with columns `id`, `name`, and `salary`, write a query to find the highest salary from the table.**
 
@@ -524,6 +580,7 @@ d) All of the above
 
 **Answer:** d) All of the above  
 
+---
 
 32. **Given a table `Student` with a `marks` column, write a query to count the number of students who have grade 'A' (marks > 80), grade 'B' (marks > 70), grade 'C' (marks > 50), and grade 'F' (marks <= 50).**
 
@@ -549,6 +606,7 @@ SELECT marks FROM Student ORDER BY marks DESC;
 
 **Answer:** a) 
 
+---
 
 33. **Given two tables, `Employee(id, name, department_id)` and `Department(id, name)`, write a query to list all employees with their department names.**
 
@@ -633,6 +691,8 @@ d) `sticky`
 
 **Answer:** b) `relative`  
 
+---
+
 38. **Which of the following properties is used to set the margin between an element's border and its surroundings?**
 
 a) `border`  
@@ -642,6 +702,8 @@ d) `content`
 
 **Answer:** c) `margin`  
 
+---
+
 39. **Which CSS rule is used for applying styles based on screen width?**
 
 a) `@screen`  
@@ -650,6 +712,8 @@ c) `@viewport`
 d) `@responsive`  
 
 **Answer:** b) `@media`  
+
+---
 
 40. **Which CSS property controls the stacking order of elements?**
 
@@ -670,6 +734,8 @@ c) `<tr>`
 d) `<table>`  
 
 **Answer:** b) `<th>`  
+
+---
 
 42. **Which attribute is used to specify the destination of a hyperlink?**
 
@@ -702,6 +768,8 @@ d) `<dl>`
 
 **Answer:** c) `<ol>`  
 
+---
+
 45. **Which attribute is used to provide an alternative text for an image in HTML?**
 
 a) `alt`  
@@ -710,6 +778,8 @@ c) `src`
 d) `desc`  
 
 **Answer:** a) `alt`  
+
+---
 
 46. **Which of the following is the correct way to declare a function in JavaScript?**
 
@@ -720,6 +790,8 @@ d) `myFunction() function {}`
 
 **Answer:** a) `function myFunction() {}`  
 
+---
+
 47. **How do you access the second element in an array `arr = [10, 20, 30]`?**
 
 a) `arr[2]`  
@@ -728,6 +800,8 @@ c) `arr(2)`
 d) `arr[3]`  
 
 **Answer:** b) `arr[1]`  
+
+---
 
 48. **How do you access the `name` property of an object `person = {name: "John", age: 30}`?**
 
@@ -738,6 +812,8 @@ d) Both a) and b)
 
 **Answer:** d) Both a) and b)  
 
+---
+
 49. **Which method is used to attach an event listener to an element in JavaScript?**
 
 a) `addEvent()`  
@@ -747,6 +823,7 @@ d) `bindEvent()`
 
 **Answer:** c) `addEventListener()`  
 
+---
 50. **Which JavaScript loop will print numbers from 1 to 5?**
 
 a) 
@@ -772,14 +849,7 @@ d) All of the above
 
 **Answer:** d) All of the above  
 
-
-### Code
-
-
-Here’s a structured format based on your description of the HCL assessment. I'll include the SQL and coding questions with answers and example questions for Java, SQL, HTML, CSS, and JavaScript based on the pattern provided.
-
 ---
-
 
 ### **SQL Query**
 51. **Question:**  
