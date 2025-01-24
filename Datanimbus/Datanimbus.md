@@ -254,5 +254,162 @@ If the key already exists, the old value is replaced with the new one.
 ---
 
 ## L2 Techhnical Interview
+---
+
+### **1. Self-Introduction**  
+"I am Venkatesh Bharath, with 3 years of experience in Java Full Stack Development. I specialize in developing scalable and maintainable applications using Spring Boot, Hibernate, and ReactJS. My expertise lies in microservices architecture, database optimization, and test-driven development. I have worked on projects like customer registration systems and transaction data handling, ensuring performance optimization and robust error handling."
 
 ---
+
+### **2. Explain your last project and one task in detail**  
+"I recently worked on a bank application focusing on user registration and transaction management. One specific task was implementing a batch process for validating and processing customer transactions.  
+- **Steps I followed**:  
+  1. Defined a `Job` using Spring Batch, including steps for reading, processing, and writing.  
+  2. Configured `ItemReader` to fetch transactions from a database.  
+  3. Applied business validation logic in `ItemProcessor`.  
+  4. Updated valid transactions to the database using `ItemWriter`.  
+  5. Set up scheduling using Quartz to run jobs at specific intervals.  
+- **Technologies used**: Spring Boot, Spring Batch, and MySQL."
+
+---
+
+### **3. How do different databases connect internally?**  
+"Spring Boot provides database connectivity using:  
+1. **JDBC**: Uses `DriverManager` to establish connections.  
+2. **Connection Pooling**: Tools like HikariCP manage multiple database connections efficiently.  
+3. **JPA/Hibernate**: Abstraction layer to interact with the database using entities and queries, converting objects to SQL statements.  
+4. **DataSource**: Acts as a bridge between the application and the database, managing connections internally."
+
+---
+
+### **4. What is Dependency Injection?**  
+"Dependency Injection (DI) is a design pattern where objects (dependencies) are provided to a class rather than being instantiated within the class. Spring Boot implements DI using:  
+1. **Constructor Injection**: Preferred for mandatory dependencies.  
+2. **Setter Injection**: Useful for optional dependencies.  
+3. **Field Injection**: Directly injects dependencies into class fields."
+
+---
+
+### **5. What is the `@Component` annotation in Spring Boot?**  
+"`@Component` is a generic stereotype annotation that marks a class as a Spring-managed bean. Spring automatically detects these beans during component scanning.  
+**Example**:  
+```java
+@Component
+public class MyService {
+    public void performTask() {
+        System.out.println("Task performed.");
+    }
+}
+```
+
+---
+
+### **6. What is a memory leak?**  
+"A memory leak occurs when objects are no longer needed but are still referenced, preventing the garbage collector from reclaiming their memory."
+
+---
+
+### **7. How to handle memory leaks manually?**  
+- **Close Resources**: Ensure streams, database connections, and files are closed after use.  
+- **Avoid Static References**: Large objects held in static fields cause leaks.  
+- **Weak References**: Use `WeakReference` for cache-like structures.  
+- **Tools**: Use profilers like JVisualVM or Eclipse MAT to detect leaks."
+
+---
+
+### **8. What is Reflection in Java?**  
+"Reflection allows inspection and manipulation of classes, methods, and fields at runtime.  
+**Example**:  
+```java
+Class<?> cls = Class.forName("com.example.MyClass");
+Method method = cls.getMethod("myMethod");
+method.invoke(cls.newInstance());
+```
+
+---
+
+### **9. Java Code: Find the length of the longest subarray with the same digit**  
+```java
+int[] array = {1, 1, 2, 2, 2, 4, 4, 4, 4, 1, 1, 1, 1, 1, 6, 6};
+int maxLen = 0, currLen = 1;
+
+for (int i = 1; i < array.length; i++) {
+    if (array[i] == array[i - 1]) {
+        currLen++;
+    } else {
+        maxLen = Math.max(maxLen, currLen);
+        currLen = 1;
+    }
+}
+maxLen = Math.max(maxLen, currLen); // Final check for last subarray
+System.out.println("Longest subarray length: " + maxLen); // Output: 5
+```
+
+---
+
+### **10. SQL Query: Find the second maximum age in the employee table**  
+```sql
+SELECT MAX(age) AS second_max_age 
+FROM employees 
+WHERE age < (SELECT MAX(age) FROM employees);
+```
+
+---
+
+### **11. How to handle duplicate requests in Spring Boot API?**  
+"To detect duplicate requests:  
+1. Use a unique identifier (e.g., `requestId`) in the request payload.  
+2. Store the `requestId` in a cache (e.g., Redis) with a TTL.  
+3. Check the cache for duplicates before processing.  
+**Example**:  
+```java
+if (cache.contains(requestId)) {
+    throw new DuplicateRequestException("Duplicate request detected.");
+} else {
+    cache.put(requestId, true);
+}
+```
+
+---
+
+### **12. What is Parallel Processing?**  
+"Parallel processing divides tasks into smaller parts and executes them concurrently across multiple threads or processors.  
+**Example**: Java Streams with `.parallelStream()` for large data processing."
+
+---
+
+### **13. What is Spring Boot Actuator and how to implement it?**  
+"Spring Boot Actuator provides production-ready features to monitor and manage applications.  
+1. Add dependency:  
+   ```xml
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-actuator</artifactId>
+   </dependency>
+   ```  
+2. Enable endpoints in `application.properties`:  
+   ```properties
+   management.endpoints.web.exposure.include=health,metrics
+   ```  
+3. Access endpoints like `/actuator/health` and `/actuator/metrics`."
+
+---
+
+### **14. What is Spring Boot Context?**  
+"The Spring ApplicationContext is the central interface for accessing Spring-managed beans and their lifecycle. It initializes the container, resolves dependencies, and manages bean scopes. Example: `AnnotationConfigApplicationContext`."
+
+---
+
+### **15. How to optimize a single API?**  
+- **Database Optimization**: Use indexes and optimize queries.  
+- **Caching**: Implement Redis or Ehcache for frequently accessed data.  
+- **Lazy Loading**: Fetch related data only when required.  
+- **Compression**: Enable GZIP for API responses.  
+- **Profiling Tools**: Use tools like JProfiler to identify bottlenecks.
+
+--- 
+
+## L3 Techhnical Interview
+
+---
+
