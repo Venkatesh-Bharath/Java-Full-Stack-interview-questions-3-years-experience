@@ -547,7 +547,9 @@ class Employee implements Comparable<Employee> {
 ---
 
 ### **17. Garbage collection for `String s = "abc"; s1 = s + "def";`**  
-"One object (`"abc"`) is eligible for garbage collection."
+"abc" is stored in the String pool and is not eligible for garbage collection as it is managed by the JVM and remains in the pool for reuse.
+"def" is also in the String pool and similarly not eligible for garbage collection.
+The concatenation s + "def" creates a new object "abcdef" in the heap memory. If s1 no longer references it, "abcdef" becomes eligible for garbage collection.
 
 ---
 
