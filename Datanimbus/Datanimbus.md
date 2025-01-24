@@ -414,7 +414,7 @@ if (cache.contains(requestId)) {
 ---
 
 ### **1. Self-Introduction**  
-"I am Venkatesh Bharath with 3 years of experience in Java Full Stack Development. I have hands-on experience in Java 8, Spring Boot, Hibernate, and ReactJS. I specialize in building scalable applications, ensuring code quality using test-driven development, and implementing microservices architecture."
+"I am --- with 3 years of experience in Java Full Stack Development. I have hands-on experience in Java 8, Spring Boot, Hibernate, and ReactJS. I specialize in building scalable applications, ensuring code quality using test-driven development, and implementing microservices architecture."
 
 ---
 
