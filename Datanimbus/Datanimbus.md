@@ -413,3 +413,257 @@ if (cache.contains(requestId)) {
 
 ---
 
+### **1. Self-Introduction**  
+"I am Venkatesh Bharath with 3 years of experience in Java Full Stack Development. I have hands-on experience in Java 8, Spring Boot, Hibernate, and ReactJS. I specialize in building scalable applications, ensuring code quality using test-driven development, and implementing microservices architecture."
+
+---
+
+### **2. How much do you rate yourself in Java and ReactJS?**  
+"I rate myself 8 out of 10 in Java and 7 out of 10 in ReactJS. I am proficient in both but always open to learning and improving."
+
+---
+
+### **3. Which Java version are you familiar with?**  
+"I am familiar with Java 8 and Java 11. I have also explored features from Java 17."
+
+---
+
+### **4. What is the superclass of all classes?**  
+"The superclass of all classes in Java is the `Object` class."
+
+---
+
+### **5. Can you explain `Object` class methods?**  
+- **`toString()`**: Returns a string representation of the object.  
+- **`hashCode()`**: Returns a hash code for the object.  
+- **`equals(Object o)`**: Checks whether two objects are equal.  
+- **`clone()`**: Creates a copy of the object.  
+- **`wait()` / `notify()` / `notifyAll()`**: Used for thread synchronization.  
+- **`finalize()`**: Called by the garbage collector before destroying the object.
+
+---
+
+### **6. What is a thread?**  
+"A thread is the smallest unit of a process that can execute tasks concurrently within a program."
+
+---
+
+### **7. How do threads transition from the running state to the runnable state?**  
+"A thread transitions from the running state to the runnable state when:  
+- It is preempted by the OS scheduler.  
+- It calls a blocking method like `wait()` or `sleep()`."
+
+---
+
+### **8. When do we use the `wait()` method in Java? Give a real-time example.**  
+"The `wait()` method is used in inter-thread communication.  
+**Example**: Producer-Consumer Problem  
+```java
+class SharedResource {
+    private boolean available = false;
+
+    public synchronized void produce() throws InterruptedException {
+        while (available) wait();
+        System.out.println("Produced item");
+        available = true;
+        notifyAll();
+    }
+
+    public synchronized void consume() throws InterruptedException {
+        while (!available) wait();
+        System.out.println("Consumed item");
+        available = false;
+        notifyAll();
+    }
+}
+```
+
+---
+
+### **9. How do `notify()` and `notifyAll()` work? Example code.**  
+"`notify()` wakes up one waiting thread, while `notifyAll()` wakes up all waiting threads.  
+**Example**:  
+```java
+synchronized(obj) {
+    obj.wait();    // Makes the current thread wait
+    obj.notify();  // Wakes up one waiting thread
+}
+```
+
+---
+
+### **10. Can the `wait()` method take arguments?**  
+"Yes, `wait()` can take a timeout in milliseconds (`wait(long timeout)`), which makes the thread wait for the specified time."
+
+---
+
+### **11. Why is the `wait()` method in `Object` and not in `Thread`?**  
+"`wait()` is in `Object` because it operates on the monitor lock of the object, ensuring proper synchronization at the object level."
+
+---
+
+### **12. How to synchronize an `Employee` object?**  
+"Synchronize using the `synchronized` keyword:  
+```java
+synchronized (employee) {
+    // critical section
+}
+```
+
+---
+
+### **13. Sort a list of employees based on the first name.**  
+```java
+List<Employee> employees = ...;
+employees.sort(Comparator.comparing(Employee::getFirstName));
+```
+
+---
+
+### **14. What are `Comparable` and `Comparator`?**  
+- **`Comparable`**: Natural ordering of objects.  
+- **`Comparator`**: Custom ordering of objects.  
+**Code Example**:  
+```java
+class Employee implements Comparable<Employee> {
+    private String name;
+    @Override
+    public int compareTo(Employee other) {
+        return this.name.compareTo(other.name);
+    }
+}
+```
+
+---
+
+### **15. What is the Observer Design Pattern?**  
+"The Observer Pattern is used for one-to-many dependency relationships where one object notifies dependent objects of state changes."
+
+---
+
+### **16. Is String mutable or immutable? Why?**  
+"String is immutable because it ensures security, caching, and thread safety."
+
+---
+
+### **17. Garbage collection for `String s = "abc"; s1 = s + "def";`**  
+"One object (`"abc"`) is eligible for garbage collection."
+
+---
+
+### **18. What is the `finalize` method?**  
+"The `finalize` method is called by the garbage collector before the object is destroyed."
+
+---
+
+### **19. Does `System.gc()` call `finalize()`?**  
+"`System.gc()` requests garbage collection, and objects collected will have their `finalize()` method invoked."
+
+---
+
+### **20. What is the superclass of the Exception class?**  
+"The `Throwable` class is the superclass of `Exception`."
+
+---
+
+### **21. How to handle exceptions?**  
+"Use `try-catch` blocks, `throws` keyword, or custom exception handling."
+
+---
+
+### **22. What are the types of exceptions?**  
+- **Checked**: IOException, SQLException  
+- **Unchecked**: NullPointerException, IllegalArgumentException
+
+---
+
+### **23. Examples of Checked and Unchecked Exceptions**  
+- Checked: IOException, FileNotFoundException, SQLException, InterruptedException, ClassNotFoundException  
+- Unchecked: NullPointerException, ArrayIndexOutOfBoundsException, IllegalArgumentException, ArithmeticException, ClassCastException
+
+---
+
+### **24. NullPointerException Example**  
+```java
+String s = null;
+s.length();  // Throws NullPointerException
+```
+
+---
+
+### **25. Serialization and Deserialization Example**  
+```java
+// Serialization
+ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("file.ser"));
+oos.writeObject(object);
+
+// Deserialization
+ObjectInputStream ois = new ObjectInputStream(new FileInputStream("file.ser"));
+Object obj = ois.readObject();
+```
+
+---
+
+### **26. Real-time use of Serialization**  
+"Serialization is used in saving object states to a file or transferring objects over a network."
+
+---
+
+### **27. Ignoring fields for serialization**  
+"Use the `transient` keyword for fields to exclude them."
+
+---
+
+### **28-29. Have you worked with the Concurrency package?**  
+"Yes, I used it to manage thread-safe collections like `ConcurrentHashMap` and executors in real-time projects."
+
+---
+
+### **30. Example of Executor Services**  
+```java
+ExecutorService executor = Executors.newFixedThreadPool(2);
+executor.submit(() -> System.out.println("Task executed"));
+executor.shutdown();
+```
+
+---
+
+### **31. How to decide thread pool size?**  
+"Based on the formula:  
+`Thread Pool Size = Number of Cores * (1 + Wait Time / Compute Time)`."
+
+---
+
+### **32. What is ConcurrentHashMap? Why is it needed?**  
+"A thread-safe version of `HashMap` used for high-performance concurrent applications."
+
+---
+
+### **33. Fail-Safe vs. Fail-Fast Iterators Example**  
+```java
+// Fail-Fast
+List<String> list = new ArrayList<>();
+Iterator<String> iterator = list.iterator();
+list.add("New");  // ConcurrentModificationException
+
+// Fail-Safe
+CopyOnWriteArrayList<String> cowList = new CopyOnWriteArrayList<>();
+cowList.add("New");
+```
+
+---
+
+### **34. How does ConcurrentHashMap work? Does it lock the whole map?**  
+"It uses a segmented locking mechanism, locking only a portion of the map."
+
+---
+
+### **35. Strengths and Weaknesses in Core Technology**  
+**Strengths**: Proficient in Java, Spring Boot, and ReactJS  
+**Weaknesses**: Need to explore advanced JavaScript frameworks more deeply.
+
+---
+
+### **36. Do you have any Java certifications?**  
+"I have completed Oracle Certified Associate (OCA) Java SE 8 Programmer certification."
+
