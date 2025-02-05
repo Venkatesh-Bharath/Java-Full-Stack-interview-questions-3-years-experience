@@ -1,5 +1,4 @@
- # Telepone Interview
- Here are the answers to your interview questions with real-time examples:
+# Telepone Interview
 
 ---
 
