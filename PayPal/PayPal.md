@@ -242,10 +242,10 @@ public class PeerToPeerPayment {
    - **requestPayment()**: Adds a payment request.  
 4. **Main Class**: Demonstrates functionality.  
 
-
+---
 ### **PayPal Technical L3 Interview - Coding Questions**  
 
-
+```
 import java.util.EnumMap;
 import java.util.Map;
 
@@ -355,4 +355,4 @@ class FurnitureOrderTest {
         assertEquals(0, order.getTotalOrderCost());
     }
 }
-
+```
