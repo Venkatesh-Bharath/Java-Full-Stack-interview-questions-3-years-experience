@@ -44,7 +44,7 @@ public class IPAddressValidator {
 ```
 ---
 ## Technical L2 Interview (Coding)
-2. **Pacific Atlantic Water Flow**
+2. **Pacific Atlantic Water Flow** [Watch on YouTube](https://youtu.be/yH0DesUBuFo?si=M0pcOaAy8Rm4qluD)  
 ```java
 class Solution {
     public List<List<Integer>> pacificAtlantic(int[][] heights) {
